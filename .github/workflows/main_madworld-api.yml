@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: MadWorld/MadWorld.API
+      working-directory: ./MadWorld/MadWorld.API
 
     steps:
     - uses: actions/checkout@v2
