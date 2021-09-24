@@ -7,10 +7,13 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    [Inject] private IApplicationInsights AppInsights { get; set; }
+
     private int currentCount = 0;
 
     private void IncrementCount()
     {
+        throw new Exception("Error in blazor");
         currentCount++;
     }
 }
