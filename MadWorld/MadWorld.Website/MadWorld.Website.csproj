@@ -19,4 +19,12 @@
   <ItemGroup>
     <None Remove="BlazorApplicationInsights" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\images\icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\icons\" />
+  </ItemGroup>
 </Project>
