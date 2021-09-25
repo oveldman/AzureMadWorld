@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BlazorApplicationInsights;
+using BlazorDownloadFile;
 
 namespace MadWorld.Website
 {
@@ -23,14 +24,7 @@ namespace MadWorld.Website
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             SetApplicationSettings(builder.Configuration);
-
-            builder.Services.AddBlazorApplicationInsights(async applicationInsights =>
-            {
-                await applicationInsights.SetInstrumentationKey(InstrumentationKey);
-                await applicationInsights.LoadAppInsights();
-            });
-
-            //AddExternPackages(builder.Services);
+            AddExternPackages(builder.Services);
             AddMadWorldClassesToScoped(builder.Services);
 
             await builder.Build().RunAsync();
@@ -43,6 +37,8 @@ namespace MadWorld.Website
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
                 await applicationInsights.LoadAppInsights();
             });
+
+            services.AddBlazorDownloadFile();
         }
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)

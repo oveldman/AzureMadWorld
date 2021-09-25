@@ -1,0 +1,40 @@
+﻿@page "/converter/base64"
+
+@using BlazorDownloadFile;
+@inject IBlazorDownloadFileService _blazorDownloadFileService;
+
+@if (ShowValidationBase64)
+{
+    <div class="alert alert-warning" role="alert">
+        Base64 value isn't valid. Try another one.
+    </div>
+}
+
+@if (ShowValidationFileSize)
+{
+    <div class="alert alert-warning" role="alert">
+        File size is too big. The maxium size is 10 MB.
+    </div>
+}
+
+<h3>Plain Text</h3>
+<textarea class="form-control" @bind="PlainText" />
+
+<h3>Base64</h3>
+<textarea class="form-control" @bind="Base64Text" />
+
+<button type="button" class="btn btn-success" @onclick="ConvertText">Convert to base64</button>
+<button type="button" class="btn btn-success" @onclick="ConvertBase64">Convert to plaintext</button>
+
+<h3>File to base64</h3>
+<InputFile OnChange="ConvertFile" class="form-control" />
+<h3>Base64 to File</h3>
+<form class="form-floating">
+    <input type="text" class="form-control" id="filename" @bind="FileName">
+    <label for="filename">File name</label>
+</form>
+<form class="form-floating">
+    <input type="text" class="form-control" id="filetype" @bind="FileType">
+    <label for="filetype">File type</label>
+</form>
+<button type="button" class="btn btn-success" @onclick="DownloadFile">Convert to file</button>
