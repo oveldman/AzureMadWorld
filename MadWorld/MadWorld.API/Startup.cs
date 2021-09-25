@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MadWorld.API.Models;
 using MadWorld.DataLayer.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,8 @@ namespace MadWorld.API
 {
     public class Startup
     {
+        private StartupSettings Settings;
+
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
@@ -29,6 +32,8 @@ namespace MadWorld.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Settings = Configuration.Get<StartupSettings>();
+
             services.AddApplicationInsightsTelemetry();
 
             services.AddControllers();
@@ -58,14 +63,12 @@ namespace MadWorld.API
 
         private void SetupDatabases(IServiceCollection services)
         {
-            bool forceUseMSSQL = false;
-
-            if (Environment.IsDevelopment() && !forceUseMSSQL)
+            if (Environment.IsDevelopment() && (!Settings?.ForceUseMSSQL ?? true))
             {
                 services.AddDbContext<MadWorldContextDev>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
             }
-            else if (Environment.IsProduction() || forceUseMSSQL)
+            else if (Environment.IsProduction() || (Settings?.ForceUseMSSQL ?? false))
             {
                 services.AddDbContext<MadWorldContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
