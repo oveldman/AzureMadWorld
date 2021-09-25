@@ -16,7 +16,7 @@ namespace MadWorld.Console.Insight
         public QueryResults GetErrorData()
         {
             var appId = "{appID}";
-            var apiKey = "{ apiKey}";
+            var apiKey = "{apiKey}";
 
             ServiceClientCredentials credentials = new ApiKeyClientCredentials(apiKey);
 
