@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MadWorld.API.Models;
+using MadWorld.Business.Manager;
+using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database;
+using MadWorld.DataLayer.Database.Queries;
+using MadWorld.DataLayer.Database.Queries.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +42,7 @@ namespace MadWorld.API
 
             services.AddControllers();
 
+            SetAPI(services);
             SetupDatabases(services);
         }
 
@@ -61,14 +66,31 @@ namespace MadWorld.API
             });
         }
 
+        private void SetAPI(IServiceCollection services)
+        {
+            // Business
+            services.AddScoped<IResumeManager, ResumeManager>();
+
+            // Datalayer
+            services.AddScoped<IResumeQueries, ResumeQueries>();
+        }
+
         private void SetupDatabases(IServiceCollection services)
         {
-            if (Environment.IsDevelopment() && (!Settings?.ForceUseMSSQL ?? true))
+            if (Settings?.ForgePostgresMigration ?? false)
             {
                 services.AddDbContext<MadWorldContextDev>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
+
+                return;
             }
-            else if (Environment.IsProduction() || (Settings?.ForceUseMSSQL ?? false))
+
+            if (Environment.IsDevelopment())
+            {
+                services.AddDbContext<MadWorldContext>(options =>
+                    options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
+            }
+            else if (Environment.IsProduction())
             {
                 services.AddDbContext<MadWorldContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));

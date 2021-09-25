@@ -7,4 +7,12 @@
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Manager\" />
+    <None Remove="Manager\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager\" />
+    <Folder Include="Manager\Interfaces\" />
+  </ItemGroup>
 </Project>

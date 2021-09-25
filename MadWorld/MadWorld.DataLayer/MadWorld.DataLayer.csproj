@@ -10,10 +10,14 @@
     <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Database\Tables\" />
+    <None Remove="Database\Queries\" />
+    <None Remove="Database\Queries\IResumeDB\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="Database\Tables\" />
+    <Folder Include="Database\Queries\" />
+    <Folder Include="Database\Queries\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />

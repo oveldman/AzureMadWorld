@@ -3,6 +3,6 @@ namespace MadWorld.API.Models
 {
     public class StartupSettings
     {
-        public bool ForceUseMSSQL { get; set; }
+        public bool ForgePostgresMigration { get; set; }
     }
 }

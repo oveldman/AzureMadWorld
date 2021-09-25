@@ -6,8 +6,12 @@
 
   <ItemGroup>
     <None Remove="Helper\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Pages\" />
   </ItemGroup>
 </Project>
