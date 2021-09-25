@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using MadWorld.Console.Insight;
+using MadWorld.Console.Insight.Interfaces;
+using MadWorld.Console.Insight.Models;
 
 namespace MadWorld.Console
 {
@@ -6,7 +10,8 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
-            ApplicationInsightAPI.GetData();
+            IErrorManager errorManager = new ErrorManager();
+            List<Error> errors = errorManager.GetErrors();
         }
     }
 }

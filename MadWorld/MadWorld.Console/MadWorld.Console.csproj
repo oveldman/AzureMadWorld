@@ -10,8 +10,16 @@
     <None Remove="Microsoft.Rest.ClientRuntime.Azure.Authentication" />
     <None Remove="Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring" />
     <None Remove="Microsoft.ApplicationInsights" />
+    <None Remove="Insight\" />
+    <None Remove="Insight\Models\" />
+    <None Remove="Insight\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.ApplicationInsights.Query" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Insight\" />
+    <Folder Include="Insight\Models\" />
+    <Folder Include="Insight\Interfaces\" />
   </ItemGroup>
 </Project>
