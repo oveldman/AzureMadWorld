@@ -1,0 +1,6 @@
+﻿@page "/Resume"
+
+@using MadWorld.Website.Services.Interfaces;
+@inject IResumeService _resumeService;
+
+<p>Current name: @resumeResponse.FullName</p>

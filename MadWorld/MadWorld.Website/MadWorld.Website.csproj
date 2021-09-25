@@ -11,6 +11,7 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="BlazorApplicationInsights" Version="1.2.1" />
     <PackageReference Include="BlazorDownloadFile" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,12 @@
     <None Remove="BlazorApplicationInsights" />
     <None Remove="Pages\Tools\" />
     <None Remove="BlazorDownloadFile" />
+    <None Remove="Pages\Info\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Info\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="Settings\" />
+    <None Remove="Microsoft.Extensions.Http" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -30,6 +37,11 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\icons\" />
     <Folder Include="Pages\Tools\" />
+    <Folder Include="Pages\Info\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Info\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Settings\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

@@ -22,6 +22,8 @@ namespace MadWorld.API
 {
     public class Startup
     {
+        private readonly string AllowedOriginsAPI = "AllowedCalls";
+
         private StartupSettings Settings;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
@@ -44,6 +46,17 @@ namespace MadWorld.API
 
             SetAPI(services);
             SetupDatabases(services);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowedOriginsAPI,
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5001", "https://www.mad-world.nl", "https://mad-world.nl")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +72,8 @@ namespace MadWorld.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(AllowedOriginsAPI);
 
             app.UseEndpoints(endpoints =>
             {

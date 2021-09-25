@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BlazorApplicationInsights;
 using BlazorDownloadFile;
+using MadWorld.Website.Settings;
+using MadWorld.Website.Services.Interfaces;
+using MadWorld.Website.Services.Info;
 
 namespace MadWorld.Website
 {
@@ -22,6 +25,12 @@ namespace MadWorld.Website
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
+            {
+                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
 
             SetApplicationSettings(builder.Configuration);
             AddExternPackages(builder.Services);
@@ -43,7 +52,8 @@ namespace MadWorld.Website
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
         {
-
+            // Services
+            services.AddScoped<IResumeService, ResumeService>();
         }
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
