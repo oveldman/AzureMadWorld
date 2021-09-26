@@ -12,6 +12,7 @@
     <None Remove="Database\Tables\" />
     <None Remove="Database\Queries\" />
     <None Remove="Database\Queries\IResumeDB\" />
+    <None Remove="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
@@ -29,5 +30,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.10" />
   </ItemGroup>
 </Project>

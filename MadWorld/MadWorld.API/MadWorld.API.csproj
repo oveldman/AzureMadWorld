@@ -9,6 +9,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Migrations\" />
     <None Remove="Models\" />
+    <None Remove="IdentityServer4" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.18.0" />

@@ -12,6 +12,7 @@
     <PackageReference Include="BlazorApplicationInsights" Version="1.2.1" />
     <PackageReference Include="BlazorDownloadFile" Version="2.1.6" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="5.0.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
     <None Remove="Services\Interfaces\" />
     <None Remove="Settings\" />
     <None Remove="Microsoft.Extensions.Http" />
+    <None Remove="Microsoft.AspNetCore.Components.WebAssembly.Authentication" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
