@@ -83,11 +83,11 @@ namespace MadWorld.API
 
             app.UseRouting();
 
+            app.UseCors(AllowedOriginsAPI);
+
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCors(AllowedOriginsAPI);
 
             app.UseEndpoints(endpoints =>
             {
