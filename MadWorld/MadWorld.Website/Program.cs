@@ -30,6 +30,7 @@ namespace MadWorld.Website
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
                 client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
@@ -59,12 +60,6 @@ namespace MadWorld.Website
             });
 
             builder.Services.AddBlazorDownloadFile();
-
-            builder.Services.AddOidcAuthentication(options =>
-            {
-                builder.Configuration.Bind("Local", options.ProviderOptions);
-            });
-
         }
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)

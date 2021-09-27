@@ -15,6 +15,7 @@
     <None Remove="IdentityServer4" />
     <None Remove="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" />
     <None Remove="Microsoft.Identity.Web" />
+    <None Remove="Controllers\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.18.0" />
@@ -33,5 +34,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Models\" />
+    <Folder Include="Controllers\Admin\" />
   </ItemGroup>
 </Project>

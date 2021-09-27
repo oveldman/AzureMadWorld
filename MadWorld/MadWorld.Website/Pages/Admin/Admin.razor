@@ -1,0 +1,25 @@
+﻿@page "/Admin"
+@using MadWorld.Shared.Models.Admin
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject HttpClient Http
+
+<h3>Component1</h3>
+
+@code {
+    private WelcomeResponse welcomeResponse;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}
+
+

@@ -31,6 +31,7 @@
     <None Remove="Microsoft.Extensions.Http" />
     <None Remove="Microsoft.AspNetCore.Components.WebAssembly.Authentication" />
     <None Remove="Microsoft.Authentication.WebAssembly.Msal" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -45,6 +46,7 @@
     <Folder Include="Services\Info\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Settings\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
