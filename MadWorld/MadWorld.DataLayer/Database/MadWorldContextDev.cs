@@ -6,7 +6,7 @@ namespace MadWorld.DataLayer.Database
 {
     public class MadWorldContextDev : MadWorldContext
     {
-        public MadWorldContextDev(DbContextOptions options, OperationalStoreOptions storeOptions) : base(options, storeOptions)
+        public MadWorldContextDev(DbContextOptions options) : base(options)
         {
         }
     }

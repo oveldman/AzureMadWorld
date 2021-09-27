@@ -4,12 +4,17 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="Microsoft.ApplicationInsights.AspNetCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Migrations\" />
     <None Remove="Models\" />
     <None Remove="IdentityServer4" />
+    <None Remove="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" />
+    <None Remove="Microsoft.Identity.Web" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.18.0" />
@@ -17,6 +22,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="5.0.10" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.17.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj">

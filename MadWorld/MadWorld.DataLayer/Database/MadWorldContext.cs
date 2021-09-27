@@ -11,21 +11,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MadWorld.DataLayer.Database
 {
-    public class MadWorldContext : IdentityDbContext<IdentityUser>, IPersistedGrantDbContext
+    public class MadWorldContext : DbContext
     {
-        private readonly OperationalStoreOptions storeOptions;
-
-        public MadWorldContext(DbContextOptions options, OperationalStoreOptions storeOptions) : base(options) 
+        public MadWorldContext(DbContextOptions options) : base(options) 
         {
-            this.storeOptions = storeOptions ?? throw new ArgumentNullException(nameof(storeOptions));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<DeviceFlowCodes>().HasKey(dfc => dfc.UserCode);
-            modelBuilder.ConfigurePersistedGrantContext(storeOptions);
         }
 
         public Task<int> SaveChangesAsync()
@@ -34,7 +28,5 @@ namespace MadWorld.DataLayer.Database
         }
 
         public DbSet<Resume> Resumes { get; set; }
-        public DbSet<PersistedGrant> PersistedGrants { get; set; }
-        public DbSet<DeviceFlowCodes> DeviceFlowCodes { get; set; }
     }
 }

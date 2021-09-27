@@ -9,6 +9,8 @@ using MadWorld.DataLayer.Database;
 using MadWorld.DataLayer.Database.Queries;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +21,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Web;
+
 
 namespace MadWorld.API
 {
@@ -46,18 +50,11 @@ namespace MadWorld.API
 
             services.AddControllers();
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAdB2C"));
+
             SetAPI(services);
             SetupDatabases(services);
-
-            services.AddDefaultIdentity<IdentityUser>(options =>
-                options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<MadWorldContext>();
-
-            services.AddIdentityServer()
-                .AddApiAuthorization<IdentityUser, MadWorldContext>();
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
 
             services.AddCors(options =>
             {
@@ -85,7 +82,6 @@ namespace MadWorld.API
 
             app.UseCors(AllowedOriginsAPI);
 
-            app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
 

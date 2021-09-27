@@ -12,7 +12,7 @@
     "MadWorld.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "/",
       "applicationUrl": "https://localhost:59761;http://localhost:25418",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

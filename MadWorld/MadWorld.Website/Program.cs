@@ -30,15 +30,18 @@ namespace MadWorld.Website
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
                 client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
                 .CreateClient(ApiUrls.MadWorldApi));
 
-            builder.Services.AddApiAuthorization(option => {
-                option.ProviderOptions.ConfigurationEndpoint = builder.Configuration["ConfigurationEndpoint"];
-             });
+            builder.Services.AddMsalAuthentication(options =>
+            {
+                builder.Configuration.Bind("AzureAdB2C", options.ProviderOptions.Authentication);
+                options.ProviderOptions.DefaultAccessTokenScopes.Add("openid");
+                options.ProviderOptions.DefaultAccessTokenScopes.Add("offline_access");
+                options.ProviderOptions.DefaultAccessTokenScopes.Add("https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite");
+            });
 
             SetApplicationSettings(builder.Configuration);
             AddExternPackages(builder);
