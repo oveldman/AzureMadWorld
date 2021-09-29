@@ -25,13 +25,19 @@ namespace MadWorld.Website
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
                 client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
-            }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+            }).AddHttpMessageHandler(sp =>
+            {
+                var handler = sp.GetService<AuthorizationMessageHandler>()
+                    .ConfigureHandler(
+                        authorizedUrls: new[] { builder.Configuration["ApiUrl"] }, //<--- The URI used by the Server project.
+                        scopes: new[] { "https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite" });
+                return handler;
+            });
+
 
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
                 .CreateClient(ApiUrls.MadWorldApi));

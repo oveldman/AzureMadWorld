@@ -4,10 +4,10 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @inject HttpClient Http
 
-<h3>Component1</h3>
+<h3>@welcomeResponse.Message</h3>
 
 @code {
-    private WelcomeResponse welcomeResponse;
+    private WelcomeResponse welcomeResponse = new();
 
     protected override async Task OnInitializedAsync()
     {

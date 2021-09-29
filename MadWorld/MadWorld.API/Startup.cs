@@ -53,6 +53,12 @@ namespace MadWorld.API
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAdB2C"));
 
+            services.Configure<JwtBearerOptions>(
+            JwtBearerDefaults.AuthenticationScheme, options =>
+            {
+                options.TokenValidationParameters.NameClaimType = "name";
+            });
+
             SetAPI(services);
             SetupDatabases(services);
 
