@@ -1,0 +1,9 @@
+﻿@page "/validator/XML"
+
+<h3>XML</h3>
+
+<MonacoEditor @ref="_editor" Id="xml-editor" CssClass="editorXML" ConstructionOptions="EditorConstructionOptions" OnDidInit="EditorOnDidInit" OnContextMenu="OnContextMenu" />
+
+<button type="button" class="btn btn-success" @onclick="ValidateXML">Validate XML</button>
+<h3>Result</h3>
+<p>@Result</p>
