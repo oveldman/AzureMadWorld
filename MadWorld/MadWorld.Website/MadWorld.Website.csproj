@@ -34,6 +34,8 @@
     <None Remove="Microsoft.Authentication.WebAssembly.Msal" />
     <None Remove="Pages\Admin\" />
     <None Remove="BlazorMonaco" />
+    <None Remove="Models\" />
+    <None Remove="Models\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -49,6 +51,8 @@
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Settings\" />
     <Folder Include="Pages\Admin\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

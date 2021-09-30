@@ -1,0 +1,43 @@
+﻿@page "/validator/Regex"
+
+<div class="card">
+    <div class="card-header">
+        C# Regex Validator
+    </div>
+    <div class="card-body">
+        <b>Regular expression :</b>
+        <input type="text" class="form-control" id="expression" @bind="Expression" />
+        <b>Entry to test against :</b>
+        <input type="text" class="form-control" id="text-match" @bind="InputToMatch" />
+        <button type="button" class="btn btn-primary" @onclick="MathExpression">Test Match</button>
+        @if (ShowResult)
+        {
+            @if (Succeed)
+            {
+                <div class="alert alert-success" role="alert">
+                    Found @TotalMatches matches. Matches are highlighted below.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    No match was found!
+                </div>
+            }
+        }
+
+        <p>
+        @foreach (var part in RegexParts) {
+            @if (part.Valid)
+            {
+                <span class="highlight">@part.Value</span>
+            }
+            else
+            {
+                @part.Value
+            }
+        }
+        </p>
+    </div>
+</div>
+
