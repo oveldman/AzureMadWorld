@@ -14,7 +14,7 @@ namespace MadWorld.Website.Services.Info
 
         public ResumeService(IHttpClientFactory clientFactory)
         {
-            _client = clientFactory.CreateClient(ApiUrls.MadWorldApi);
+            _client = clientFactory.CreateClient(ApiUrls.MadWorldApiAnonymous);
         }
 
         public async Task<ResumeResponse> Get()

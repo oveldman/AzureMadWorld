@@ -25,6 +25,12 @@ namespace MadWorld.Website
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            builder.Services.AddHttpClient(ApiUrls.MadWorldApiAnonymous, client =>
+            {
+                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
                 client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
