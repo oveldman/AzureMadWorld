@@ -3,15 +3,17 @@ using System;
 using MadWorld.DataLayer.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MadWorld.API.Migrations.Postgres
 {
     [DbContext(typeof(MadWorldContextDev))]
-    partial class MadWorldContextDevModelSnapshot : ModelSnapshot
+    [Migration("20211001221830_AddResumeFields")]
+    partial class AddResumeFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,12 +34,10 @@ namespace MadWorld.API.Migrations.Postgres
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("FullName")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Nationality")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 

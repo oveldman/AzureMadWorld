@@ -44,7 +44,7 @@ namespace MadWorld.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Settings = Configuration.Get<StartupSettings>();
+            Settings = Configuration.GetSection(nameof(StartupSettings)).Get<StartupSettings>();
 
             services.AddApplicationInsightsTelemetry();
 

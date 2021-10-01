@@ -3,4 +3,11 @@
 @using MadWorld.Website.Services.Interfaces;
 @inject IResumeService _resumeService;
 
-<p>Current name: @resumeResponse.FullName</p>
+<p>Fullname: @resumeResponse.FullName</p>
+<p>Age:
+    @if (resumeResponse.Age > 0)
+    {
+        @resumeResponse.Age
+    }
+</p>
+<p>Nationality: @resumeResponse.Nationality</p>

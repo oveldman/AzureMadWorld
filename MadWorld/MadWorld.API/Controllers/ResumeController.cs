@@ -29,12 +29,7 @@ namespace MadWorld.API.Controllers
         [HttpGet]
         public ResumeResponse Get()
         {
-            Resume resume = _resumeManager.GetLastResume();
-
-            return new ResumeResponse
-            {
-                FullName = resume.FullName
-            };
+            return _resumeManager.GetLastResume();
         }
     }
 }

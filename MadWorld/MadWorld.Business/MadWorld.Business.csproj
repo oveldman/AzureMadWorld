@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
+    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Manager\" />
