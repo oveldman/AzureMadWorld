@@ -13,12 +13,17 @@
     <None Remove="Database\Queries\" />
     <None Remove="Database\Queries\IResumeDB\" />
     <None Remove="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" />
+    <None Remove="AzureBlob\" />
+    <None Remove="AzureBlob\Interfaces\" />
+    <None Remove="Azure.Storage.Blobs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="Database\Tables\" />
     <Folder Include="Database\Queries\" />
     <Folder Include="Database\Queries\Interfaces\" />
+    <Folder Include="AzureBlob\" />
+    <Folder Include="AzureBlob\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
@@ -31,5 +36,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.10" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
   </ItemGroup>
 </Project>

@@ -22,4 +22,7 @@
     <Folder Include="Insight\Models\" />
     <Folder Include="Insight\Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
+  </ItemGroup>
 </Project>

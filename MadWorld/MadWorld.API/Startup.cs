@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using MadWorld.API.Models;
 using MadWorld.Business.Manager;
 using MadWorld.Business.Manager.Interfaces;
+using MadWorld.DataLayer.AzureBlob;
+using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.DataLayer.Database;
 using MadWorld.DataLayer.Database.Queries;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
@@ -30,6 +32,7 @@ namespace MadWorld.API
     {
         private readonly string AllowedOriginsAPI = "AllowedCalls";
 
+        private AzureSettings AzureSettings;
         private StartupSettings Settings;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
@@ -45,6 +48,7 @@ namespace MadWorld.API
         public void ConfigureServices(IServiceCollection services)
         {
             Settings = Configuration.GetSection(nameof(StartupSettings)).Get<StartupSettings>();
+            AzureSettings = Configuration.GetSection(nameof(AzureSettings)).Get<AzureSettings>();
 
             services.AddApplicationInsightsTelemetry();
 
@@ -103,6 +107,10 @@ namespace MadWorld.API
             services.AddScoped<IResumeManager, ResumeManager>();
 
             // Datalayer
+            services.AddScoped<IStorageManager, StorageManager>(_ => {
+                return new StorageManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
+            });
+
             services.AddScoped<IResumeQueries, ResumeQueries>();
         }
 
