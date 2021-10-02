@@ -36,6 +36,8 @@
     <None Remove="BlazorMonaco" />
     <None Remove="Models\" />
     <None Remove="Models\Tools\" />
+    <None Remove="Pages\Support\" />
+    <None Remove="Services\Support\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -53,6 +55,8 @@
     <Folder Include="Pages\Admin\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Tools\" />
+    <Folder Include="Pages\Support\" />
+    <Folder Include="Services\Support\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

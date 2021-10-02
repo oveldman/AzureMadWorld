@@ -1,0 +1,66 @@
+﻿@page "/support/report/security"
+
+@using MadWorld.Website.Services.Interfaces
+@inject ISecurityService _securityService
+
+@if (UserFinished)
+{
+    <div class="alert alert-success" role="alert">
+        We received your report. We will answer your report as soon as possible.
+    </div>
+}
+else
+{
+    @if (ShowError)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <div class="alert alert-danger" role="alert">
+        Warning! This page is not working yet. Coming soon.
+    </div>
+
+    <div class="mb-3">
+        <h3>Security Report</h3>
+        <p>
+            Did you found a security flaw in my software? You can report it here if you want. Unfortunately I cannot give
+            you any rewards. But I will fix it as soon as possible. Please fill also some of your contact information. Only
+            then it is possible to contact you. Thank you in advance for your time.
+        </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="fullname" class="form-label">Your fullname</label>
+        <input type="text" class="form-control" id="fullname" @bind="SecurityReport.Fullname">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Your email</label>
+        <input type="email" class="form-control" id="email" @bind="SecurityReport.Email">
+    </div>
+
+    <div class="mb-3">
+        <label for="pgp-public-key" class="form-label">Your PGP public key</label>
+        <InputFile class="form-control" type="file" OnChange="AddPgpPublicKey" id="pgp-public-key" />
+    </div>
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" @bind="SecurityReport.Title">
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" @bind="SecurityReport.Description"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="attachments" class="form-label">Add attachment for prove</label>
+        <InputFile class="form-control" type="file" OnChange="AddAttachments" id="attachments" multiple />
+    </div>
+
+    <button type="button" class="btn btn-success" @onclick="SendReport">Send security report</button>
+}
+

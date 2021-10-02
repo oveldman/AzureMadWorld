@@ -13,6 +13,7 @@ using MadWorld.Website.Settings;
 using MadWorld.Website.Services.Interfaces;
 using MadWorld.Website.Services.Info;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using MadWorld.Website.Services.Support;
 
 namespace MadWorld.Website
 {
@@ -78,6 +79,7 @@ namespace MadWorld.Website
         {
             // Services
             services.AddScoped<IResumeService, ResumeService>();
+            services.AddScoped<ISecurityService, SecurityService>();
         }
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
