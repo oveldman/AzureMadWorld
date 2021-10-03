@@ -15,7 +15,7 @@ namespace MadWorld.Website.Pages.Support
         private string ErrorMessage { get; set; } = string.Empty;
 
         private bool UserFinished { get; set; }
-        private readonly SecurityReportRequest SecurityReport = new();
+        private SecurityReportRequest SecurityReport = new();
         private readonly int MaxSize = 10240000;
 
         private async Task AddAttachments(InputFileChangeEventArgs e)
@@ -56,6 +56,7 @@ namespace MadWorld.Website.Pages.Support
             UserFinished = !response.Error;
             ShowError = response.Error;
             ErrorMessage = ShowError ? response.ErrorMessage : string.Empty;
+            if (UserFinished) SecurityReport = new();
         }
 
         private void Reset()

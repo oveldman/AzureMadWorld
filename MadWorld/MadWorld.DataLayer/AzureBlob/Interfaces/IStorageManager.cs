@@ -1,22 +1,17 @@
 ﻿using System;
 using System.IO;
+using MadWorld.DataLayer.Database.Enum;
 
 namespace MadWorld.DataLayer.AzureBlob.Interfaces
 {
     public interface IStorageManager
     {
-        DataResult DeleteFileIfExists(string fullpath);
-        byte[] DownloadByteFile(string filename, string location);
-        byte[] DownloadByteFile(string fullPath);
-        string DownloadStringFile(string filename, string location);
-        string DownloadStringFile(string fullPath);
-        Stream DownloadStreamFile(string filename, string location);
-        Stream DownloadStreamFile(string fullPath);
-        DataResult UploadFile(string filename, string location, byte[] file);
-        DataResult UploadFile(string fullpath, byte[] file);
-        DataResult UploadFile(string filename, string location, MemoryStream file);
-        DataResult UploadFile(string fullpath, MemoryStream file);
-        DataResult UploadFile(string filename, string location, string file);
-        DataResult UploadFile(string fullpath, string file);
+        DataResult DeleteFileIfExists(string filename, SiteFileType fileType);
+        byte[] DownloadByteFile(string filename, SiteFileType fileType);
+        string DownloadStringFile(string filename, SiteFileType fileType);
+        Stream DownloadStreamFile(string filename, SiteFileType fileType);
+        DataResult UploadFile(string filename, SiteFileType fileType, byte[] file);
+        DataResult UploadFile(string filename, SiteFileType fileType, MemoryStream file);
+        DataResult UploadFile(string filename, SiteFileType fileType, string file);
     }
 }

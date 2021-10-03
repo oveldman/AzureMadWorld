@@ -16,6 +16,7 @@
     <None Remove="AzureBlob\" />
     <None Remove="AzureBlob\Interfaces\" />
     <None Remove="Azure.Storage.Blobs" />
+    <None Remove="Database\Enum\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
@@ -24,6 +25,7 @@
     <Folder Include="Database\Queries\Interfaces\" />
     <Folder Include="AzureBlob\" />
     <Folder Include="AzureBlob\Interfaces\" />
+    <Folder Include="Database\Enum\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
