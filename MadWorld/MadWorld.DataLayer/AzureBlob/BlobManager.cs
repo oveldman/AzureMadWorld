@@ -8,12 +8,12 @@ using System.Text;
 
 namespace MadWorld.DataLayer.AzureBlob
 {
-    public class StorageManager : IStorageManager
+    public class BlobManager : IBlobManager
     {
         private readonly BlobServiceClient _serviceClient;
         private readonly BlobContainerClient _containerClient;
 
-        public StorageManager(string blobConnectionString, string containerName)
+        public BlobManager(string blobConnectionString, string containerName)
         {
             _serviceClient = new BlobServiceClient(blobConnectionString);
             _containerClient = _serviceClient.GetBlobContainerClient(containerName);

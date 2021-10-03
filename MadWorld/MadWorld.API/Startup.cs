@@ -105,10 +105,11 @@ namespace MadWorld.API
         {
             // Business
             services.AddScoped<IResumeManager, ResumeManager>();
+            services.AddScoped<ISecurityReportManager, SecurityReportManager>();
 
             // Datalayer
-            services.AddScoped<IStorageManager, StorageManager>(_ => {
-                return new StorageManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
+            services.AddScoped<IBlobManager, BlobManager>(_ => {
+                return new BlobManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
             });
 
             services.AddScoped<IResumeQueries, ResumeQueries>();

@@ -12,7 +12,7 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
-            IStorageManager storageManager = new StorageManager("UseDevelopmentStorage=true", "madworld");
+            IBlobManager storageManager = new BlobManager("UseDevelopmentStorage=true", "madworld");
             string filename = "test.txt";
             string filePath = "testpath/testpath";
             string filebody = "tekst tekst";
