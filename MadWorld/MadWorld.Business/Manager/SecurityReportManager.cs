@@ -28,8 +28,17 @@ namespace MadWorld.Business.Manager
             _storageManager = storageManager;
         }
 
-        public BaseResponse Save(SecurityReportRequest report)
+        public BaseResponse Save(SecurityReportRequest report, string clientIpAddress)
         {
+            if (!_securityReportQueries.HasReportSlotsLeft(clientIpAddress))
+            {
+                return new BaseResponse()
+                {
+                    Error = true,
+                    ErrorMessage = "You sent too many reports. Try later another time. "
+                };
+            }
+
             Guid? pgpKeyFileID = null;
             if (report.PgpPublicKey is not null)
             {
@@ -37,9 +46,9 @@ namespace MadWorld.Business.Manager
                 pgpKeyFileID = keyResult.RowID;
             }
 
-            DataResult reportResult = SaveReport(report, pgpKeyFileID);
+            DataResult reportResult = SaveReport(report, pgpKeyFileID, clientIpAddress);
 
-            if (report?.Attachments.Any() ?? false && reportResult.Succeed)
+            if (report.Attachments?.Any() ?? false && reportResult.Succeed)
             {
                 SaveAttachments(report.Attachments, reportResult.RowID.Value);
             }
@@ -64,10 +73,11 @@ namespace MadWorld.Business.Manager
             return SaveBlobInDatabase(file, publicKeyFileName, fileType);
         }
 
-        private DataResult SaveReport(SecurityReportRequest report, Guid? pgpKeyFileID)
+        private DataResult SaveReport(SecurityReportRequest report, Guid? pgpKeyFileID, string clientIpAddress)
         {
             SecurityReport securityReport = new()
             {
+                ClientIpAddress = clientIpAddress,
                 Description = report.Description,
                 Email = report.Email,
                 FullName = report.Fullname,

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
 
@@ -45,6 +46,16 @@ namespace MadWorld.DataLayer.Database.Queries
             }
 
             return Save(new List<SecurityReportAttachment> { attachment });
+        }
+
+        public bool HasReportSlotsLeft(string ipAddress)
+        {
+            if (string.IsNullOrEmpty(ipAddress))
+            {
+                return false;
+            }
+
+            return _context.SecurityReports.Where(s => !s.IsVerified && s.ClientIpAddress == ipAddress).Count() < 6;
         }
     }
 }

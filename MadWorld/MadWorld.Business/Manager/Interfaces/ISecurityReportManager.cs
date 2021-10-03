@@ -6,6 +6,6 @@ namespace MadWorld.Business.Manager.Interfaces
 {
     public interface ISecurityReportManager
     {
-        BaseResponse Save(SecurityReportRequest report);
+        BaseResponse Save(SecurityReportRequest report, string ipAddress);
     }
 }

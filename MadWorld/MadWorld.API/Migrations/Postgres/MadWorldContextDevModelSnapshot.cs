@@ -75,6 +75,10 @@ namespace MadWorld.API.Migrations.Postgres
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("ClientIpAddress")
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
+
                     b.Property<string>("Description")
                         .HasMaxLength(10000)
                         .HasColumnType("character varying(10000)");
@@ -86,6 +90,9 @@ namespace MadWorld.API.Migrations.Postgres
                     b.Property<string>("FullName")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
+
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("boolean");
 
                     b.Property<Guid?>("PublicKeyID")
                         .HasColumnType("uuid");

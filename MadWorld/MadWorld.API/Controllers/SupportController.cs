@@ -29,9 +29,11 @@ namespace MadWorld.API.Controllers
         [Route("ReportSecurity")]
         public BaseResponse ReportSecurity(SecurityReportRequest request)
         {
-            if (IsValid(request))
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+
+            if (IsValid(request) && !string.IsNullOrEmpty(ipAddress))
             {
-                return _securityReportManager.Save(request);
+                return _securityReportManager.Save(request, ipAddress);
             }
 
             return new BaseResponse

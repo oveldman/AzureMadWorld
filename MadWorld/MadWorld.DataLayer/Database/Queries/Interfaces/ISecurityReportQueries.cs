@@ -9,5 +9,6 @@ namespace MadWorld.DataLayer.Database.Queries.Interfaces
         DataResult Save(SecurityReport report);
         DataResult Save(SecurityReportAttachment attachment);
         DataResult Save(List<SecurityReportAttachment> attachments);
+        bool HasReportSlotsLeft(string ipAddress);
     }
 }

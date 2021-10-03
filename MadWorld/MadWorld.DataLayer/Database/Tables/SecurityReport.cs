@@ -9,14 +9,17 @@ namespace MadWorld.DataLayer.Database.Tables
     {
         [Key]
         public Guid ID { get; set; }
-        [MaxLength(100)]
-        public string FullName { get; set; }
+        [MaxLength(60)]
+        public string ClientIpAddress { get; set; }
+        [MaxLength(10000)]
+        public string Description { get; set; }
         [MaxLength(100)]
         public string Email { get; set; }
         [MaxLength(100)]
+        public string FullName { get; set; }
+        [MaxLength(100)]
         public string Title { get; set; }
-        [MaxLength(10000)]
-        public string Description { get; set; }
+        public bool IsVerified { get; set; }
         [ForeignKey("BlobFile")]
         public Guid? PublicKeyID { get; set; }
 
