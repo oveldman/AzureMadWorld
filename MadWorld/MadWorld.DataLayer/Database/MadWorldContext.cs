@@ -20,13 +20,26 @@ namespace MadWorld.DataLayer.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<SecurityReport>()
+                .HasOne(s => s.PublicKeyFile)
+                .WithOne(bf => bf.SecurityReport)
+                .HasForeignKey<SecurityReport>(s => s.PublicKeyID);
+
+            modelBuilder.Entity<SecurityReportAttachment>()
+                .HasOne(sra => sra.SecurityReport)
+                .WithMany(sr => sr.Attachments)
+                .HasForeignKey(sra => sra.SecurityReportID);
+
+            modelBuilder.Entity<SecurityReportAttachment>()
+                .HasOne(sra => sra.BlobFile)
+                .WithMany(sr => sr.SecurityReportAttachments)
+                .HasForeignKey(sra => sra.BlobFileID);
         }
 
-        public Task<int> SaveChangesAsync()
-        {
-            return base.SaveChangesAsync();
-        }
-
+        public DbSet<BlobFile> Files { get; set; }
         public DbSet<Resume> Resumes { get; set; }
+        public DbSet<SecurityReport> SecurityReports { get; set; }
+        public DbSet<SecurityReportAttachment> SecurityReportAttachments { get; set; }
     }
 }

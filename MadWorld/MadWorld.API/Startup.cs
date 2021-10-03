@@ -112,7 +112,10 @@ namespace MadWorld.API
                 return new BlobManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
             });
 
+            services.AddScoped<IBlobTableQueries, BlobTableQueries>();
             services.AddScoped<IResumeQueries, ResumeQueries>();
+            services.AddScoped<ISecurityReportQueries, SecurityReportQueries>();
+            services.AddScoped<IStorageManager, StorageManager>();
         }
 
         private void SetupDatabases(IServiceCollection services)
@@ -121,6 +124,7 @@ namespace MadWorld.API
             {
                 services.AddDbContext<MadWorldContextDev>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
+                services.AddScoped<MadWorldContext, MadWorldContextDev>();
 
                 return;
             }

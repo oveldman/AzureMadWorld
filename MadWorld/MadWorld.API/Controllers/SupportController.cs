@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MadWorld.Business.Manager.Interfaces;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Pages.Support;
 using Microsoft.AspNetCore.Mvc;
@@ -16,17 +17,33 @@ namespace MadWorld.API.Controllers
     public class SupportController : ControllerBase
     {
         private readonly ILogger<SupportController> _logger;
+        private readonly ISecurityReportManager _securityReportManager;
 
-        public SupportController(ILogger<SupportController> logger)
+        public SupportController(ILogger<SupportController> logger, ISecurityReportManager securityReportManager)
         {
             _logger = logger;
+            _securityReportManager = securityReportManager;
         }
 
         [HttpPost]
         [Route("ReportSecurity")]
         public BaseResponse ReportSecurity(SecurityReportRequest request)
         {
-            return new BaseResponse();
+            if (IsValid(request))
+            {
+                return _securityReportManager.Save(request);
+            }
+
+            return new BaseResponse
+            {
+                Error = true,
+                ErrorMessage = "Model is not valid"
+            };
+        }
+
+        private bool IsValid<T>(T request)
+        {
+            return TryValidateModel(request, nameof(T));
         }
     }
 }

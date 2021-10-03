@@ -3,15 +3,17 @@ using System;
 using MadWorld.DataLayer.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MadWorld.API.Migrations.Postgres
 {
     [DbContext(typeof(MadWorldContextDev))]
-    partial class MadWorldContextDevModelSnapshot : ModelSnapshot
+    [Migration("20211003115354_AddSecurityReport")]
+    partial class AddSecurityReport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

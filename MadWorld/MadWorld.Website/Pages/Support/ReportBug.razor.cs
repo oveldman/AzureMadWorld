@@ -11,6 +11,7 @@ namespace MadWorld.Website.Pages.Support
 {
     public partial class ReportBug
     {
+        private bool Wait { get; set; }
         private bool ShowError { get; set; }
         private string ErrorMessage { get; set; } = string.Empty;
 
@@ -52,17 +53,20 @@ namespace MadWorld.Website.Pages.Support
         private async Task SendReport()
         {
             Reset();
+            Wait = true;
             BaseResponse response = await _securityService.SendReport(SecurityReport);
             UserFinished = !response.Error;
             ShowError = response.Error;
             ErrorMessage = ShowError ? response.ErrorMessage : string.Empty;
             if (UserFinished) SecurityReport = new();
+            Wait = false;
         }
 
         private void Reset()
         {
             ShowError = false;
             ErrorMessage = string.Empty;
+            Wait = false;
         }
     }
 }

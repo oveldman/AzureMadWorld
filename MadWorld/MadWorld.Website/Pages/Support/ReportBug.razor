@@ -65,7 +65,23 @@ else
             <InputFile class="form-control" type="file" OnChange="AddAttachments" id="attachments" multiple />
         </div>
 
-        <button type="submit" class="btn btn-success">Send security report</button>
-    </EditForm>
+        <div class="row">
+            @if (Wait)
+            {
+                <div class="col-3">
+                    <button type="submit" class="btn btn-success" disabled>Send security report</button>
+                </div>
+                <div class="col-1">
+                    <div class="wait-loader"></div>
+                </div>
+            }
+            else
+            {
+                <div class="col-3">
+                    <button type="submit" class="btn btn-success">Send security report</button>
+                </div>
+            }
+        </div>
+</EditForm>
 }
 

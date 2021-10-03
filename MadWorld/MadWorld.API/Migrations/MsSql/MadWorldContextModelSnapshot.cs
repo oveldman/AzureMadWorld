@@ -19,6 +19,31 @@ namespace MadWorld.API.Migrations.MsSql
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.BlobFile", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BlobName")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContentType")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ExternName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("FileType")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.Resume", b =>
                 {
                     b.Property<Guid>("ID")
@@ -33,7 +58,7 @@ namespace MadWorld.API.Migrations.MsSql
 
                     b.Property<string>("FullName")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Nationality")
                         .HasMaxLength(100)
@@ -42,6 +67,101 @@ namespace MadWorld.API.Migrations.MsSql
                     b.HasKey("ID");
 
                     b.ToTable("Resumes");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.SecurityReport", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid?>("PublicKeyID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("PublicKeyID")
+                        .IsUnique()
+                        .HasFilter("[PublicKeyID] IS NOT NULL");
+
+                    b.ToTable("SecurityReports");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.SecurityReportAttachment", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BlobFileID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SecurityReportID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BlobFileID");
+
+                    b.HasIndex("SecurityReportID");
+
+                    b.ToTable("SecurityReportAttachments");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.SecurityReport", b =>
+                {
+                    b.HasOne("MadWorld.DataLayer.Database.Tables.BlobFile", "PublicKeyFile")
+                        .WithOne("SecurityReport")
+                        .HasForeignKey("MadWorld.DataLayer.Database.Tables.SecurityReport", "PublicKeyID");
+
+                    b.Navigation("PublicKeyFile");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.SecurityReportAttachment", b =>
+                {
+                    b.HasOne("MadWorld.DataLayer.Database.Tables.BlobFile", "BlobFile")
+                        .WithMany("SecurityReportAttachments")
+                        .HasForeignKey("BlobFileID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MadWorld.DataLayer.Database.Tables.SecurityReport", "SecurityReport")
+                        .WithMany("Attachments")
+                        .HasForeignKey("SecurityReportID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BlobFile");
+
+                    b.Navigation("SecurityReport");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.BlobFile", b =>
+                {
+                    b.Navigation("SecurityReport");
+
+                    b.Navigation("SecurityReportAttachments");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.SecurityReport", b =>
+                {
+                    b.Navigation("Attachments");
                 });
 #pragma warning restore 612, 618
         }
