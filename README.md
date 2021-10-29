@@ -9,4 +9,5 @@
 [BlazorMonaco](https://github.com/serdarciplak/BlazorMonaco)\
 [Bootstrap](https://getbootstrap.com/)\
 [Cdnjs](https://cdnjs.com/libraries?q=bootstrap)\
-[Dotnet application insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)
+[Dotnet application insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)\
+[Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)
