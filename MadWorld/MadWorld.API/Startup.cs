@@ -104,6 +104,7 @@ namespace MadWorld.API
         private void SetAPI(IServiceCollection services)
         {
             // Business
+            services.AddScoped<IAuthorizationManager, AuthorizationManager>();
             services.AddScoped<IResumeManager, ResumeManager>();
             services.AddScoped<ISecurityReportManager, SecurityReportManager>();
 
@@ -112,6 +113,7 @@ namespace MadWorld.API
                 return new BlobManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
             });
 
+            services.AddScoped<IAuthorizationQueries, AuthorizationQueries>();
             services.AddScoped<IBlobTableQueries, BlobTableQueries>();
             services.AddScoped<IResumeQueries, ResumeQueries>();
             services.AddScoped<ISecurityReportQueries, SecurityReportQueries>();

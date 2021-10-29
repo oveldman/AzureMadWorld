@@ -33,6 +33,7 @@ namespace MadWorld.DataLayer.Database
                 .HasForeignKey(sra => sra.BlobFileID);
         }
 
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<BlobFile> Files { get; set; }
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<SecurityReport> SecurityReports { get; set; }

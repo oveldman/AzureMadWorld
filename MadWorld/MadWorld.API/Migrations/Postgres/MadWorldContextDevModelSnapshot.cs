@@ -22,6 +22,27 @@ namespace MadWorld.API.Migrations.Postgres
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.Account", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AzureID")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("EmailAdress")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<bool>("IsAdminstrator")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.BlobFile", b =>
                 {
                     b.Property<Guid>("ID")

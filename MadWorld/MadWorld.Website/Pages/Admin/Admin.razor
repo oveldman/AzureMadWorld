@@ -14,7 +14,7 @@
     {
         try
         {
-            welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin");
+            welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin/GetUsers");
         }
         catch (AccessTokenNotAvailableException exception)
         {
