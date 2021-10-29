@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MadWorld.API.Migrations.MsSql
+#nullable disable
+
+namespace MadWorld.API.Migrations.Postgres
 {
-    public partial class AddSecurityReport : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,11 +13,11 @@ namespace MadWorld.API.Migrations.MsSql
                 name: "Files",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExternName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    BlobName = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ContentType = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    FileType = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    ExternName = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
+                    BlobName = table.Column<Guid>(type: "uuid", nullable: false),
+                    ContentType = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    FileType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -23,15 +25,32 @@ namespace MadWorld.API.Migrations.MsSql
                 });
 
             migrationBuilder.CreateTable(
+                name: "Resumes",
+                columns: table => new
+                {
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    Birthdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Nationality = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Resumes", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SecurityReports",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", maxLength: 10000, nullable: true),
-                    PublicKeyID = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    ClientIpAddress = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: true),
+                    Description = table.Column<string>(type: "character varying(10000)", maxLength: 10000, nullable: true),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Title = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    IsVerified = table.Column<bool>(type: "boolean", nullable: false),
+                    PublicKeyID = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,17 +59,16 @@ namespace MadWorld.API.Migrations.MsSql
                         name: "FK_SecurityReports_Files_PublicKeyID",
                         column: x => x.PublicKeyID,
                         principalTable: "Files",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
                 name: "SecurityReportAttachments",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SecurityReportID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BlobFileID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    SecurityReportID = table.Column<Guid>(type: "uuid", nullable: false),
+                    BlobFileID = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,12 +101,14 @@ namespace MadWorld.API.Migrations.MsSql
                 name: "IX_SecurityReports_PublicKeyID",
                 table: "SecurityReports",
                 column: "PublicKeyID",
-                unique: true,
-                filter: "[PublicKeyID] IS NOT NULL");
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Resumes");
+
             migrationBuilder.DropTable(
                 name: "SecurityReportAttachments");
 

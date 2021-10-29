@@ -16,7 +16,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public Resume GetLastResume()
         {
-            return _context.Resumes.OrderBy(r => r.Created).Last();
+            return _context.Resumes.OrderBy(r => r.Created).LastOrDefault();
         }
     }
 }

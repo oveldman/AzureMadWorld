@@ -22,9 +22,9 @@ namespace MadWorld.Business.Manager
 
             return new ResumeResponse
             {
-                Age = GetAge(resume.Birthdate),
-                FullName = resume.FullName,
-                Nationality = resume.Nationality
+                Age = GetAge(resume?.Birthdate),
+                FullName = resume?.FullName,
+                Nationality = resume?.Nationality
             };
         }
 

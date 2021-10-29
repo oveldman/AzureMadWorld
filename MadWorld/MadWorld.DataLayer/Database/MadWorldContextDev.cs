@@ -1,5 +1,4 @@
 ﻿using System;
-using IdentityServer4.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
 
 namespace MadWorld.DataLayer.Database
