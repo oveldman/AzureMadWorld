@@ -2,8 +2,9 @@
 @using MadWorld.Shared.Models.Admin
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using MadWorld.Website.Settings;
 @attribute [Authorize]
-@inject HttpClient Http
+@inject IHttpClientFactory clientFactory
 
 <h3>@welcomeResponse.Message</h3>
 
@@ -14,6 +15,7 @@
     {
         try
         {
+            var Http = clientFactory.CreateClient(ApiUrls.MadWorldApi);
             welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin/GetUsers");
         }
         catch (AccessTokenNotAvailableException exception)

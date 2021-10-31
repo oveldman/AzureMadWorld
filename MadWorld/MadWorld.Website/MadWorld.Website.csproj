@@ -42,6 +42,8 @@
     <None Remove="Models\Tools\" />
     <None Remove="Pages\Support\" />
     <None Remove="Services\Support\" />
+    <None Remove="Factory\" />
+    <None Remove="Services\Authorization\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -61,6 +63,8 @@
     <Folder Include="Models\Tools\" />
     <Folder Include="Pages\Support\" />
     <Folder Include="Services\Support\" />
+    <Folder Include="Factory\" />
+    <Folder Include="Services\Authorization\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

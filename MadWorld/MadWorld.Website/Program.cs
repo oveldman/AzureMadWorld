@@ -14,6 +14,10 @@ using MadWorld.Website.Services.Interfaces;
 using MadWorld.Website.Services.Info;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using MadWorld.Website.Services.Support;
+using Microsoft.AspNetCore.Components.Authorization;
+using MadWorld.Website.Factory;
+using System.Security.Claims;
+using MadWorld.Website.Services.Authorization;
 
 namespace MadWorld.Website
 {
@@ -45,17 +49,26 @@ namespace MadWorld.Website
                 return handler;
             });
 
+            builder.Services.AddScoped<DelegatingHandlerMW>();
+            builder.Services.AddHttpClient(ApiUrls.MadWorldApiAuthorization, client =>
+            {
+                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            }).AddHttpMessageHandler<DelegatingHandlerMW>();
+
 
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
                 .CreateClient(ApiUrls.MadWorldApi));
 
-            builder.Services.AddMsalAuthentication(options =>
+            builder.Services.AddMsalAuthentication<RemoteAuthenticationState, RemoteUserAccountMW>(options =>
             {
                 builder.Configuration.Bind("AzureAdB2C", options.ProviderOptions.Authentication);
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("openid");
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("offline_access");
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite");
-            });
+                options.ProviderOptions.LoginMode = "redirect";
+                options.UserOptions.RoleClaim = ClaimTypes.Role;
+            }).AddAccountClaimsPrincipalFactory<RemoteAuthenticationState, RemoteUserAccountMW, AccountClaimsPrincipalFactoryMW>();
 
             SetApplicationSettings(builder.Configuration);
             AddExternPackages(builder);
@@ -78,6 +91,7 @@ namespace MadWorld.Website
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
         {
             // Services
+            services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ISecurityService, SecurityService>();
         }
