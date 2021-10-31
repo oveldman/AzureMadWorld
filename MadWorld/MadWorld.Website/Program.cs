@@ -66,7 +66,6 @@ namespace MadWorld.Website
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("openid");
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("offline_access");
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite");
-                options.ProviderOptions.LoginMode = "redirect";
                 options.UserOptions.RoleClaim = ClaimTypes.Role;
             }).AddAccountClaimsPrincipalFactory<RemoteAuthenticationState, RemoteUserAccountMW, AccountClaimsPrincipalFactoryMW>();
 
