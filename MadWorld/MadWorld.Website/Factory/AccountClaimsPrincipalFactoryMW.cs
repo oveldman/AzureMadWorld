@@ -36,8 +36,6 @@ namespace MadWorld.Website.Factory
                 {
                     claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role));
                 }
-
-                claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Adminstrator"));
             }
 
             return user;

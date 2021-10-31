@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using MadWorld.Business.Manager.Interfaces;
 using MadWorld.Shared.Models.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +18,12 @@ namespace MadWorld.API.Controllers
     [Route("[controller]")]
     public class AuthorizeController : ControllerBase
     {
+        private readonly IAuthorizationManager _authorizationManager;
         private readonly ILogger<AuthorizeController> _logger;
 
-        public AuthorizeController(ILogger<AuthorizeController> logger)
+        public AuthorizeController(ILogger<AuthorizeController> logger, IAuthorizationManager authorizationManager)
         {
+            _authorizationManager = authorizationManager;
             _logger = logger;
         }
 
@@ -27,12 +31,12 @@ namespace MadWorld.API.Controllers
         [Route("GetCurrentUserRols")]
         public RolesResponse GetCurrentUserRols()
         {
+            var identity = User.Identity as ClaimsIdentity;
+            string azureID = identity.Claims.FirstOrDefault(c => c.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")?.Value;
+
             return new RolesResponse
             {
-                Roles = new List<string>
-                {
-                    "Adminstrator"
-                }
+                Roles = _authorizationManager.GetRoles(azureID)
             };
         }
     }
