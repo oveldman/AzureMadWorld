@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 
 namespace MadWorld.API.Controllers.Admin
 {
-    [Authorize]
+    [AuthorizeMW(Roles.Adminstrator)]
     [ApiController]
     [Route("[controller]")]
     public class AdminController : ControllerBase
@@ -32,23 +32,6 @@ namespace MadWorld.API.Controllers.Admin
             return new WelcomeResponse
             {
                 Message = "Welcome back."
-            };
-        }
-
-        [HttpGet]
-        [Route("GetUsers")]
-        [AuthorizeMW(Roles.Adminstrator)]
-        public WelcomeResponse GetUsers()
-        {
-            var identity = User.Identity as ClaimsIdentity;
-
-            var userName = identity.Name;
-
-            string claims = string.Join("(,)", identity.Claims.Select(c => c.Type + " (*) " + c.Value).ToList());
-
-            return new WelcomeResponse
-            {
-                Message = userName + "||||" + claims
             };
         }
     }

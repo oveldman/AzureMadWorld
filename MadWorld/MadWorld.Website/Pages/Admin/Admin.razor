@@ -16,7 +16,7 @@
         try
         {
             var Http = clientFactory.CreateClient(ApiUrls.MadWorldApi);
-            welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin/GetUsers");
+            welcomeResponse = await Http.GetFromJsonAsync<WelcomeResponse>("Admin");
         }
         catch (AccessTokenNotAvailableException exception)
         {
