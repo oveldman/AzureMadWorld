@@ -107,6 +107,7 @@ namespace MadWorld.API
             services.AddScoped<IAuthorizationManager, AuthorizationManager>();
             services.AddScoped<IResumeManager, ResumeManager>();
             services.AddScoped<ISecurityReportManager, SecurityReportManager>();
+            services.AddScoped<IUserManager, UserManager>();
 
             // Datalayer
             services.AddScoped<IBlobManager, BlobManager>(_ => {
