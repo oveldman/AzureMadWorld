@@ -118,6 +118,7 @@ namespace MadWorld.API
             services.AddScoped<IResumeQueries, ResumeQueries>();
             services.AddScoped<ISecurityReportQueries, SecurityReportQueries>();
             services.AddScoped<IStorageManager, StorageManager>();
+            services.AddScoped<IUserManagmentQueries, UserManagmentQueries>();
         }
 
         private void SetupDatabases(IServiceCollection services)

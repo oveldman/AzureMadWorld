@@ -11,9 +11,11 @@
   <ItemGroup>
     <None Remove="Manager\" />
     <None Remove="Manager\Interfaces\" />
+    <None Remove="Messages\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
+    <Folder Include="Messages\" />
   </ItemGroup>
 </Project>

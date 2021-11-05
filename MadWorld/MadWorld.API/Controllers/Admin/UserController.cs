@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MadWorld.API.Attribute;
+using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Admin;
@@ -14,35 +15,32 @@ namespace MadWorld.API.Controllers.Admin
     [Route("Admin/[controller]")]
     public class UserController : ControllerBase
     {
+        IUserManager _userManager;
 
-        public UserController()
+        public UserController(IUserManager userManager)
         {
+            _userManager = userManager;
         }
 
         [HttpGet]
         [Route("GetUsers")]
         public UsersResponse GetUsers()
         {
-            return new UsersResponse
-            {
-                Users = new List<UserDTO> {
-                    new UserDTO
-                    {
-                        ID = Guid.NewGuid(),
-                        Email = "test@test.nl",
-                        IsAdmin = true
-                    }
-                }
-            };
+            return _userManager.GetUsers();
+        }
+
+        [HttpGet]
+        [Route("GetUser")]
+        public UserResponse GetUser(string id)
+        {
+            return _userManager.GetUser(id);
         }
 
         [HttpPatch]
         [Route("UpdateUser")]
         public BaseResponse UpdateUser(UserDTO user)
         {
-            return new BaseResponse
-            {
-            };
+            return _userManager.UpdateUser(user);
         }
     }
 }

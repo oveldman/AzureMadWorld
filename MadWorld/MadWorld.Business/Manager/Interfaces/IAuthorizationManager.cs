@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using MadWorld.DataLayer.Database.Enum;
 
 namespace MadWorld.Business.Manager.Interfaces
