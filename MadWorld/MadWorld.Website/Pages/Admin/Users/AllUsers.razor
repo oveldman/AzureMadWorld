@@ -1,0 +1,30 @@
+﻿@page "/Admin/Users"
+
+@using BlazorTable;
+@using Microsoft.AspNetCore.Authorization
+@using MadWorld.Shared.Models.Admin;
+@using MadWorld.Website.Services.Admin.Interfaces;
+@attribute [Authorize(Roles = "Adminstrator")]
+@inject IUserManagerService _service;
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+    </div>
+}
+
+@if (PageLoaded)
+{
+    <Table class="table table-striped table-dark table-bordered table-hover" TableHeadClass="thead-light" TableItem="UserDTO" Items="Users" PageSize="15" ShowSearchBar="true" RowClickAction="OpenUser">
+        <Column TableItem="UserDTO" Title="ID" Field="@(x => x.ID)" Sortable="true" Filterable="false" Width="30%" />
+        <Column TableItem="UserDTO" Title="Email" Field="@(x => x.Email)" Sortable="true" Filterable="false" Width="50%" />
+        <Column TableItem="UserDTO" Title="Adminstrator" Field="@(x => x.IsAdmin)" Sortable="true" Filterable="false" Width="20%" />
+        <Pager ShowPageNumber="true" ShowTotalCount="true" />
+    </Table>
+}
+else
+{
+    <div class="spinner"></div>
+}
+

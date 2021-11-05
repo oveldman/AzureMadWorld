@@ -18,6 +18,9 @@ using Microsoft.AspNetCore.Components.Authorization;
 using MadWorld.Website.Factory;
 using System.Security.Claims;
 using MadWorld.Website.Services.Authorization;
+using BlazorTable;
+using MadWorld.Website.Services.Admin.Interfaces;
+using MadWorld.Website.Services.Admin;
 
 namespace MadWorld.Website
 {
@@ -85,6 +88,7 @@ namespace MadWorld.Website
             });
 
             builder.Services.AddBlazorDownloadFile();
+            builder.Services.AddBlazorTable();
         }
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
@@ -93,6 +97,7 @@ namespace MadWorld.Website
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ISecurityService, SecurityService>();
+            services.AddScoped<IUserManagerService, UserManagerService>();
         }
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)

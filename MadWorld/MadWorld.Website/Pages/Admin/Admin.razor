@@ -1,9 +1,9 @@
 ﻿@page "/Admin"
-@using MadWorld.Shared.Models.Admin
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using MadWorld.Shared.Models.Admin
 @using MadWorld.Website.Settings;
-@attribute [Authorize]
+@attribute [Authorize(Roles = "Adminstrator")]
 @inject IHttpClientFactory clientFactory
 
 <h3>@welcomeResponse.Message</h3>
