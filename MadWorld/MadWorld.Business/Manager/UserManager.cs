@@ -19,7 +19,7 @@ namespace MadWorld.Business.Manager
 
         public UserResponse GetUser(string id)
         {
-            if (Guid.TryParse(id, out Guid guid))
+            if (!Guid.TryParse(id, out Guid guid))
             {
                 return new UserResponse
                 {

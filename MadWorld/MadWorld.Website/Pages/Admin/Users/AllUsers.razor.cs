@@ -24,19 +24,17 @@ namespace MadWorld.Website.Pages.Admin.Users
             if (!response.Error)
             {
                 Users = response.Users;
-            }
-            else
-            {
-                ErrorMessage = "There went something wrong with loading users";
+
+                PageLoaded = true;
+                return;
             }
 
-            PageLoaded = true;
+            ErrorMessage = "There went something wrong with loading users";
         }
 
         private void OpenUser(UserDTO user)
         {
-            ErrorMessage = "There is no user page yet";
-            StateHasChanged();
+            Navigation.NavigateTo($"/Admin/EditUser/{user.ID}");
         }
     }
 }

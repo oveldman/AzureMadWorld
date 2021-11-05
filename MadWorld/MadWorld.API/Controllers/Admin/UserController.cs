@@ -36,7 +36,7 @@ namespace MadWorld.API.Controllers.Admin
             return _userManager.GetUser(id);
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("UpdateUser")]
         public BaseResponse UpdateUser(UserDTO user)
         {

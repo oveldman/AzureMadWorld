@@ -31,7 +31,7 @@ namespace MadWorld.DataLayer.Database.Queries
         {
             try
             {
-                _context.Accounts.Add(account);
+                _context.Accounts.Update(account);
                 _context.SaveChanges();
             }
             catch(Exception exception)
