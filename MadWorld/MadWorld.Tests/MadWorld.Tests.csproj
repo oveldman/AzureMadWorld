@@ -32,9 +32,16 @@
     <None Remove="FluentAssertions" />
     <None Remove="Moq" />
     <None Remove="Business\" />
+    <None Remove="Business\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Setup\" />
     <Folder Include="Business\" />
+    <Folder Include="Business\Manager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj" />
+    <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
+    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
   </ItemGroup>
 </Project>
