@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace MadWorld.Tests
+namespace MadWorld.Tests.Business
 {
     public class UnitTest1
     {
