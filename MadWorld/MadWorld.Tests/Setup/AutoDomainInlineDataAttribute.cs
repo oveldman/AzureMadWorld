@@ -1,7 +1,4 @@
-﻿using System;
-using AutoFixture.Xunit2;
-
-namespace MadWorld.Tests.Setup
+﻿namespace MadWorld.Tests.Setup
 {
     public class AutoDomainInlineDataAttribute : InlineAutoDataAttribute
     {

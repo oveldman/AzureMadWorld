@@ -1,14 +1,10 @@
-﻿using System;
-using AutoFixture.Xunit2;
-using MadWorld.Business.Manager;
+﻿using MadWorld.Business.Manager;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
 using MadWorld.Shared.Helper;
 using MadWorld.Shared.Models.Pages;
 using MadWorld.Tests.Setup;
-using Moq;
-using Xunit;
 
 namespace MadWorld.Tests.Business.Manager
 {
