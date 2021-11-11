@@ -34,6 +34,7 @@ namespace MadWorld.Tests.Business.Manager
             Assert.Equal(dbResume.FullName, resumeResult.FullName);
 
             // No Teardown
+            SystemTime.ResetDateTime();
         }
 
         [Theory]
