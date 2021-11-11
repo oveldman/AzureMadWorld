@@ -10,4 +10,5 @@
 [Bootstrap](https://getbootstrap.com/)\
 [Cdnjs](https://cdnjs.com/libraries?q=bootstrap)\
 [Dotnet application insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)\
-[Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)
+[Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)\
+[Libman autorestore](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-6.0#restore-files-during-build)
