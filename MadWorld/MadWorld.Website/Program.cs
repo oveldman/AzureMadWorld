@@ -21,6 +21,7 @@ using MadWorld.Website.Services.Authorization;
 using BlazorTable;
 using MadWorld.Website.Services.Admin.Interfaces;
 using MadWorld.Website.Services.Admin;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MadWorld.Website
 {
@@ -32,6 +33,7 @@ namespace MadWorld.Website
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
+            builder.RootComponents.Add<HeadOutlet>("head::after");
 
             builder.Services.AddHttpClient(ApiUrls.MadWorldApiAnonymous, client =>
             {
