@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MadWorld.API.Models;
+using MadWorld.API.SignalR;
+using MadWorld.API.SignalR.Interfaces;
 using MadWorld.Business.Manager;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.AzureBlob;
@@ -76,6 +78,8 @@ namespace MadWorld.API
                         .AllowAnyMethod();
                     });
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,11 +102,15 @@ namespace MadWorld.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<GeneralHub>("/GeneralHub");
             });
         }
 
         private void SetAPI(IServiceCollection services)
         {
+            // SignalR
+            services.AddScoped<IGeneralHubManager, GeneralHubManager>();
+
             // Business
             services.AddScoped<IAuthorizationManager, AuthorizationManager>();
             services.AddScoped<IResumeManager, ResumeManager>();

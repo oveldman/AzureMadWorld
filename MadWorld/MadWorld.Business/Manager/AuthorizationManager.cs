@@ -61,6 +61,11 @@ namespace MadWorld.Business.Manager
                 return account.IsAdminstrator;
             }
 
+            if (Roles.None == role)
+            {
+                return true;
+            }
+
             return false;
         }
     }

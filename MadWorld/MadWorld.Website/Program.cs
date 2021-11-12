@@ -24,11 +24,13 @@ using MadWorld.Website.Services.Admin;
 using Microsoft.AspNetCore.Components.Web;
 using MadWorld.Website.State.Interface;
 using MadWorld.Website.State;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace MadWorld.Website
 {
     public class Program
     {
+        private static string ApiUrl;
         private static string InstrumentationKey;
 
         public static async Task Main(string[] args)
@@ -36,22 +38,23 @@ namespace MadWorld.Website
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
+            SetApplicationSettings(builder.Configuration);
 
             builder.Services.AddHttpClient(ApiUrls.MadWorldApiAnonymous, client =>
             {
-                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.BaseAddress = new Uri(ApiUrl);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
-                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.BaseAddress = new Uri(ApiUrl);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).AddHttpMessageHandler(sp =>
             {
                 var handler = sp.GetService<AuthorizationMessageHandler>()
                     .ConfigureHandler(
-                        authorizedUrls: new[] { builder.Configuration["ApiUrl"] }, //<--- The URI used by the Server project.
+                        authorizedUrls: new[] { ApiUrl }, //<--- The URI used by the Server project.
                         scopes: new[] { "https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite" });
                 return handler;
             });
@@ -59,7 +62,7 @@ namespace MadWorld.Website
             builder.Services.AddScoped<DelegatingHandlerMW>();
             builder.Services.AddHttpClient(ApiUrls.MadWorldApiAuthorization, client =>
             {
-                client.BaseAddress = new Uri(builder.Configuration["ApiUrl"]);
+                client.BaseAddress = new Uri(ApiUrl);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).AddHttpMessageHandler<DelegatingHandlerMW>();
 
@@ -77,7 +80,6 @@ namespace MadWorld.Website
             }).AddAccountClaimsPrincipalFactory<RemoteAuthenticationState, RemoteUserAccountMW, AccountClaimsPrincipalFactoryMW>();
             builder.Services.AddScoped<AuthenticationStateProvider, RemoteAuthenticationServiceMW>();
 
-            SetApplicationSettings(builder.Configuration);
             AddExternPackages(builder);
             AddMadWorldClassesToScoped(builder.Services);
 
@@ -91,6 +93,12 @@ namespace MadWorld.Website
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
                 await applicationInsights.LoadAppInsights();
             });
+
+            builder.Services.AddScoped<HubConnection>(_ =>
+                    new HubConnectionBuilder()
+                .WithUrl($"{ApiUrl}GeneralHub")
+                .Build()
+            );
 
             builder.Services.AddBlazorDownloadFile();
             builder.Services.AddBlazorTable();
@@ -110,6 +118,7 @@ namespace MadWorld.Website
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
         {
+            ApiUrl = configuration["ApiUrl"];
             InstrumentationKey = configuration["Azure:InstrumentationKey"];
         }
     }

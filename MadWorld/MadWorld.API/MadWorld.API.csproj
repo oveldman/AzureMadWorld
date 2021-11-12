@@ -17,6 +17,8 @@
     <None Remove="Microsoft.Identity.Web" />
     <None Remove="Controllers\Admin\" />
     <None Remove="Attributes\" />
+    <None Remove="SignalR\" />
+    <None Remove="SignalR\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.19.0" />
@@ -37,5 +39,7 @@
     <Folder Include="Models\" />
     <Folder Include="Controllers\Admin\" />
     <Folder Include="Attribute\" />
+    <Folder Include="SignalR\" />
+    <Folder Include="SignalR\Interfaces\" />
   </ItemGroup>
 </Project>

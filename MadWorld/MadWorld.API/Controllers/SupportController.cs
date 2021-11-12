@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MadWorld.API.Attribute;
 using MadWorld.Business.Manager.Interfaces;
+using MadWorld.DataLayer.Database.Enum;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Pages.Support;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +25,14 @@ namespace MadWorld.API.Controllers
         {
             _logger = logger;
             _securityReportManager = securityReportManager;
+        }
+
+        [HttpGet]
+        [Route("CreateAccount")]
+        [AuthorizeMW(Roles.None)]
+        public BaseResponse CreateAccount()
+        {
+            return new BaseResponse();
         }
 
         [HttpPost]

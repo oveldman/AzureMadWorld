@@ -16,6 +16,7 @@
     <PackageReference Include="BlazorMonaco" Version="2.1.0" />
     <PackageReference Include="BlazorTable" Version="1.17.0" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.113" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +54,7 @@
     <None Remove="Microsoft.Web.LibraryManager.Build" />
     <None Remove="State\" />
     <None Remove="State\Interface\" />
+    <None Remove="Microsoft.AspNetCore.SignalR.Client" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />

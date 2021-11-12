@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MadWorld.API.Attribute;
+using MadWorld.API.SignalR.Interfaces;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.Shared.Models;
@@ -15,10 +16,12 @@ namespace MadWorld.API.Controllers.Admin
     [Route("Admin/[controller]")]
     public class UserController : ControllerBase
     {
+        IGeneralHubManager _hubManager;
         IUserManager _userManager;
 
-        public UserController(IUserManager userManager)
+        public UserController(IGeneralHubManager hubManager, IUserManager userManager)
         {
+            _hubManager = hubManager;
             _userManager = userManager;
         }
 
@@ -40,7 +43,14 @@ namespace MadWorld.API.Controllers.Admin
         [Route("UpdateUser")]
         public BaseResponse UpdateUser(UserDTO user)
         {
-            return _userManager.UpdateUser(user);
+            BaseResponse response = _userManager.UpdateUser(user);
+
+            if (!response.Error)
+            {
+                _hubManager.ResetRoles();
+            }
+
+            return response;
         }
     }
 }

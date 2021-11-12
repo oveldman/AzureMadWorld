@@ -9,11 +9,6 @@ namespace MadWorld.Website.Pages
         {
             currentCount++;
         }
-
-        private void ResetRole()
-        {
-            _authenticationHandler.ResetRoles();
-        }
     }
 }
 

@@ -19,7 +19,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public Account GetAccount(Guid id)
         {
-            return _context.Accounts.FirstOrDefault();
+            return _context.Accounts.FirstOrDefault(a => a.ID == id);
         }
 
         public List<Account> GetAccounts()

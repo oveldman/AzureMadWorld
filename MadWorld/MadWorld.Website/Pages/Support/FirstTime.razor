@@ -1,0 +1,23 @@
+﻿@page "/Support/FirstTime"
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using MadWorld.Shared.Models
+@using MadWorld.Website.Settings;
+@inject IHttpClientFactory clientFactory
+@inject NavigationManager Navigation;
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var Http = clientFactory.CreateClient(ApiUrls.MadWorldApi);
+            BaseResponse response = await Http.GetFromJsonAsync<BaseResponse>("Support/CreateAccount");
+            Navigation.NavigateTo($"/");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}
+

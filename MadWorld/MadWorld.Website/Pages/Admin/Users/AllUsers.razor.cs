@@ -15,7 +15,6 @@ namespace MadWorld.Website.Pages.Admin.Users
         protected override async Task OnInitializedAsync()
         {
             await LoadUsers();
-           
         }
 
         private async Task LoadUsers()
