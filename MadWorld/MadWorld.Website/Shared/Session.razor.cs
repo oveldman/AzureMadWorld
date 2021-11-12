@@ -6,12 +6,12 @@ namespace MadWorld.Website.Shared
 {
     public partial class Session
     {
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            SetupHub();
+            await SetupHub();
         }
 
-        private void SetupHub()
+        private async Task SetupHub()
         {
             _hubConnection.On<bool>("ResetRoles", (reset) =>
             {
@@ -22,6 +22,13 @@ namespace MadWorld.Website.Shared
 
                 StateHasChanged();
             });
+
+            await _hubConnection.StartAsync();
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            await _hubConnection.DisposeAsync();
         }
     }
 }
