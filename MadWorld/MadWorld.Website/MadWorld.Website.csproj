@@ -51,6 +51,8 @@
     <None Remove="Services\Admin\" />
     <None Remove="Services\Admin\Interfaces\" />
     <None Remove="Microsoft.Web.LibraryManager.Build" />
+    <None Remove="State\" />
+    <None Remove="State\Interface\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -75,6 +77,8 @@
     <Folder Include="Pages\Admin\Users\" />
     <Folder Include="Services\Admin\" />
     <Folder Include="Services\Admin\Interfaces\" />
+    <Folder Include="State\" />
+    <Folder Include="State\Interface\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

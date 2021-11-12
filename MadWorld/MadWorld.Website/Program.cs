@@ -22,6 +22,8 @@ using BlazorTable;
 using MadWorld.Website.Services.Admin.Interfaces;
 using MadWorld.Website.Services.Admin;
 using Microsoft.AspNetCore.Components.Web;
+using MadWorld.Website.State.Interface;
+using MadWorld.Website.State;
 
 namespace MadWorld.Website
 {
@@ -73,6 +75,7 @@ namespace MadWorld.Website
                 options.ProviderOptions.DefaultAccessTokenScopes.Add("https://nlMadWorld.onmicrosoft.com/36e6692b-2795-4ecd-ab76-3ff2f55373e7/Api.ReadWrite");
                 options.UserOptions.RoleClaim = ClaimTypes.Role;
             }).AddAccountClaimsPrincipalFactory<RemoteAuthenticationState, RemoteUserAccountMW, AccountClaimsPrincipalFactoryMW>();
+            builder.Services.AddScoped<AuthenticationStateProvider, RemoteAuthenticationServiceMW>();
 
             SetApplicationSettings(builder.Configuration);
             AddExternPackages(builder);
@@ -100,6 +103,9 @@ namespace MadWorld.Website
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ISecurityService, SecurityService>();
             services.AddScoped<IUserManagerService, UserManagerService>();
+
+            // State
+            services.AddScoped<IAuthenticationHandler, AuthenticationHandler>();
         }
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
