@@ -44,7 +44,7 @@ namespace MadWorld.Website.State
 
         private void RemoveRoleClaims(ClaimsIdentity identity)
         {
-            var roleClaims = identity.Claims.Where(c => c.Type == ClaimTypes.Role);
+            List<Claim> roleClaims = identity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
 
             foreach (Claim claim in roleClaims)
             {
