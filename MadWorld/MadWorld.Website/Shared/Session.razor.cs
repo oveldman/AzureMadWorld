@@ -23,7 +23,10 @@ namespace MadWorld.Website.Shared
                 StateHasChanged();
             });
 
-            await _hubConnection.StartAsync();
+            if (_hubConnection.State == HubConnectionState.Disconnected)
+            {
+                await _hubConnection.StartAsync();
+            }
         }
 
         public async ValueTask DisposeAsync()
