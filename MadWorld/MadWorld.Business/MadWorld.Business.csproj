@@ -12,10 +12,12 @@
     <None Remove="Manager\" />
     <None Remove="Manager\Interfaces\" />
     <None Remove="Messages\" />
+    <None Remove="RustLibrary\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="Messages\" />
+    <Folder Include="RustLibrary\" />
   </ItemGroup>
 </Project>
