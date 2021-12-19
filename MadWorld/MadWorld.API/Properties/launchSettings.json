@@ -16,7 +16,7 @@
       "applicationUrl": "https://localhost:59761;http://localhost:25418",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DYLD_LIBRARY_PATH": "../Reference"
+        "DYLD_LIBRARY_PATH": "../Reference/Arm64"
       }
     },
     "IIS Express": {
