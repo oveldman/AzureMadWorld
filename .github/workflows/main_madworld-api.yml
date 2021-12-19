@@ -32,9 +32,13 @@ jobs:
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
       working-directory: ./MadWorld/MadWorld.API
       
-    - name: Build
-      run: cargo build --target-dir ${{env.DOTNET_ROOT}}/myapp/Rust --target x86_64-unknown-linux-gnu --verbose
+    - name: Build Rust
+      run: cargo build --target-dir ${{env.DOTNET_ROOT}}/Rust/Reference --target x86_64-unknown-linux-gnu --verbose
       working-directory: ./Rust/learn_lib
+
+    - name: Copy Rust dll
+      run: cp Reference/x86_64-unknown-linux-gnu/debug/liblearn_lib.so ${{env.DOTNET_ROOT}}/myapp
+      working-directory: ${{env.DOTNET_ROOT}}/Rust
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
