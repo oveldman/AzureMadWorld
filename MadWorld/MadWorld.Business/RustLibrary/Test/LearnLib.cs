@@ -11,6 +11,9 @@ namespace MadWorld.Business.RustLibrary.Test
 
         [DllImport("learn_lib")]
         public static extern TestStruct test_struct_plus(int x, int y);
+
+        [DllImport("learn_lib")]
+        public static extern StringStruct test_struct_string();
     }
 }
 

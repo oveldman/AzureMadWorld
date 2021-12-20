@@ -37,6 +37,19 @@ namespace MadWorld.API.Controllers.Rust
                 Answer = structTest.answer
             };
         }
+
+        [HttpGet]
+        [Route("StringTest")]
+        public BaseResponse StringTest()
+        {
+            StringStruct structTest = LearnLib.test_struct_string();
+
+            return new BaseResponse
+            {
+                Error = false,
+                ErrorMessage = $"{structTest.id}: {structTest.AnswerToString}",
+            };
+        }
     }
 }
 
