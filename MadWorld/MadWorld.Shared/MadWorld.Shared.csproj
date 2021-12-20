@@ -12,6 +12,7 @@
     <None Remove="Models\Pages\Support\" />
     <None Remove="Models\Form\" />
     <None Remove="Models\Authorization\" />
+    <None Remove="Models\Rust\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
@@ -21,5 +22,6 @@
     <Folder Include="Models\Pages\Support\" />
     <Folder Include="Models\Form\" />
     <Folder Include="Models\Authorization\" />
+    <Folder Include="Models\Rust\" />
   </ItemGroup>
 </Project>
