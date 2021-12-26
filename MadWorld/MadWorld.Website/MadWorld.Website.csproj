@@ -55,6 +55,7 @@
     <None Remove="State\" />
     <None Remove="State\Interface\" />
     <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+    <None Remove="Services\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
@@ -81,6 +82,7 @@
     <Folder Include="Services\Admin\Interfaces\" />
     <Folder Include="State\" />
     <Folder Include="State\Interface\" />
+    <Folder Include="Services\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

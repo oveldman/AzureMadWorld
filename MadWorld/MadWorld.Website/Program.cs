@@ -25,6 +25,7 @@ using Microsoft.AspNetCore.Components.Web;
 using MadWorld.Website.State.Interface;
 using MadWorld.Website.State;
 using Microsoft.AspNetCore.SignalR.Client;
+using MadWorld.Website.Services.Tools;
 
 namespace MadWorld.Website
 {
@@ -108,6 +109,7 @@ namespace MadWorld.Website
         {
             // Services
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IIpfsService, IpfsService>();
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ISecurityService, SecurityService>();
             services.AddScoped<IUserManagerService, UserManagerService>();

@@ -47,7 +47,7 @@ namespace MadWorld.Shared.Helper
                 body = ms.ToArray();
             }
 
-            return System.Text.Encoding.UTF8.GetString(body);
+            return System.Convert.ToBase64String(body);
         }
     }
 }
