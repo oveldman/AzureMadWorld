@@ -17,7 +17,7 @@ namespace MadWorld.API.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0-rc.2.21480.5")
+                .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -66,6 +66,26 @@ namespace MadWorld.API.Migrations.Postgres
                     b.HasKey("ID");
 
                     b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.IpfsFile", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Hash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("IpfsFiles");
                 });
 
             modelBuilder.Entity("MadWorld.DataLayer.Database.Tables.Resume", b =>

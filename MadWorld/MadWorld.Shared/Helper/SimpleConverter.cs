@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace MadWorld.Shared.Helper
@@ -28,6 +29,25 @@ namespace MadWorld.Shared.Helper
 
             byte[] body = Convert.FromBase64String(base64Text);
             return Encoding.ASCII.GetString(body);
+        }
+
+        public static string ConvertToBase64(Stream stream)
+        {
+            byte[] body;
+
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = stream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+
+                body = ms.ToArray();
+            }
+
+            return System.Text.Encoding.UTF8.GetString(body);
         }
     }
 }

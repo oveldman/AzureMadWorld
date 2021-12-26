@@ -13,6 +13,7 @@
     <None Remove="Models\Form\" />
     <None Remove="Models\Authorization\" />
     <None Remove="Models\Rust\" />
+    <None Remove="Models\IPFS\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
@@ -23,5 +24,6 @@
     <Folder Include="Models\Form\" />
     <Folder Include="Models\Authorization\" />
     <Folder Include="Models\Rust\" />
+    <Folder Include="Models\IPFS\" />
   </ItemGroup>
 </Project>

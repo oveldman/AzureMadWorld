@@ -19,3 +19,6 @@ certbot certonly --manual --preferred-challenges dns  -d api.mad-world.nl
 scp username@hostname:/path/to/remote/file /path/to/local/file
 #Convert cert
 openssl pkcs12 -export -out site.pfx -inkey privkey.pem -in cert.pem -certfile fullchain.pem
+
+#Update dotnet tools
+dotnet tool update dotnet-ef

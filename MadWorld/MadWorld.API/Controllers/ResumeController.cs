@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
 using MadWorld.Shared.Models.Pages;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Logging;
 namespace MadWorld.API.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("[controller]")]
     public class ResumeController : ControllerBase
     {

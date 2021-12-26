@@ -7,7 +7,7 @@ namespace MadWorld.DataLayer.Database.Queries
 {
     public class SecurityReportQueries : ISecurityReportQueries
     {
-        MadWorldContext _context;
+        private MadWorldContext _context;
 
         public SecurityReportQueries(MadWorldContext context)
         {

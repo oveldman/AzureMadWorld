@@ -6,7 +6,7 @@ namespace MadWorld.DataLayer.Database.Queries
 {
     public class AuthorizationQueries : IAuthorizationQueries
     {
-        MadWorldContext _context;
+        private MadWorldContext _context;
 
         public AuthorizationQueries(MadWorldContext context)
         {

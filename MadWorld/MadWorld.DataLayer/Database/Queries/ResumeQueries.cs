@@ -6,7 +6,7 @@ namespace MadWorld.DataLayer.Database.Queries
 {
     public class ResumeQueries : IResumeQueries
     {
-        MadWorldContext _context;
+        private MadWorldContext _context;
 
         public ResumeQueries(MadWorldContext context)
         {

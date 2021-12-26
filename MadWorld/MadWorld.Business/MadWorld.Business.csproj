@@ -14,6 +14,13 @@
     <None Remove="Messages\" />
     <None Remove="RustLibrary\" />
     <None Remove="RustLibrary\Test\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="Services\Models\" />
+    <None Remove="AutoMapper" />
+    <None Remove="Mapper\" />
+    <None Remove="Mapper\IMapper\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Manager\" />
@@ -21,5 +28,14 @@
     <Folder Include="Messages\" />
     <Folder Include="RustLibrary\" />
     <Folder Include="RustLibrary\Test\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\Models\" />
+    <Folder Include="Mapper\" />
+    <Folder Include="Mapper\Interfaces\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
   </ItemGroup>
 </Project>

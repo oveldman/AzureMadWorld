@@ -35,6 +35,7 @@ namespace MadWorld.DataLayer.Database
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<BlobFile> Files { get; set; }
+        public DbSet<IpfsFile> IpfsFiles { get; set; }
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<SecurityReport> SecurityReports { get; set; }
         public DbSet<SecurityReportAttachment> SecurityReportAttachments { get; set; }

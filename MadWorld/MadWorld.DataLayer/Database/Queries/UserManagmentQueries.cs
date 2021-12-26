@@ -8,8 +8,8 @@ namespace MadWorld.DataLayer.Database.Queries
 {
     public class UserManagmentQueries : IUserManagmentQueries
     {
-        ILogger<UserManagmentQueries> _logger;
-        MadWorldContext _context;
+        private ILogger<UserManagmentQueries> _logger;
+        private MadWorldContext _context;
 
         public UserManagmentQueries(MadWorldContext context, ILogger<UserManagmentQueries> logger)
         {

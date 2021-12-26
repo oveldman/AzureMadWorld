@@ -6,7 +6,7 @@ namespace MadWorld.DataLayer.Database.Queries
 {
     public class BlobTableQueries : IBlobTableQueries
     {
-        MadWorldContext _context;
+        private MadWorldContext _context;
 
         public BlobTableQueries(MadWorldContext context)
         {

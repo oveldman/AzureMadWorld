@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using MadWorld.API.Models;
 using MadWorld.API.SignalR;
 using MadWorld.API.SignalR.Interfaces;
 using MadWorld.Business.Manager;
 using MadWorld.Business.Manager.Interfaces;
+using MadWorld.Business.Mapper;
+using MadWorld.Business.Mapper.Interfaces;
+using MadWorld.Business.Models;
+using MadWorld.Business.Services;
+using MadWorld.Business.Services.Interfaces;
 using MadWorld.DataLayer.AzureBlob;
 using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.DataLayer.Database;
@@ -35,6 +41,7 @@ namespace MadWorld.API
         private readonly string AllowedOriginsAPI = "AllowedCalls";
 
         private AzureSettings AzureSettings;
+        private ApplicationUrls ApplicationUrls;
         private StartupSettings Settings;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
@@ -51,6 +58,7 @@ namespace MadWorld.API
         {
             Settings = Configuration.GetSection(nameof(StartupSettings)).Get<StartupSettings>();
             AzureSettings = Configuration.GetSection(nameof(AzureSettings)).Get<AzureSettings>();
+            ApplicationUrls = Configuration.GetSection(nameof(ApplicationUrls)).Get<ApplicationUrls>();
 
             services.AddApplicationInsightsTelemetry();
 
@@ -108,14 +116,20 @@ namespace MadWorld.API
 
         private void SetAPI(IServiceCollection services)
         {
+            // Settings
+            services.AddScoped<ApplicationUrls>(_ => ApplicationUrls);
+
             // SignalR
             services.AddScoped<IGeneralHubManager, GeneralHubManager>();
 
             // Business
             services.AddScoped<IAuthorizationManager, AuthorizationManager>();
+            services.AddScoped<IMapperManager, IpfsMapperManager>();
+            services.AddScoped<IIpfsManager, IpfsManager>();
             services.AddScoped<IResumeManager, ResumeManager>();
             services.AddScoped<ISecurityReportManager, SecurityReportManager>();
             services.AddScoped<IUserManager, UserManager>();
+            services.AddScoped<IVpsWebServices, VpsWebServices>();
 
             // Datalayer
             services.AddScoped<IBlobManager, BlobManager>(_ => {
@@ -124,10 +138,14 @@ namespace MadWorld.API
 
             services.AddScoped<IAuthorizationQueries, AuthorizationQueries>();
             services.AddScoped<IBlobTableQueries, BlobTableQueries>();
+            services.AddScoped<IIpfsQueries, IpfsQueries>();
             services.AddScoped<IResumeQueries, ResumeQueries>();
             services.AddScoped<ISecurityReportQueries, SecurityReportQueries>();
             services.AddScoped<IStorageManager, StorageManager>();
             services.AddScoped<IUserManagmentQueries, UserManagmentQueries>();
+
+            // Extra
+            services.AddScoped<HttpClient>();
         }
 
         private void SetupDatabases(IServiceCollection services)

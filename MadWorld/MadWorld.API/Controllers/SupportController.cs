@@ -7,6 +7,7 @@ using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Pages.Support;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Logging;
 namespace MadWorld.API.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("[controller]")]
     public class SupportController : ControllerBase
     {
@@ -25,14 +27,6 @@ namespace MadWorld.API.Controllers
         {
             _logger = logger;
             _securityReportManager = securityReportManager;
-        }
-
-        [HttpGet]
-        [Route("CreateAccount")]
-        [AuthorizeMW(Roles.None)]
-        public BaseResponse CreateAccount()
-        {
-            return new BaseResponse();
         }
 
         [HttpPost]
