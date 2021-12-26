@@ -42,9 +42,12 @@ namespace MadWorld.Business.Manager
 
             WebResult<Stream> result = await _webServices.Get(hash);
 
+            IpfsDTO dto = _mapperManager.Translate<IpfsFile, IpfsDTO>(file);
+            dto.Url = GetVpsUrl(file.Hash);
+
             return new IpfsDetailResponse
             {
-                Details = _mapperManager.Translate<IpfsFile, IpfsDTO>(file),
+                Details = dto,
                 Body = SimpleConverter.ConvertToBase64(result.Body)
             };
         }
@@ -54,12 +57,17 @@ namespace MadWorld.Business.Manager
             List<IpfsFile> files = _ipfsQueries.GetAll();
             List<IpfsDTO> fileDtos = _mapperManager.Translate<List<IpfsFile>, List<IpfsDTO>>(files);
 
-            fileDtos.ForEach(f => f.Url = $"{vpsMadWorldUrl}/{f.Hash}");
+            fileDtos.ForEach(f => f.Url = GetVpsUrl(f.Hash));
 
             return new IpfsSearchResponse
             {
                 Result = fileDtos
             };
+        }
+
+        private string GetVpsUrl(string hash)
+        {
+            return $"{vpsMadWorldUrl}/{hash}";
         }
     }
 }
