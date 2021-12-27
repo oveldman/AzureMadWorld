@@ -9,9 +9,11 @@ namespace MadWorld.DataLayer.Database
 {
     public class MadWorldContext : DbContext
     {
+        private const int TimeoutDuration = 10 * 60;
+
         public MadWorldContext(DbContextOptions options) : base(options) 
         {
-            this.Database.SetCommandTimeout(240);
+            this.Database.SetCommandTimeout(TimeoutDuration);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
