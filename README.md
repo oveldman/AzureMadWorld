@@ -5,6 +5,7 @@
 [Application insight API](https://dev.applicationinsights.io/documentation/overview)\
 [Automapper](https://github.com/AutoMapper)\
 [Azurite](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)\
+[Benchmark Dotnet](https://benchmarkdotnet.org/)\
 [Blazor application insight](https://github.com/IvanJosipovic/BlazorApplicationInsights)\
 [BlazorDownloadFile](https://github.com/arivera12/BlazorDownloadFile)\
 [BlazorMonaco](https://github.com/serdarciplak/BlazorMonaco)\
