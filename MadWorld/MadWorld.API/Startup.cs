@@ -174,8 +174,12 @@ namespace MadWorld.API
             }
             else if (Environment.IsProduction())
             {
-                services.AddDbContext<MadWorldContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
+                services.AddDbContext<MadWorldContext>(optionsBuilder => {
+                    optionsBuilder.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), options => {
+                        options.MigrationsAssembly("MadWorld.API");
+                        options.EnableRetryOnFailure(maxRetryCount: 3);
+                    });
+                });
             }
             else
             {
