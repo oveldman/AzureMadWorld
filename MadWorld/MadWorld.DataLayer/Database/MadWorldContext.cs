@@ -11,6 +11,7 @@ namespace MadWorld.DataLayer.Database
     {
         public MadWorldContext(DbContextOptions options) : base(options) 
         {
+            this.Database.SetCommandTimeout(240);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
