@@ -5,7 +5,6 @@
 [Application insight API](https://dev.applicationinsights.io/documentation/overview)\
 [Automapper](https://github.com/AutoMapper)\
 [Azurite](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)\
-[Benchmark Dotnet](https://benchmarkdotnet.org/)\
 [Blazor application insight](https://github.com/IvanJosipovic/BlazorApplicationInsights)\
 [BlazorDownloadFile](https://github.com/arivera12/BlazorDownloadFile)\
 [BlazorMonaco](https://github.com/serdarciplak/BlazorMonaco)\
@@ -17,3 +16,7 @@
 [Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)\
 [Libman autorestore](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-6.0#restore-files-during-build)\
 [Open Iconic](https://useiconic.com/open)
+
+## Tools
+[Benchmark Dotnet](https://benchmarkdotnet.org/)\
+[ClrHeapAllocationAnalyzer](https://www.nuget.org/packages/ClrHeapAllocationAnalyzer)
