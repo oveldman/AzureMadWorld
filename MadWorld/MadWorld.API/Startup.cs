@@ -41,6 +41,7 @@ namespace MadWorld.API
         private readonly string AllowedOriginsAPI = "AllowedCalls";
 
         private AzureSettings AzureSettings;
+        private ApplicationSettings ApplicationSettings;
         private ApplicationUrls ApplicationUrls;
         private StartupSettings Settings;
 
@@ -58,6 +59,7 @@ namespace MadWorld.API
         {
             Settings = Configuration.GetSection(nameof(StartupSettings)).Get<StartupSettings>();
             AzureSettings = Configuration.GetSection(nameof(AzureSettings)).Get<AzureSettings>();
+            ApplicationSettings = Configuration.GetSection(nameof(ApplicationSettings)).Get<ApplicationSettings>();
             ApplicationUrls = Configuration.GetSection(nameof(ApplicationUrls)).Get<ApplicationUrls>();
 
             services.AddApplicationInsightsTelemetry();
@@ -81,7 +83,7 @@ namespace MadWorld.API
                 options.AddPolicy(name: AllowedOriginsAPI,
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:5001", "https://www.mad-world.nl", "https://mad-world.nl")
+                        builder.WithOrigins(ApplicationSettings.CorsUrls)
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
