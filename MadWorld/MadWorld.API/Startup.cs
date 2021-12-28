@@ -177,7 +177,7 @@ namespace MadWorld.API
                 services.AddDbContext<MadWorldContext>(optionsBuilder => {
                     optionsBuilder.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), options => {
                         options.MigrationsAssembly("MadWorld.API");
-                        options.EnableRetryOnFailure(maxRetryCount: 3);
+                        options.EnableRetryOnFailure(maxRetryCount: 10);
                     });
                 });
             }
