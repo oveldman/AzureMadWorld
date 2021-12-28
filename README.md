@@ -20,3 +20,7 @@
 ## Tools
 [Benchmark Dotnet](https://benchmarkdotnet.org/)\
 [ClrHeapAllocationAnalyzer](https://www.nuget.org/packages/ClrHeapAllocationAnalyzer)
+
+### IPFS
+[Create Gateway](https://rossbulat.medium.com/introduction-to-ipfs-set-up-nodes-on-your-network-with-http-gateways-10e21ea689a4)\
+[Setup IPFS](https://michalzalecki.com/set-up-ipfs-node-on-the-server/)
