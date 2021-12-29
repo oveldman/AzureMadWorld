@@ -14,6 +14,7 @@
     <None Remove="Models\Authorization\" />
     <None Remove="Models\Rust\" />
     <None Remove="Models\IPFS\" />
+    <None Remove="Models\Admin\IPFS\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
@@ -25,5 +26,6 @@
     <Folder Include="Models\Authorization\" />
     <Folder Include="Models\Rust\" />
     <Folder Include="Models\IPFS\" />
+    <Folder Include="Models\Admin\IPFS\" />
   </ItemGroup>
 </Project>

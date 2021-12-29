@@ -1,5 +1,4 @@
 ﻿using System;
-using MadWorld.DataLayer;
 using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.DataLayer.Database.Queries.Interfaces;

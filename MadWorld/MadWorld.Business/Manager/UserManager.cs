@@ -1,5 +1,4 @@
 ﻿using System;
-using MadWorld.DataLayer;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
 using MadWorld.Shared.Models;

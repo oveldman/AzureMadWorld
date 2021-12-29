@@ -124,7 +124,7 @@ namespace MadWorld.API
             // SignalR
             services.AddScoped<IGeneralHubManager, GeneralHubManager>();
 
-            // Business
+            // Businesses
             services.AddScoped<IAuthorizationManager, AuthorizationManager>();
             services.AddScoped<IMapperManager, IpfsMapperManager>();
             services.AddScoped<IIpfsManager, IpfsManager>();
@@ -133,7 +133,7 @@ namespace MadWorld.API
             services.AddScoped<IUserManager, UserManager>();
             services.AddScoped<IVpsWebServices, VpsWebServices>();
 
-            // Datalayer
+            // Datalayers
             services.AddScoped<IBlobManager, BlobManager>(_ => {
                 return new BlobManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
             });
@@ -146,7 +146,7 @@ namespace MadWorld.API
             services.AddScoped<IStorageManager, StorageManager>();
             services.AddScoped<IUserManagmentQueries, UserManagmentQueries>();
 
-            // Extra
+            // Extras
             services.AddScoped<HttpClient>();
         }
 
