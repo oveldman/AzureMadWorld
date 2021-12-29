@@ -26,6 +26,8 @@ using MadWorld.Website.State.Interface;
 using MadWorld.Website.State;
 using Microsoft.AspNetCore.SignalR.Client;
 using MadWorld.Website.Services.Tools;
+using MadWorld.Website.Manager.Interfaces;
+using MadWorld.Website.Manager;
 
 namespace MadWorld.Website
 {
@@ -107,6 +109,9 @@ namespace MadWorld.Website
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
         {
+            //Managers
+            services.AddScoped<ISmartlookManager, SmartlookManager>();
+
             // Services
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IIpfsManagerService, IpfsManagerService>();

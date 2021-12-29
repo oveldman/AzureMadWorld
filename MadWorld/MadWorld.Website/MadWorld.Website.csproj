@@ -57,10 +57,18 @@
     <None Remove="Microsoft.AspNetCore.SignalR.Client" />
     <None Remove="Services\Tools\" />
     <None Remove="Pages\Admin\IPFS\" />
+    <None Remove="Microsoft.TypeScript.MSBuild" />
+    <None Remove="Manager\" />
+    <None Remove="Manager\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
     <Content Remove="wwwroot\images\icons\" />
+    <Content Remove="wwwroot\typescript\Extern\" />
+    <Content Remove="wwwroot\typescript\Extern\Smartlook\" />
+    <Content Remove="wwwroot\typescript\" />
+    <Content Remove="wwwroot\typescript\extern\" />
+    <Content Remove="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
@@ -85,10 +93,18 @@
     <Folder Include="State\Interface\" />
     <Folder Include="Services\Tools\" />
     <Folder Include="Pages\Admin\IPFS\" />
+    <Folder Include="wwwroot\typescript\" />
+    <Folder Include="wwwroot\typescript\extern\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="Manager\" />
+    <Folder Include="Manager\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\typescript\extern\smartlook.ts" />
   </ItemGroup>
 </Project>
