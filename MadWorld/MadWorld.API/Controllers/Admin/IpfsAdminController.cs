@@ -14,7 +14,7 @@ namespace MadWorld.API.Controllers.Admin
 {
     [ApiController]
     [AuthorizeMW(Roles.Adminstrator)]
-    [Route("Admin/[controller]")]
+    [Route("Admin/Ipfs")]
     public class IpfsAdminController : ControllerBase
     {
         private const string IdNotCorrect = "ID is not in the correct format.";
@@ -27,13 +27,6 @@ namespace MadWorld.API.Controllers.Admin
             _logger = logger;
             _ipfsManager = ipfsManager;
         }
-        [HttpPost]
-        [Route("Save")]
-        public BaseResponse Save(IpfsAdminDTO file)
-        {
-            return _ipfsManager.Save(file);
-        }
-
         [HttpDelete]
         [Route("Delete")]
         public BaseResponse Delete(string id)
@@ -71,6 +64,13 @@ namespace MadWorld.API.Controllers.Admin
         public IpfsAdminSearchResponse Search()
         {
             return _ipfsManager.SearchWithID();
+        }
+
+        [HttpPut]
+        [Route("Update")]
+        public BaseResponse Update(IpfsAdminDTO file)
+        {
+            return _ipfsManager.Save(file);
         }
     }
 }

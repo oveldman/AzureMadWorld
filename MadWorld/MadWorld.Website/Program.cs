@@ -109,6 +109,7 @@ namespace MadWorld.Website
         {
             // Services
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IIpfsManagerService, IpfsManagerService>();
             services.AddScoped<IIpfsService, IpfsService>();
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ISecurityService, SecurityService>();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
+using Microsoft.EntityFrameworkCore;
 
 namespace MadWorld.DataLayer.Database.Queries
 {
@@ -44,8 +45,15 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public DataResult Save(IpfsFile file)
         {
+            bool isNew = file.ID == Guid.Empty;
+
             _context.IpfsFiles.Add(file);
-            
+
+            if (!isNew)
+            {
+                _context.Entry(file).State = EntityState.Modified;
+            }
+
             _context.SaveChanges();
 
             return new DataResult

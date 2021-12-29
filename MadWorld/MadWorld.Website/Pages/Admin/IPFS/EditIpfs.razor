@@ -1,0 +1,62 @@
+﻿@page "/Admin/Ipfs/Edit"
+@page "/Admin/Ipfs/Edit/{ID}"
+@layout AdminLayout
+
+@using Microsoft.AspNetCore.Authorization;
+@using MadWorld.Shared.Models.Admin.IPFS;
+@using MadWorld.Website.Services.Admin.Interfaces;
+@attribute [Authorize(Roles = "Adminstrator")]
+@inject IIpfsManagerService _service;
+@inject NavigationManager Navigation;
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+    </div>
+}
+
+<h1>@Title</h1>
+
+@if (PageLoaded)
+{
+    <EditForm Model="@IpfsFile" OnValidSubmit="() => Save()">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3 row">
+            <label for="file-id" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="file-id" @bind="IpfsFile.ID">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="hash" class="col-sm-2 col-form-label">Hash</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" id="hash" @bind="IpfsFile.Hash">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" id="name" @bind="IpfsFile.Name">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="type" class="col-sm-2 col-form-label">Content Type</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" id="type" @bind="IpfsFile.FileType">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <button type="submit" class="btn btn-primary">@SaveText</button>
+        </div>
+
+    </EditForm>
+}
+else
+{
+    <div class="spinner"></div>
+}
+
+
