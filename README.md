@@ -16,7 +16,8 @@
 [Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)\
 [Libman autorestore](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-6.0#restore-files-during-build)\
 [Open Iconic](https://useiconic.com/open)\
-[Smartlook](https://www.smartlook.com/)
+[Smartlook](https://www.smartlook.com/)\
+[Typescript](https://docs.microsoft.com/en-us/visualstudio/javascript/compile-typescript-code-npm?view=vs-2022)
 
 ## Tools
 [Benchmark Dotnet](https://benchmarkdotnet.org/)\

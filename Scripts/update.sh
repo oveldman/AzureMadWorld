@@ -22,3 +22,6 @@ openssl pkcs12 -export -out site.pfx -inkey privkey.pem -in cert.pem -certfile f
 
 #Update dotnet tools
 dotnet tool update dotnet-ef
+
+#Typescript
+tsc --build
