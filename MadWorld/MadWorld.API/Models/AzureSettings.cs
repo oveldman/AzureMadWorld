@@ -3,6 +3,6 @@ namespace MadWorld.API.Models
 {
     public class AzureSettings
     {
-        public string ContainerName { get; set; }
+        public string ContainerName { get; set; } = string.Empty;
     }
 }

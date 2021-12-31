@@ -3,7 +3,7 @@ namespace MadWorld.API.Models
 {
 	public class ApplicationSettings
 	{
-		public string[] CorsUrls { get; set; }
+		public string[] CorsUrls { get; set; } = Array.Empty<string>();
 	}
 }
 

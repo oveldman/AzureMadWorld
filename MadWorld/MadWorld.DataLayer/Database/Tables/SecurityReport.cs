@@ -10,20 +10,20 @@ namespace MadWorld.DataLayer.Database.Tables
         [Key]
         public Guid ID { get; set; }
         [MaxLength(60)]
-        public string ClientIpAddress { get; set; }
+        public string? ClientIpAddress { get; set; }
         [MaxLength(10000)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [MaxLength(100)]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [MaxLength(100)]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
         [MaxLength(100)]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public bool IsVerified { get; set; }
         [ForeignKey("BlobFile")]
         public Guid? PublicKeyID { get; set; }
 
-        public virtual BlobFile PublicKeyFile { get; set; }
-        public virtual List<SecurityReportAttachment> Attachments { get; set; }
+        public virtual BlobFile? PublicKeyFile { get; set; }
+        public virtual List<SecurityReportAttachment>? Attachments { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace MadWorld.DataLayer
     {
         public Guid? RowID { get; set; }
         public bool Error { get; set; }
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
         public bool Succeed {
             get
             {

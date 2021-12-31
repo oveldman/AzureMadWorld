@@ -7,9 +7,9 @@ namespace MadWorld.DataLayer.Database.Tables
 	{
 		[Key]
 		public Guid ID { get; set; }
-		public string Hash { get; set; }
-		public string Name { get; set; }
-		public string ContentType { get; set; }
+		public string? Hash { get; set; }
+		public string? Name { get; set; }
+		public string? ContentType { get; set; }
 	}
 }
 

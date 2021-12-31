@@ -10,7 +10,7 @@ namespace MadWorld.DataLayer.Database.Tables
         public Guid AzureID { get; set; }
         public bool IsAdminstrator { get; set; }
         [MaxLength(100)]
-        public string EmailAdress { get; set; }
+        public string? EmailAdress { get; set; }
     }
 }
 

@@ -5,7 +5,7 @@ namespace MadWorld.Business.Services.Models
 {
 	public class WebResult<T>
 	{
-		public T Body { get; set; }
+		public T? Body { get; set; }
 		public HttpStatusCode HttpStatus { get; set; }
 	}
 }

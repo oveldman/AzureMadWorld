@@ -11,7 +11,7 @@ namespace MadWorld.Business.RustLibrary.Test
         {
 			get
             {
-				return Marshal.PtrToStringUTF8(answer);
+    			return Marshal.PtrToStringUTF8(answer) ?? string.Empty;
 			}
         }
 	}

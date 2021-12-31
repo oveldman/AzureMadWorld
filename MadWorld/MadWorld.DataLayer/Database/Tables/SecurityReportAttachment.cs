@@ -13,7 +13,7 @@ namespace MadWorld.DataLayer.Database.Tables
         [ForeignKey("BlobFile")]
         public Guid BlobFileID { get; set; }
 
-        public virtual SecurityReport SecurityReport { get; set; }
-        public virtual BlobFile BlobFile { get; set; }
+        public virtual SecurityReport? SecurityReport { get; set; }
+        public virtual BlobFile? BlobFile { get; set; }
     }
 }
