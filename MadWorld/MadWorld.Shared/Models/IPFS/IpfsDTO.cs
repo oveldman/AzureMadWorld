@@ -1,12 +1,18 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace MadWorld.Shared.Models.IPFS
 {
 	public class IpfsDTO
 	{
-		public string FileType { get; set; }
-		public string Hash { get; set; }
-		public string Name { get; set; }
-		public string Url { get; set; }
+		[Required]
+		public string FileType { get; set; } = string.Empty;
+		[Required]
+		public string Hash { get; set; } = string.Empty;
+		[Required]
+		public string Name { get; set; } = string.Empty;
+		[Required]
+		public string Url { get; set; } = string.Empty;
 	}
 }
 

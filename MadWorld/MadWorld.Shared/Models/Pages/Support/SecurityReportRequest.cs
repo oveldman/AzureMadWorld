@@ -7,13 +7,13 @@ namespace MadWorld.Shared.Models.Pages.Support
 {
     public class SecurityReportRequest
     {
-        public string Email { get; set; }
-        public string Fullname { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string Fullname { get; set; } = string.Empty;
         [Required]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         [Required]
-        public string Description { get; set; }
-        public UploadFile PgpPublicKey { get; set; }
-        public List<UploadFile> Attachments { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public UploadFile PgpPublicKey { get; set; } = new();
+        public List<UploadFile> Attachments { get; set; } = new();
     }
 }

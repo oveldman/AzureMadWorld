@@ -7,7 +7,7 @@ namespace MadWorld.Shared.Models.Admin
     {
         [Required]
         public Guid ID { get; set; }
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
         public bool IsAdmin { get; set; }
     }
 }
