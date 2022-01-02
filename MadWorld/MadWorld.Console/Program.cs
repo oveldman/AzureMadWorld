@@ -5,6 +5,8 @@ using MadWorld.Console.Insight.Interfaces;
 using MadWorld.Console.Insight.Models;
 using MadWorld.DataLayer.AzureBlob;
 using MadWorld.DataLayer.AzureBlob.Interfaces;
+using MadWorld.Optional;
+using MadWorld.Optional.Interfaces;
 
 namespace MadWorld.Console
 {
@@ -12,12 +14,24 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
+            IOption<int> some = Option<int>.CreateSome(10);
+            IOption<int> none = Option<int>.CreateNone();
+
+            if (some.HasValue)
+            {
+                System.Console.WriteLine($"Some: {some.GetValue()}");
+            }
+
+            System.Console.WriteLine($"None has value: {none.HasValue}");
+
+            /*
             IBlobManager storageManager = new BlobManager("UseDevelopmentStorage=true", "madworld");
             string filename = "test.txt";
             string filePath = "testpath/testpath";
             string filebody = "tekst tekst";
             storageManager.UploadFile(filename, filePath, filebody);
             string result = storageManager.DownloadStringFile(filename, "");
+            */
         }
     }
 }

@@ -26,5 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
+    <ProjectReference Include="..\MadWorld.CustomPackages\MadWorld.Optional\MadWorld.Optional.csproj" />
   </ItemGroup>
 </Project>

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadWorld.DataLayer", "MadWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadWorld.Console", "MadWorld.Console\MadWorld.Console.csproj", "{51053B3A-39E1-431F-981F-6E61BC67B7EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MadWorld.CustomPackages", "MadWorld.CustomPackages", "{36D48275-EC7A-4909-BBCF-127D0BC024EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadWorld.Optional", "MadWorld.CustomPackages\MadWorld.Optional\MadWorld.Optional.csproj", "{562664AF-5AFF-4D45-8387-537BABDB7640}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,11 +55,18 @@ Global
 		{51053B3A-39E1-431F-981F-6E61BC67B7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51053B3A-39E1-431F-981F-6E61BC67B7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51053B3A-39E1-431F-981F-6E61BC67B7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562664AF-5AFF-4D45-8387-537BABDB7640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562664AF-5AFF-4D45-8387-537BABDB7640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562664AF-5AFF-4D45-8387-537BABDB7640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562664AF-5AFF-4D45-8387-537BABDB7640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0BC99E79-60C1-4EB2-8FE8-6B2EFED569A2}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{562664AF-5AFF-4D45-8387-537BABDB7640} = {36D48275-EC7A-4909-BBCF-127D0BC024EC}
 	EndGlobalSection
 EndGlobal
