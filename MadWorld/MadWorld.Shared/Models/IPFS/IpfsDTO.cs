@@ -11,7 +11,6 @@ namespace MadWorld.Shared.Models.IPFS
 		public string Hash { get; set; } = string.Empty;
 		[Required]
 		public string Name { get; set; } = string.Empty;
-		[Required]
 		public string Url { get; set; } = string.Empty;
 	}
 }
