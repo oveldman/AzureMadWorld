@@ -46,17 +46,18 @@ namespace MadWorld.Tests.Business.Manager
             )
         {
             // No Test data
+            IOption<Resume> none = Option<Resume>.CreateNone();
 
             // Setup
-            resumeQueries.Setup(rq => rq.GetLastResume()).Returns<Resume>(null);
+            resumeQueries.Setup(rq => rq.GetLastResume()).Returns(none);
 
             // Act
             ResumeResponse resumeResult = resumeManager.GetLastResume();
 
             // Assert
             Assert.Equal(-1, resumeResult.Age);
-            Assert.Null(resumeResult.FullName);
-            Assert.Null(resumeResult.Nationality);
+            Assert.Empty(resumeResult.FullName);
+            Assert.Empty(resumeResult.Nationality);
 
             // No Teardown
         }

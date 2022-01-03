@@ -8,6 +8,9 @@ namespace MadWorld.Business.Manager
 {
     public class ResumeManager : IResumeManager
     {
+        // -1 means birthday is not valid.
+        private const int NoAgeFound = -1;
+
         IResumeQueries _resumeQueries;
 
         public ResumeManager(IResumeQueries resumeQueries)
@@ -31,15 +34,17 @@ namespace MadWorld.Business.Manager
                 };
             }
 
-            return new ResumeResponse();
+            return new ResumeResponse()
+            {
+                Age = NoAgeFound
+            };
         }
 
         private int GetAge(DateTime? birthdate)
         {
-            // -1 means birthday is not valid.
             if (!birthdate.HasValue)
             {
-                return -1;
+                return NoAgeFound;
             }
 
             // Save today's date.
