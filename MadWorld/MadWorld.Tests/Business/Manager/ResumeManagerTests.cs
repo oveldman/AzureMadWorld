@@ -20,10 +20,11 @@ namespace MadWorld.Tests.Business.Manager
         {
             // Test data
             dbResume.Birthdate = new DateTime(2000, 10, 10);
+            Option<Resume> option = Option<Resume>.CreateSome(dbResume);
 
             // Setup
             SystemTime.SetDateTime(new DateTime(2020, 09, 10));
-            resumeQueries.Setup(rq => rq.GetLastResume()).Returns(dbResume);
+            resumeQueries.Setup(rq => rq.GetLastResume()).Returns(option);
 
             // Act
             ResumeResponse resumeResult = resumeManager.GetLastResume();
