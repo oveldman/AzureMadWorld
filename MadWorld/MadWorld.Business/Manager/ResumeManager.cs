@@ -17,14 +17,21 @@ namespace MadWorld.Business.Manager
 
         public ResumeResponse GetLastResume()
         {
-            Resume resume = _resumeQueries.GetLastResume();
+            IOption<Resume> resumeOption = _resumeQueries.GetLastResume();
 
-            return new ResumeResponse
+            if (resumeOption.HasValue)
             {
-                Age = GetAge(resume?.Birthdate),
-                FullName = resume?.FullName,
-                Nationality = resume?.Nationality
-            };
+                Resume resume = resumeOption.GetValue();
+
+                return new ResumeResponse
+                {
+                    Age = GetAge(resume?.Birthdate),
+                    FullName = resume?.FullName,
+                    Nationality = resume?.Nationality
+                };
+            }
+
+            return new ResumeResponse();
         }
 
         private int GetAge(DateTime? birthdate)

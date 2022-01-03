@@ -5,6 +5,6 @@ namespace MadWorld.DataLayer.Database.Queries.Interfaces
 {
     public interface IResumeQueries
     {
-        Resume GetLastResume();
+        IOption<Resume> GetLastResume();
     }
 }

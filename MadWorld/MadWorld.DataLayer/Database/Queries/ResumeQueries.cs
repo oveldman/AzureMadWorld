@@ -13,9 +13,10 @@ namespace MadWorld.DataLayer.Database.Queries
             _context = context;
         }
 
-        public Resume GetLastResume()
+        public IOption<Resume> GetLastResume()
         {
-            return _context.Resumes.OrderBy(r => r.Created).LastOrDefault();
+            Resume? resume = _context.Resumes.OrderBy(r => r.Created).LastOrDefault();
+            return resume != null ? Option<Resume>.CreateSome(resume) : Option<Resume>.CreateNone();
         }
     }
 }
