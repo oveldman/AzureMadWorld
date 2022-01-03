@@ -30,7 +30,7 @@ namespace MadWorld.Business.Manager
 		}
 
         public BaseResponse Delete(Guid id)
-        {
+        { 
             DataResult result = _ipfsQueries.Delete(id);
 
             return new BaseResponse

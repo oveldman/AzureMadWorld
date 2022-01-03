@@ -16,6 +16,18 @@ public abstract class Option<T> : IOption<T>
         return new Some<T>(value);
     }
 
+    public Y Match<Y>(Func<T, Y> some, Func<Y> none)
+    {
+        switch (this)
+        {
+            case Some<T>:
+                return some(this.GetValue());
+            case None<T>:
+            default:
+                return none();
+        }
+    }
+
     public abstract T GetValue();
 }
 

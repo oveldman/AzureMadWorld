@@ -24,6 +24,10 @@ namespace MadWorld.Console
 
             System.Console.WriteLine($"None has value: {none.HasValue}");
 
+            string test = none.Match<string>(t => t.ToString(), Lolz);
+
+            System.Console.WriteLine($"Calc: {test}");
+
             /*
             IBlobManager storageManager = new BlobManager("UseDevelopmentStorage=true", "madworld");
             string filename = "test.txt";
@@ -32,6 +36,11 @@ namespace MadWorld.Console
             storageManager.UploadFile(filename, filePath, filebody);
             string result = storageManager.DownloadStringFile(filename, "");
             */
+        }
+
+        public static string Lolz()
+        {
+            return "Yeah!";
         }
     }
 }
