@@ -4,7 +4,6 @@ using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
 using MadWorld.Shared.Helper;
 using MadWorld.Shared.Models.Pages;
-using MadWorld.Tests.Setup;
 
 namespace MadWorld.Tests.Business.Manager
 {
@@ -34,7 +33,7 @@ namespace MadWorld.Tests.Business.Manager
             Assert.Equal(dbResume.Nationality ,resumeResult.Nationality);
             Assert.Equal(dbResume.FullName, resumeResult.FullName);
 
-            // No Teardown
+            // Teardown
             SystemTime.ResetDateTime();
         }
 
@@ -45,7 +44,7 @@ namespace MadWorld.Tests.Business.Manager
             ResumeManager resumeManager
             )
         {
-            // No Test data
+            // Test data
             IOption<Resume> none = Option<Resume>.CreateNone();
 
             // Setup

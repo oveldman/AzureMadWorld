@@ -8,6 +8,7 @@ global using System;
 
 global using MadWorld.Optional.Interfaces;
 global using MadWorld.Optional;
+global using MadWorld.Tests.Setup;
 
 
 
