@@ -74,7 +74,10 @@ namespace MadWorld.API
             services.AddApiVersioning(options => {
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.DefaultApiVersion = ApiVersion.Default;
+                //Accept : application/json; version=1.0
                 options.ApiVersionReader = new MediaTypeApiVersionReader("version");
+                //X-Version : 1.0
+                //options.ApiVersionReader = new HeaderApiVersionReader("X-Version");
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
