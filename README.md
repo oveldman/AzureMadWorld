@@ -3,6 +3,7 @@
 [![.NET build](https://github.com/oveldman/AzureMadWorld/actions/workflows/DotnetCheck.yml/badge.svg?branch=main)](https://github.com/oveldman/AzureMadWorld/actions/workflows/DotnetCheck.yml)
 
 [Application insight API](https://dev.applicationinsights.io/documentation/overview)\
+[API Version](https://github.com/dotnet/aspnet-api-versioning)\
 [Automapper](https://github.com/AutoMapper)\
 [Azurite](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)\
 [Blazor application insight](https://github.com/IvanJosipovic/BlazorApplicationInsights)\
