@@ -14,7 +14,7 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
-            IOption<int> some = Option<int>.CreateSome(10);
+            IOption<int> some = Option<int>.CreateSome(20);
             IOption<int> none = Option<int>.CreateNone();
 
             if (some.HasValue)
@@ -24,7 +24,7 @@ namespace MadWorld.Console
 
             System.Console.WriteLine($"None has value: {none.HasValue}");
 
-            string test = none.Match<string>(t => t.ToString(), Lolz);
+            string test = some.Match<string>(Found, NotFound);
 
             System.Console.WriteLine($"Calc: {test}");
 
@@ -38,9 +38,14 @@ namespace MadWorld.Console
             */
         }
 
-        public static string Lolz()
+        public static string Found(int testValue)
         {
-            return "Yeah!";
+            return testValue.ToString();
+        }
+
+        public static string NotFound()
+        {
+            return "No Value found!";
         }
     }
 }

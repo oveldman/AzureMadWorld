@@ -22,6 +22,7 @@
     <None Remove="SignalR\" />
     <None Remove="SignalR\Interfaces\" />
     <None Remove="Controllers\Rust\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Versioning" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
@@ -31,6 +32,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="6.0.1" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.21.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj">
