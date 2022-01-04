@@ -6,10 +6,10 @@ namespace MadWorld.Shared.Models.Form
     public class UploadFile
     {
         [Required]
-        public string BodyBase64 { get; set; }
+        public string BodyBase64 { get; set; } = string.Empty;
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         [Required]
-        public string ContentType { get; set; }
+        public string ContentType { get; set; } = string.Empty;
     }
 }

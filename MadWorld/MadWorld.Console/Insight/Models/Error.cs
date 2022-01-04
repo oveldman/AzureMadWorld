@@ -3,7 +3,7 @@ namespace MadWorld.Console.Insight.Models
 {
     public class Error
     {
-        public string ProblemID { get; set; }
-        public string Message { get; set; }
+        public string ProblemID { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
     }
 }

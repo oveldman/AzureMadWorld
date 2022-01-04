@@ -31,12 +31,12 @@ namespace MadWorld.Console.Insight
                 {
                     if (headers.ProblemId == i)
                     {
-                        error.ProblemID = row[i].ToString();
+                        error.ProblemID = row[i]?.ToString() ?? string.Empty;
                     }
 
                     if (headers.Message == i)
                     {
-                        error.Message = row[i].ToString();
+                        error.Message = row[i]?.ToString() ?? string.Empty;
                     }
                 }
 

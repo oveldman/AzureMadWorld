@@ -49,6 +49,11 @@ namespace MadWorld.API
         {
             Configuration = configuration;
             Environment = environment;
+
+            AzureSettings = new();
+            ApplicationSettings = new();
+            ApplicationUrls = new();
+            Settings = new();
         }
 
         public IConfiguration Configuration { get; }
