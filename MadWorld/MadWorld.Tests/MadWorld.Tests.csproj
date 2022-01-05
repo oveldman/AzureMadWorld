@@ -34,11 +34,15 @@
     <None Remove="Moq" />
     <None Remove="Business\" />
     <None Remove="Business\Manager\" />
+    <None Remove="CustomPackages\" />
+    <None Remove="CustomPackages\Optional\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Setup\" />
     <Folder Include="Business\" />
     <Folder Include="Business\Manager\" />
+    <Folder Include="CustomPackages\" />
+    <Folder Include="CustomPackages\Optional\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj" />
