@@ -34,6 +34,7 @@ namespace MadWorld.Website
     public class Program
     {
         private static string ApiUrl;
+        private static string ApiVersion;
         private static string InstrumentationKey;
 
         public static async Task Main(string[] args)
@@ -46,13 +47,13 @@ namespace MadWorld.Website
             builder.Services.AddHttpClient(ApiUrls.MadWorldApiAnonymous, client =>
             {
                 client.BaseAddress = new Uri(ApiUrl);
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Accept", $"application/json; version={ApiVersion}");
             }).AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             builder.Services.AddHttpClient(ApiUrls.MadWorldApi, client =>
             {
                 client.BaseAddress = new Uri(ApiUrl);
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Accept", $"application/json; version={ApiVersion}");
             }).AddHttpMessageHandler(sp =>
             {
                 var handler = sp.GetService<AuthorizationMessageHandler>()
@@ -66,7 +67,7 @@ namespace MadWorld.Website
             builder.Services.AddHttpClient(ApiUrls.MadWorldApiAuthorization, client =>
             {
                 client.BaseAddress = new Uri(ApiUrl);
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Accept", $"application/json; version={ApiVersion}");
             }).AddHttpMessageHandler<DelegatingHandlerMW>();
 
 
@@ -127,6 +128,7 @@ namespace MadWorld.Website
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
         {
             ApiUrl = configuration["ApiUrl"];
+            ApiVersion = configuration["ApiVersion"];
             InstrumentationKey = configuration["Azure:InstrumentationKey"];
         }
     }
