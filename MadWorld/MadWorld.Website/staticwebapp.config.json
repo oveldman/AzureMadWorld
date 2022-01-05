@@ -1,4 +1,13 @@
 ﻿{
+  "globalHeaders": {
+    "content-security-policy": "frame-ancestors 'self'; default-src: 'self'; upgrade-insecure-requests",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Permitted-Cross-Domain-Policies": "none",
+    "Referrer-Policy": "same-origin",
+    "X-Content-Type-Options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "Permissions-Policy": ""
+  },
   "navigationFallback": {
     "rewrite": "/index.html"
   }

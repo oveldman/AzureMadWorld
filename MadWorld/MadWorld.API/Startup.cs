@@ -115,6 +115,7 @@ namespace MadWorld.API
             }
 
             app.UseHttpsRedirection();
+            app.UseSecurityHeaders();
 
             app.UseRouting();
 
