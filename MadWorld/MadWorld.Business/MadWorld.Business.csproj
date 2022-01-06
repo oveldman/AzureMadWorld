@@ -23,6 +23,7 @@
     <None Remove="Mapper\" />
     <None Remove="Mapper\IMapper\" />
     <None Remove="Models\" />
+    <None Remove="Duende.IdentityServer.EntityFramework.Storage" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Manager\" />
