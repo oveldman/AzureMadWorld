@@ -6,6 +6,7 @@ using MadWorld.Business.Models;
 using MadWorld.Business.Services.Models;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
+using MadWorld.Shared.Creators;
 using MadWorld.Shared.Helper;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Admin.IPFS;
@@ -46,11 +47,7 @@ namespace MadWorld.Business.Manager
 
             if (file == null)
             {
-                return new IpfsDetailResponse
-                {
-                    Error = true,
-                    ErrorMessage = "File not found"
-                };
+                ResponseCreators.CreateErrorResponse<IpfsDetailResponse>("File not found");
             }
 
             WebResult<Stream> result = await _webServices.Get(hash);
@@ -71,11 +68,7 @@ namespace MadWorld.Business.Manager
 
             if (file == null)
             {
-                return new IpfsAdminDetailResponse
-                {
-                    Error = true,
-                    ErrorMessage = "File not found"
-                };
+                ResponseCreators.CreateErrorResponse<IpfsAdminDetailResponse>("File not found");
             }
 
             IpfsAdminDTO dto = _mapperManager.Translate<IpfsFile, IpfsAdminDTO>(file);

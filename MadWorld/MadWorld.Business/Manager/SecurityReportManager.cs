@@ -3,6 +3,7 @@ using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
+using MadWorld.Shared.Creators;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Form;
 using MadWorld.Shared.Models.Pages.Support;
@@ -28,11 +29,7 @@ namespace MadWorld.Business.Manager
         {
             if (!_securityReportQueries.HasReportSlotsLeft(clientIpAddress))
             {
-                return new BaseResponse()
-                {
-                    Error = true,
-                    ErrorMessage = "You sent too many reports. Try later another time. "
-                };
+                ResponseCreators.CreateErrorResponse<BaseResponse>("You sent too many reports. Try later another time. ");
             }
 
             Guid? pgpKeyFileID = null;

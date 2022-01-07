@@ -17,13 +17,13 @@ namespace MadWorld.Business.Mapper
             });
         }
 
-        private void CreateMapIpfsFileAndIpfsDTO(ref IMapperConfigurationExpression config)
+        private static void CreateMapIpfsFileAndIpfsDTO(ref IMapperConfigurationExpression config)
         {
             config.CreateMap<IpfsFile, IpfsDTO>()
                 .ForMember(d => d.FileType, s => s.MapFrom(f => f.ContentType));
         }
 
-        private void CreateMapIpfsFileAndIpfsAdminDTO(ref IMapperConfigurationExpression config)
+        private static void CreateMapIpfsFileAndIpfsAdminDTO(ref IMapperConfigurationExpression config)
         {
             config.CreateMap<IpfsFile, IpfsAdminDTO>()
                 .ForMember(d => d.FileType, s => s.MapFrom(f => f.ContentType))

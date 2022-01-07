@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MadWorld.API.Attribute;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
+using MadWorld.Shared.Creators;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Pages.Support;
 using Microsoft.AspNetCore.Authorization;
@@ -40,11 +41,7 @@ namespace MadWorld.API.Controllers
                 return _securityReportManager.Save(request, ipAddress);
             }
 
-            return new BaseResponse
-            {
-                Error = true,
-                ErrorMessage = "Model is not valid"
-            };
+            return ResponseCreators.CreateErrorResponse<BaseResponse>("Model is not valid");
         }
 
         private bool IsValid<T>(T request)
