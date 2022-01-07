@@ -18,10 +18,10 @@ namespace MadWorld.Business.Manager
         private readonly string vpsMadWorldUrl;
 
         private IIpfsQueries _ipfsQueries;
-        private IMapperManager _mapperManager;
+        private IIpfsMapperManager _mapperManager;
         private IVpsWebServices _webServices;
 
-        public IpfsManager(IIpfsQueries ipfsQueries, IMapperManager mapperManager, IVpsWebServices services, ApplicationUrls applicationUrls)
+        public IpfsManager(IIpfsQueries ipfsQueries, IIpfsMapperManager mapperManager, IVpsWebServices services, ApplicationUrls applicationUrls)
 		{
             _ipfsQueries = ipfsQueries;
             _mapperManager = mapperManager;

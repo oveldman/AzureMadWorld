@@ -1,6 +1,7 @@
 ﻿using System;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
+using MadWorld.Shared.Creators;
 using MadWorld.Shared.Models;
 using MadWorld.Shared.Models.Admin;
 
@@ -19,22 +20,14 @@ namespace MadWorld.Business.Manager
         {
             if (!Guid.TryParse(id, out Guid guid))
             {
-                return new UserResponse
-                {
-                    Error = true,
-                    ErrorMessage = "ID isn't valid"
-                };
+                return ResponseCreators.CreateErrorResponse<UserResponse>("ID isn't valid");
             }
 
             Account account = _userManagmentQueries.GetAccount(guid);
 
             if (account == null)
             {
-                return new UserResponse
-                {
-                    Error = true,
-                    ErrorMessage = "Account is not found"
-                };
+                return ResponseCreators.CreateErrorResponse<UserResponse>("Account is not found");
             }
 
             return new UserResponse
@@ -51,11 +44,7 @@ namespace MadWorld.Business.Manager
 
             return new UsersResponse
             {
-                Users = accounts.Select(a => new UserDTO {
-                    ID = a.ID,
-                    Email = a.EmailAdress,
-                    IsAdmin = a.IsAdminstrator
-                }).ToList()
+                Users = CreateUsersDTO(accounts)
             };
         }
 
@@ -65,11 +54,7 @@ namespace MadWorld.Business.Manager
 
             if (account == null)
             {
-                return new BaseResponse
-                {
-                    Error = true,
-                    ErrorMessage = "Account is not found"
-                };
+                return ResponseCreators.CreateErrorResponse<BaseResponse>("Account is not found");
             }
 
             account.IsAdminstrator = user.IsAdmin;
@@ -80,6 +65,16 @@ namespace MadWorld.Business.Manager
                 Error = result.Error,
                 ErrorMessage = result.Error ? result.ErrorMessage = StandardErrorMessages.GeneralError : String.Empty
             };
+        }
+
+        private List<UserDTO> CreateUsersDTO(List<Account> accounts)
+        {
+            return accounts.Select(a => new UserDTO
+            {
+                ID = a.ID,
+                Email = a.EmailAdress,
+                IsAdmin = a.IsAdminstrator
+            }).ToList();
         }
     }
 }

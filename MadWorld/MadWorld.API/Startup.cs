@@ -141,8 +141,8 @@ namespace MadWorld.API
 
             // Businesses
             services.AddScoped<IAuthorizationManager, AuthorizationManager>();
-            services.AddScoped<IMapperManager, IpfsMapperManager>();
             services.AddScoped<IIpfsManager, IpfsManager>();
+            services.AddScoped<IIpfsMapperManager, IpfsMapperManager>();
             services.AddScoped<IResumeManager, ResumeManager>();
             services.AddScoped<ISecurityReportManager, SecurityReportManager>();
             services.AddScoped<IUserManager, UserManager>();

@@ -17,6 +17,7 @@
     <None Remove="Models\Rust\" />
     <None Remove="Models\IPFS\" />
     <None Remove="Models\Admin\IPFS\" />
+    <None Remove="Creators\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
@@ -29,5 +30,6 @@
     <Folder Include="Models\Rust\" />
     <Folder Include="Models\IPFS\" />
     <Folder Include="Models\Admin\IPFS\" />
+    <Folder Include="Creators\" />
   </ItemGroup>
 </Project>

@@ -7,13 +7,11 @@ using MadWorld.Shared.Models.IPFS;
 
 namespace MadWorld.Business.Mapper
 {
-	public class IpfsMapperManager : IMapperManager
-	{
-        private readonly IMapper _mapper;
-
-        public IpfsMapperManager()
-		{
-			var config = new MapperConfiguration(cfg => {
+	public class IpfsMapperManager : MapperBaseManager, IIpfsMapperManager
+    {
+        public override IMapper LoadMapper()
+        {
+            var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<IpfsFile, IpfsDTO>()
                 .ForMember(d => d.FileType, s => s.MapFrom(f => f.ContentType));
                 cfg.CreateMap<IpfsFile, IpfsAdminDTO>()
@@ -21,12 +19,7 @@ namespace MadWorld.Business.Mapper
                 .ReverseMap();
             });
 
-			_mapper = config.CreateMapper();
-		}
-
-        public Y Translate<T, Y>(T request)
-        {
-            return _mapper.Map<Y>(request);
+            return config.CreateMapper();
         }
     }
 }
