@@ -9,10 +9,11 @@ namespace MadWorld.Business.Mapper.Interfaces
 
         public MapperBaseManager()
         {
-            _mapper = LoadMapper();
+            MapperConfiguration config = LoadConfigMapper();
+            _mapper = config.CreateMapper();
         }
 
-        public abstract IMapper LoadMapper();
+        public abstract MapperConfiguration LoadConfigMapper();
 
         public Y Translate<T, Y>(T request)
         {

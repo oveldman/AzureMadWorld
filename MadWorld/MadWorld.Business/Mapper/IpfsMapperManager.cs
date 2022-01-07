@@ -9,17 +9,25 @@ namespace MadWorld.Business.Mapper
 {
 	public class IpfsMapperManager : MapperBaseManager, IIpfsMapperManager
     {
-        public override IMapper LoadMapper()
+        public override MapperConfiguration LoadConfigMapper()
         {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<IpfsFile, IpfsDTO>()
+            return new MapperConfiguration(config => {
+                CreateMapIpfsFileAndIpfsDTO(ref config);
+                CreateMapIpfsFileAndIpfsAdminDTO(ref config);
+            });
+        }
+
+        private void CreateMapIpfsFileAndIpfsDTO(ref IMapperConfigurationExpression config)
+        {
+            config.CreateMap<IpfsFile, IpfsDTO>()
                 .ForMember(d => d.FileType, s => s.MapFrom(f => f.ContentType));
-                cfg.CreateMap<IpfsFile, IpfsAdminDTO>()
+        }
+
+        private void CreateMapIpfsFileAndIpfsAdminDTO(ref IMapperConfigurationExpression config)
+        {
+            config.CreateMap<IpfsFile, IpfsAdminDTO>()
                 .ForMember(d => d.FileType, s => s.MapFrom(f => f.ContentType))
                 .ReverseMap();
-            });
-
-            return config.CreateMapper();
         }
     }
 }
