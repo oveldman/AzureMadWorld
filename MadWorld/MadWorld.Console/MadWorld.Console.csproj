@@ -15,7 +15,7 @@
     <None Remove="Insight\" />
     <None Remove="Insight\Models\" />
     <None Remove="Insight\Interfaces\" />
-    <None Remove="Guard\" />
+    <None Remove="GuardFolder\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.ApplicationInsights.Query" Version="1.0.0" />
@@ -24,7 +24,7 @@
     <Folder Include="Insight\" />
     <Folder Include="Insight\Models\" />
     <Folder Include="Insight\Interfaces\" />
-    <Folder Include="Guard\" />
+    <Folder Include="GuardFolder\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.CustomPackages\MadWorld.Optional\MadWorld.Optional.csproj" />
