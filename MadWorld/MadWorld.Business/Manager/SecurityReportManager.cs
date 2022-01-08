@@ -20,9 +20,9 @@ namespace MadWorld.Business.Manager
             ISecurityReportQueries securityReportQueries,
             IStorageManager storageManager)
         {
-            _blobTableQueries = blobTableQueries;
-            _securityReportQueries = securityReportQueries;
-            _storageManager = storageManager;
+            _blobTableQueries = Guard.Against.Null(blobTableQueries, nameof(blobTableQueries));
+            _securityReportQueries = Guard.Against.Null(securityReportQueries, nameof(securityReportQueries));
+            _storageManager = Guard.Against.Null(storageManager, nameof(storageManager));
         }
 
         public BaseResponse Save(SecurityReportRequest report, string clientIpAddress)

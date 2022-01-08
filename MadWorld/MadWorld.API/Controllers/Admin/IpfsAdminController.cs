@@ -25,7 +25,7 @@ namespace MadWorld.API.Controllers.Admin
         public IpfsAdminController(ILogger<IpfsAdminController> logger, IIpfsManager ipfsManager)
         {
             _logger = logger;
-            _ipfsManager = ipfsManager;
+            _ipfsManager = Guard.Against.Null(ipfsManager, nameof(ipfsManager));
         }
         [HttpDelete]
         [Route("Delete")]

@@ -24,9 +24,9 @@ namespace MadWorld.Business.Manager
 
         public IpfsManager(IIpfsQueries ipfsQueries, IIpfsMapperManager mapperManager, IVpsWebServices services, ApplicationUrls applicationUrls)
 		{
-            _ipfsQueries = ipfsQueries;
-            _mapperManager = mapperManager;
-            _webServices = services;
+            _ipfsQueries = Guard.Against.Null(ipfsQueries, nameof(ipfsQueries));
+            _mapperManager = Guard.Against.Null(mapperManager, nameof(mapperManager));
+            _webServices = Guard.Against.Null(services, nameof(services));
             vpsMadWorldUrl = applicationUrls.MadWorldVpsIpfs;
 		}
 

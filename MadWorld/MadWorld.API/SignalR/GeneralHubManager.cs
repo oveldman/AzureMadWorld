@@ -11,7 +11,7 @@ namespace MadWorld.API.SignalR
 
         public GeneralHubManager(IHubContext<GeneralHub> hubContext)
         {
-            _hubContext = hubContext;
+            _hubContext = Guard.Against.Null(hubContext, nameof(hubContext));
         }
 
         public async Task ResetRoles()

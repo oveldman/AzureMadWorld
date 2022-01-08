@@ -11,7 +11,7 @@ namespace MadWorld.Business.Manager
 
         public AuthorizationManager(IAuthorizationQueries authorizationQueries)
         {
-            _authorizationQueries = authorizationQueries;
+            _authorizationQueries = Guard.Against.Null(authorizationQueries, nameof(authorizationQueries));
         }
 
         public List<string> GetRoles(string azureID)

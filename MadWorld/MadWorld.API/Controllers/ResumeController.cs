@@ -24,7 +24,7 @@ namespace MadWorld.API.Controllers
         public ResumeController(ILogger<ResumeController> logger, IResumeManager resumeManager)
         {
             _logger = logger;
-            _resumeManager = resumeManager;
+            _resumeManager = Guard.Against.Null(resumeManager, nameof(resumeManager));
         }
 
         // GET: /<controller>/

@@ -27,7 +27,7 @@ namespace MadWorld.API.Controllers
         public SupportController(ILogger<SupportController> logger, ISecurityReportManager securityReportManager)
         {
             _logger = logger;
-            _securityReportManager = securityReportManager;
+            _securityReportManager = Guard.Against.Null(securityReportManager, nameof(securityReportManager));
         }
 
         [HttpPost]

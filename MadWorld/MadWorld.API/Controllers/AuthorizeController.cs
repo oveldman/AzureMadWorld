@@ -23,7 +23,7 @@ namespace MadWorld.API.Controllers
 
         public AuthorizeController(ILogger<AuthorizeController> logger, IAuthorizationManager authorizationManager)
         {
-            _authorizationManager = authorizationManager;
+            _authorizationManager = Guard.Against.Null(authorizationManager, nameof(authorizationManager));
             _logger = logger;
         }
 

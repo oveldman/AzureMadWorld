@@ -13,7 +13,7 @@ namespace MadWorld.Business.Manager
 
         public UserManager(IUserManagmentQueries userManagmentQueries)
         {
-            _userManagmentQueries = userManagmentQueries;
+            _userManagmentQueries = Guard.Against.Null(userManagmentQueries, nameof(userManagmentQueries));
         }
 
         public UserResponse GetUser(string id)

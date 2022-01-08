@@ -15,7 +15,7 @@ namespace MadWorld.Business.Manager
 
         public ResumeManager(IResumeQueries resumeQueries)
         {
-            _resumeQueries = resumeQueries;
+            _resumeQueries = Guard.Against.Null(resumeQueries, nameof(resumeQueries));
         }
 
         public ResumeResponse GetLastResume()
