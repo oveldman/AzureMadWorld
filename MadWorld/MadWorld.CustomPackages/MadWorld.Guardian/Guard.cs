@@ -1,7 +1,7 @@
 ﻿namespace MadWorld.Guardian;
-public class Guard
+public class Guard : IGuardClause
 {
-    public static Guard Against = new();
+    public static IGuardClause Against = new Guard();
 
     private Guard() { }
 }
