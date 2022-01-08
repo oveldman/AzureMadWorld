@@ -15,6 +15,9 @@
 [DNS Lookup](https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.api.mad-world.nl.)\
 [Dotnet application insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)\
 [Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)\
+[Fluent Validation](https://github.com/FluentValidation/FluentValidation)\
+[Guard Clauses](https://github.com/ardalis/GuardClauses)\
+[Humanizer](https://github.com/Humanizr/Humanizer)\
 [Libman autorestore](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-6.0#restore-files-during-build)\
 [Open Iconic](https://useiconic.com/open)\
 [Security Headers](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)\
