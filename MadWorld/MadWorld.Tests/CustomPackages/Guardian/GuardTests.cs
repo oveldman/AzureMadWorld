@@ -16,7 +16,7 @@ namespace MadWorld.Tests.CustomPackages.Guardian
 			// No Setup
 
 			// Act
-			var result = Guard.Against.Null(randomTestData);
+			var result = Guard.Against.Null(randomTestData, nameof(randomTestData));
 
 			// Assert
 			Assert.Equal(randomTestData, result);
@@ -27,18 +27,19 @@ namespace MadWorld.Tests.CustomPackages.Guardian
 		[Fact]
 		public void AgainstNull_Null_NullException()
 		{
-			// No Test data
+			// Test data
+			string? randomTestData = null;
 
 			// No Setup
 
 			// Act
 			void TestAgainstNull()
 			{
-				var result = Guard.Against.Null<string>(null);
+				var result = Guard.Against.Null(randomTestData, nameof(randomTestData));
 			}
 
 			// Assert
-			Assert.Throws<ArgumentNullException>(TestAgainstNull);
+			Assert.Throws<ArgumentNullException>("The object 'randomTestData' must have a value", TestAgainstNull);
 
 			// No Teardown
 		}

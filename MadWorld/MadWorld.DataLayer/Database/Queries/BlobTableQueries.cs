@@ -10,7 +10,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public BlobTableQueries(MadWorldContext context)
         {
-            _context = Guard.Against.Null(context);
+            _context = Guard.Against.Null(context, nameof(context));
         }
 
         public DataResult SaveFile(BlobFile file)

@@ -11,7 +11,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public SecurityReportQueries(MadWorldContext context)
         {
-            _context = Guard.Against.Null(context);
+            _context = Guard.Against.Null(context, nameof(context));
         }
 
         public DataResult Save(SecurityReport report)

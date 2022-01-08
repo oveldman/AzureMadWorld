@@ -25,9 +25,10 @@ namespace MadWorld.Console
         #region Guard
         public static void TestGuard()
         {
-            string test = Guard.Against.Null("10");
-            RandomGuardClass test3 = Guard.Against.Null(new RandomGuardClass());
-            RandomGuardClass test4 = Guard.Against.Null<RandomGuardClass>(null);
+            RandomGuardClass testData = new RandomGuardClass();
+            RandomGuardClass test = Guard.Against.Null(testData, nameof(testData));
+            testData = null;
+            RandomGuardClass test2 = Guard.Against.Null(testData, nameof(testData));
         }
         #endregion
 
