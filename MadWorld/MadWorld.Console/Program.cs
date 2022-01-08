@@ -14,38 +14,9 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
-            IOption<int> some = Option<int>.CreateSome(20);
-            IOption<int> none = Option<int>.CreateNone();
-
-            if (some.HasValue)
-            {
-                System.Console.WriteLine($"Some: {some.GetValue()}");
-            }
-
-            System.Console.WriteLine($"None has value: {none.HasValue}");
-
-            string test = some.Match<string>(Found, NotFound);
-
-            System.Console.WriteLine($"Calc: {test}");
-
-            /*
-            IBlobManager storageManager = new BlobManager("UseDevelopmentStorage=true", "madworld");
-            string filename = "test.txt";
-            string filePath = "testpath/testpath";
-            string filebody = "tekst tekst";
-            storageManager.UploadFile(filename, filePath, filebody);
-            string result = storageManager.DownloadStringFile(filename, "");
-            */
-        }
-
-        public static string Found(int testValue)
-        {
-            return testValue.ToString();
-        }
-
-        public static string NotFound()
-        {
-            return "No Value found!";
+            //Tester.TestBlob();
+            Tester.TestGuard();
+            //Tester.TestOption();
         }
     }
 }

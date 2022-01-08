@@ -37,6 +37,7 @@
     <None Remove="CustomPackages\" />
     <None Remove="CustomPackages\Optional\" />
     <None Remove="Business\Mapper\" />
+    <None Remove="CustomPackages\Guardian\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Setup\" />
@@ -45,6 +46,7 @@
     <Folder Include="CustomPackages\" />
     <Folder Include="CustomPackages\Optional\" />
     <Folder Include="Business\Mapper\" />
+    <Folder Include="CustomPackages\Guardian\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj" />
