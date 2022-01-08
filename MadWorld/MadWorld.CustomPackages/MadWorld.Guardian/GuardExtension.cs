@@ -3,7 +3,7 @@ namespace MadWorld.Guardian
 {
 	public static class GuardExtension
 	{
-		public static T CheckNull<T>(this Guard guard, T value)
+		public static T Null<T>(this Guard guard, T value)
         {
 			if (value is null)
             {

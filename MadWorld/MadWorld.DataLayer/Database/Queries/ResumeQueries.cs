@@ -10,7 +10,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public ResumeQueries(MadWorldContext context)
         {
-            _context = context;
+            _context = Guard.Against.Null(context);
         }
 
         public IOption<Resume> GetLastResume()

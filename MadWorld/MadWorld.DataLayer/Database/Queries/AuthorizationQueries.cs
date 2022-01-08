@@ -10,7 +10,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public AuthorizationQueries(MadWorldContext context)
         {
-            _context = context;
+            _context = Guard.Against.Null(context);
         }
 
         public DataResult AddAccount(Guid azureID, string email)

@@ -25,9 +25,9 @@ namespace MadWorld.Console
         #region Guard
         public static void TestGuard()
         {
-            string test = Guard.Against.CheckNull("10");
-            RandomGuardClass test3 = Guard.Against.CheckNull(new RandomGuardClass());
-            RandomGuardClass test4 = Guard.Against.CheckNull<RandomGuardClass>(null);
+            string test = Guard.Against.Null("10");
+            RandomGuardClass test3 = Guard.Against.Null(new RandomGuardClass());
+            RandomGuardClass test4 = Guard.Against.Null<RandomGuardClass>(null);
         }
         #endregion
 
