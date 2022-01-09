@@ -3,7 +3,7 @@ namespace MadWorld.Guardian
 {
 	public static class GuardExtension
 	{
-		public static T Null<T>(this IGuardClause guard, T value, string propertyname)
+		public static T Null<T>(this IGuardClause _, T value, string propertyname)
         {
 			if (value is null)
             {
