@@ -1,5 +1,6 @@
 ﻿using System;
 using MadWorld.Console.GuardFolder;
+using MadWorld.Console.Operator;
 using MadWorld.DataLayer.AzureBlob;
 using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.Guardian;
@@ -30,6 +31,18 @@ namespace MadWorld.Console
             testData = null;
             RandomGuardClass test2 = Guard.Against.Null(testData, nameof(testData));
         }
+        #endregion
+
+        #region Operator
+        public static void TestOperator()
+        {
+            string shipName = "Primo";
+            TestShip ship = shipName;
+
+            string testShipName = ship;
+            Guid shipID = (Guid)ship;
+        }
+
         #endregion
 
         #region Option
