@@ -71,6 +71,7 @@
     <Content Remove="wwwroot\typescript\" />
     <Content Remove="wwwroot\typescript\extern\" />
     <Content Remove="wwwroot\js\" />
+    <Content Remove="wwwroot\music\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
@@ -100,6 +101,7 @@
     <Folder Include="wwwroot\js\" />
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
+    <Folder Include="wwwroot\music\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

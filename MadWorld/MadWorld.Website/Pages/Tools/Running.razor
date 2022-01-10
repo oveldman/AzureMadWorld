@@ -1,0 +1,24 @@
+﻿@page "/running"
+
+<h1>Play sound!</h1>
+
+@code {
+    bool hidden = true;
+}
+
+<div class="card">
+    <div class="card-header">
+        <button @onclick=@(()=>hidden=!hidden)>@(hidden ? "Play" : "Stop")</button>
+
+    </div>
+    <div class="card-body">
+        @if (!hidden)
+        {
+            <audio autoplay controls><source src="/music/sonar-ping.wav" /></audio>
+        }
+        else
+        {
+            <audio controls muted><source src="/music/sonar-ping.wav" /></audio>
+        }
+    </div>
+</div>

@@ -15,8 +15,8 @@ namespace MadWorld.Console
         static void Main(string[] args)
         {
             //Tester.TestBlob();
-            //Tester.TestGuard();
-            Tester.TestOperator();
+            Tester.TestGuard();
+            //Tester.TestOperator();
             //Tester.TestOption();
         }
     }
