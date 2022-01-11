@@ -7,18 +7,16 @@
 
 @code {
 
-    private string PlayerID = "running-audio";
-    private bool Init = false;
+    private readonly string PlayerID = "running-audio";
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _audioManager.Init(PlayerID);
+    }
 
     private void Play()
     {
-        if (!Init)
-        {
-            _audioManager.Init(PlayerID);
-        }
-
         _audioManager.Play();
-        Init = true;
     }
 
 }

@@ -16,7 +16,7 @@ namespace MadWorld.Website.Manager
 
         public void Init(string name)
         {
-            _JSRuntime.InvokeVoidAsync($"{JavascriptClassname}.Init", name);
+            _JSRuntime.InvokeVoidAsync($"{JavascriptClassname}.Create", name);
         }
 
         public void Play()
