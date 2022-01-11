@@ -72,6 +72,7 @@
     <Content Remove="wwwroot\typescript\extern\" />
     <Content Remove="wwwroot\js\" />
     <Content Remove="wwwroot\music\" />
+    <Content Remove="wwwroot\typescript\base\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
@@ -98,10 +99,12 @@
     <Folder Include="Pages\Admin\IPFS\" />
     <Folder Include="wwwroot\typescript\" />
     <Folder Include="wwwroot\typescript\extern\" />
+    <Folder Include="wwwroot\typescript\intern\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="wwwroot\music\" />
+    <Folder Include="wwwroot\typescript\base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
