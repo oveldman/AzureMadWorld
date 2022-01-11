@@ -1,4 +1,4 @@
-﻿import { DocumentManager } from '../base/documenthandler';
+﻿import { ApplicationHTML } from '../base/application-html';
 
 namespace AudioManager {
     class AudioPlayer {
@@ -7,7 +7,7 @@ namespace AudioManager {
 
         public Init(name: string) {
             this.Name = name;
-            this.Player = DocumentManager.GetElementByID<HTMLAudioElement>(this.Name);
+            this.Player = ApplicationHTML.DocumentManager.GetElementByID<HTMLAudioElement>(this.Name);
         }
 
         public Play() {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var documenthandler_1 = require("../base/documenthandler");
+var application_html_1 = require("../base/application-html");
 var AudioManager;
 (function (AudioManager) {
     var AudioPlayer = /** @class */ (function () {
@@ -10,7 +10,7 @@ var AudioManager;
         }
         AudioPlayer.prototype.Init = function (name) {
             this.Name = name;
-            this.Player = documenthandler_1.DocumentManager.GetElementByID(this.Name);
+            this.Player = application_html_1.ApplicationHTML.DocumentManager.GetElementByID(this.Name);
         };
         AudioPlayer.prototype.Play = function () {
             this.Player.play();
