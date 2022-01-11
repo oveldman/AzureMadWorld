@@ -8,3 +8,5 @@ docker run --name mad-world-db -e POSTGRES_PASSWORD=notmyrealpassword -e POSTGRE
 # NPM
 # First install NPM
 npm install -g azurite
+npm install -g browserify
+npm install -g typescript

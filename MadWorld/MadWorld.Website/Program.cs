@@ -111,6 +111,7 @@ namespace MadWorld.Website
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
         {
             //Managers
+            services.AddScoped<IAudioManager, AudioManager>();
             services.AddScoped<ISmartlookManager, SmartlookManager>();
 
             // Services

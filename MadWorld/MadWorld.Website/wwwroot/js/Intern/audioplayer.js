@@ -10,7 +10,9 @@ var AudioManager;
         }
         AudioPlayer.prototype.Init = function (name) {
             this.Name = name;
+            console.log(name);
             this.Player = application_html_1.ApplicationHTML.DocumentManager.GetElementByID(this.Name);
+            console.log(this.Player);
         };
         AudioPlayer.prototype.Play = function () {
             this.Player.play();

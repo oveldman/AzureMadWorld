@@ -7,7 +7,9 @@ namespace AudioManager {
 
         public Init(name: string) {
             this.Name = name;
+            console.log(name);
             this.Player = ApplicationHTML.DocumentManager.GetElementByID<HTMLAudioElement>(this.Name);
+            console.log(this.Player);
         }
 
         public Play() {

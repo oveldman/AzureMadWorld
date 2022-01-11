@@ -1,24 +1,34 @@
 ﻿@page "/running"
 
+@using MadWorld.Website.Manager.Interfaces;
+@inject IAudioManager _audioManager;
+
 <h1>Play sound!</h1>
 
 @code {
-    bool hidden = true;
+
+    private string PlayerID = "running-audio";
+    private bool Init = false;
+
+    private void Play()
+    {
+        if (!Init)
+        {
+            _audioManager.Init(PlayerID);
+        }
+
+        _audioManager.Play();
+        Init = true;
+    }
+
 }
 
 <div class="card">
     <div class="card-header">
-        <button @onclick=@(()=>hidden=!hidden)>@(hidden ? "Play" : "Stop")</button>
+        <button @onclick=(Play)>Play</button>
 
     </div>
     <div class="card-body">
-        @if (!hidden)
-        {
-            <audio autoplay controls><source src="/music/sonar-ping.wav" /></audio>
-        }
-        else
-        {
-            <audio controls muted><source src="/music/sonar-ping.wav" /></audio>
-        }
+         <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
     </div>
 </div>
