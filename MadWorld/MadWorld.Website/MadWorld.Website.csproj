@@ -64,30 +64,6 @@
     <None Remove="Manager\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\images\" />
-    <Content Remove="wwwroot\images\icons\" />
-    <Content Remove="wwwroot\typescript\Extern\" />
-    <Content Remove="wwwroot\typescript\Extern\Smartlook\" />
-    <Content Remove="wwwroot\typescript\" />
-    <Content Remove="wwwroot\typescript\extern\" />
-    <Content Remove="wwwroot\js\" />
-    <Content Remove="wwwroot\music\" />
-    <Content Remove="wwwroot\typescript\base\" />
-    <Content Remove="wwwroot\js\extern\smartlook.js.map" />
-    <Content Remove="wwwroot\js\extern\smartlook.js" />
-    <Content Remove="wwwroot\js\base\application-html.js" />
-    <Content Remove="wwwroot\js\base\application-html.js.map" />
-    <Content Remove="wwwroot\js\intern\audioplayer.js.map" />
-    <Content Remove="wwwroot\js\intern\audioplayer.js" />
-    <Content Remove="wwwroot\js\intern\audioplayer-def.js" />
-    <Content Remove="wwwroot\js\base\application-html.js.map" />
-    <Content Remove="wwwroot\js\base\application-html.js" />
-    <Content Remove="wwwroot\js\extern\smartlook.js.map" />
-    <Content Remove="wwwroot\js\extern\smartlook.js" />
-    <Content Remove="wwwroot\js\base\application-html-def.js" />
-    <Content Remove="wwwroot\js\extern\smartlook-def.js" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\icons\" />
     <Folder Include="Pages\Tools\" />
