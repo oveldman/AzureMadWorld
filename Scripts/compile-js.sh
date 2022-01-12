@@ -20,9 +20,9 @@ convert_file() {
 echo "Start the compile script"
 cd ../MadWorld/MadWorld.Website/wwwroot/js
 echo "Remove old javascript files"
-rm -r base
-rm -r extern
-rm -r intern
+rm -r base/*
+rm -r extern/*
+rm -r intern/*
 
 echo "Build typescript"
 cd ../typescript

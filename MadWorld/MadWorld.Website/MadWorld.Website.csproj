@@ -111,13 +111,16 @@
     <Folder Include="Services\Tools\" />
     <Folder Include="Pages\Admin\IPFS\" />
     <Folder Include="wwwroot\typescript\" />
+    <Folder Include="wwwroot\typescript\base\" />
     <Folder Include="wwwroot\typescript\extern\" />
     <Folder Include="wwwroot\typescript\intern\" />
     <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\js\base\" />
+    <Folder Include="wwwroot\js\extern\" />
+    <Folder Include="wwwroot\js\intern\" />
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="wwwroot\music\" />
-    <Folder Include="wwwroot\typescript\base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
