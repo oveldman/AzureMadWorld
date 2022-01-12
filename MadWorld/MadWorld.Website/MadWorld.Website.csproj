@@ -64,6 +64,7 @@
     <None Remove="Manager\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="wwwroot" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\icons\" />
     <Folder Include="Pages\Tools\" />
