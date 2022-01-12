@@ -6,7 +6,7 @@ namespace MadWorld.Website.Pages.Tools
         private readonly string PlayerID = "running-audio";
         private System.Timers.Timer StopWatchSound = new();
         private System.Timers.Timer StopWatchDisplay = new();
-        private int Time = 5000;
+        private int Time = 120000;
         private double Round = 0.5;
         private DateTime FinishedTime = DateTime.Now;
         private TimeSpan TimeLeft = new();
