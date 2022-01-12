@@ -5,42 +5,14 @@
 
 <h1>Play sound!</h1>
 
-@code {
-
-    private readonly string PlayerID = "running-audio";
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        _audioManager.Init(PlayerID);
-    }
-
-    private void Play()
-    {
-        _audioManager.Play();
-    }
-
-    private void Start()
-    {
-        Task.Run(() => RepeatPlaying());
-    }
-
-    private async Task RepeatPlaying()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            Play();
-            await Task.Delay(5000);
-        }
-    }
-
-}
-
 <div class="card">
     <div class="card-header">
         <button @onclick=(Play)>Play</button>
         <button @onclick=(Start)>Start</button>
     </div>
     <div class="card-body">
-         <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
+        <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
+        <p>@TimeLeft.Minutes @TimeLeft.Seconds</p>
+        <p>Round: @Round</p>
     </div>
 </div>
