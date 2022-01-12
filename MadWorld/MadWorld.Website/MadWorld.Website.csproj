@@ -73,6 +73,10 @@
     <Content Remove="wwwroot\js\" />
     <Content Remove="wwwroot\music\" />
     <Content Remove="wwwroot\typescript\base\" />
+    <Content Remove="wwwroot\js\extern\smartlook.js.map" />
+    <Content Remove="wwwroot\js\extern\smartlook.js" />
+    <Content Remove="wwwroot\js\base\application-html.js" />
+    <Content Remove="wwwroot\js\base\application-html.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
