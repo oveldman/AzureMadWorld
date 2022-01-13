@@ -9,7 +9,7 @@ add_tools_to_scope() {
     else 
         # Other
         # User need to specify the folders for his OS
-        exit 0
+        exit 1
     fi
 }
 
@@ -33,6 +33,11 @@ convert_file() {
 
 echo "Start the compile script"
 echo "Script executed from: ${PWD}"
+
+if [ -z "$OSTYPE" ]; then
+    echo "Exit script because pipeline"
+    exit 0
+fi
 
 START_FOLDER="../MadWorld/MadWorld.Website/wwwroot/js"
 SCRIPT_TYPE="$1"
@@ -58,6 +63,3 @@ convert_js_browser_compatible base
 convert_js_browser_compatible extern
 convert_js_browser_compatible intern
 echo "Script finished"
-
-
-
