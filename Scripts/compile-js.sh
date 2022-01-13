@@ -33,7 +33,6 @@ convert_file() {
 
 echo "Start the compile script"
 echo "Script executed from: ${PWD}"
-echo "$OSTYPE"
 
 START_FOLDER="../MadWorld/MadWorld.Website/wwwroot/js"
 SCRIPT_TYPE="$1"
