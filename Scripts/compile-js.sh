@@ -9,7 +9,7 @@ add_tools_to_scope() {
     else 
         # Other
         # User need to specify the folders for his OS
-        exit 1
+        exit 0
     fi
 }
 
