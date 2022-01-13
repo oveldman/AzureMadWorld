@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <PostBuildEvent>sh ../../../../../Scripts/compile-js.sh C#</PostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>

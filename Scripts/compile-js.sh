@@ -1,4 +1,18 @@
 #!/bash/sh
+
+# Visual Studio cannot find automatically the npm tools
+add_tools_to_scope() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        export PATH=/opt/homebrew/bin:$PATH
+        export PATH=/usr/local/bin:$PATH
+    else 
+        # Other
+        # User need to specify the folders for his OS
+        exit 1
+    fi
+}
+
 convert_js_browser_compatible() {
     FOLDER="$1/*"
 
@@ -18,7 +32,18 @@ convert_file() {
 }
 
 echo "Start the compile script"
-cd ../MadWorld/MadWorld.Website/wwwroot/js
+echo "Script executed from: ${PWD}"
+echo "$OSTYPE"
+
+START_FOLDER="../MadWorld/MadWorld.Website/wwwroot/js"
+SCRIPT_TYPE="$1"
+
+if [ $SCRIPT_TYPE == "C#" ]; then
+    START_FOLDER="../../../wwwroot/js"
+    add_tools_to_scope
+fi
+
+cd $START_FOLDER
 echo "Remove old javascript files"
 rm -r base/*
 rm -r extern/*
