@@ -17,10 +17,16 @@ namespace MadWorld.Website.Pages.Tools
 
         private void AddItems()
         {
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 5));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 0, 10));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 5));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 10));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
         }
 
         private void Test()
