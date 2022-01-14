@@ -1,61 +1,42 @@
 ﻿using System;
+using MadWorld.Website.Models.Tools.Running;
+
 namespace MadWorld.Website.Pages.Tools
 {
 	public partial class Running
 	{
         private readonly string PlayerID = "running-audio";
-        private System.Timers.Timer StopWatchSound = new();
-        private System.Timers.Timer StopWatchDisplay = new();
-        private int Time = 120000;
-        private double Round = 0.5;
-        private DateTime FinishedTime = DateTime.Now;
         private TimeSpan TimeLeft = new();
+        private int Round = 0;
 
         protected override void OnAfterRender(bool firstRender)
         {
-            _audioManager.Init(PlayerID);
+            _manager.SetAudioID(PlayerID);
+            _manager.SetUpdateScreenFunction(UpdateDisplayTime);
         }
 
-        private void Play(Object source, System.Timers.ElapsedEventArgs e)
+        private void AddItems()
         {
-            Play();
-            SetTimer();
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 5));
+            _manager.AddRound(RunType.Walk, new TimeSpan(0, 0, 10));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 5));
+            _manager.AddRound(RunType.Run, new TimeSpan(0, 0, 10));
         }
 
-        private void Play()
+        private void Test()
         {
-            _audioManager.Play();
+            _manager.GiveSound();
         }
 
         private void Start()
         {
-            SetTimer();
+            _manager.StartRun();
         }
 
-        private void SetTimer()
+        private void UpdateDisplayTime()
         {
-            StopWatchSound.Enabled = false;
-            StopWatchDisplay.Enabled = false;
-
-            StopWatchSound = new(Time);
-            StopWatchDisplay = new(200);
-            StopWatchSound.Elapsed += Play;
-            StopWatchDisplay.Elapsed += UpdateDisplayTime;
-            StopWatchSound.Enabled = true;
-            SetFinishedTime();
-            StopWatchDisplay.Enabled = true;
-        }
-
-        private void UpdateDisplayTime(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            TimeLeft = FinishedTime - DateTime.Now;
-            StateHasChanged();
-        }
-
-        private void SetFinishedTime()
-        {
-            Round += 0.5;
-            FinishedTime = DateTime.Now.AddMilliseconds(Time);
+            TimeLeft = _manager.GetTimeLeft();
+            Round = _manager.GetCurrentRound();
             StateHasChanged();
         }
     }

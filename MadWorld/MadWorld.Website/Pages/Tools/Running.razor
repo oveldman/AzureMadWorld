@@ -1,13 +1,14 @@
 ﻿@page "/running"
 
-@using MadWorld.Website.JavascriptManager.Interfaces;
-@inject IAudioManager _audioManager;
+@using MadWorld.Website.Manager.Interfaces;
+@inject IRunningManager _manager;
 
 <h1>Play sound!</h1>
 
 <div class="card">
     <div class="card-header">
-        <button @onclick=(Play)>Play</button>
+        <button @onclick=(AddItems)>Add</button>
+        <button @onclick=(Test)>Test</button>
         <button @onclick=(Start)>Start</button>
     </div>
     <div class="card-body">

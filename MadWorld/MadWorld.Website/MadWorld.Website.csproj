@@ -63,6 +63,7 @@
     <None Remove="Microsoft.TypeScript.MSBuild" />
     <None Remove="Manager\" />
     <None Remove="Manager\Interfaces\" />
+    <None Remove="Models\Tools\Running\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot" />
@@ -96,9 +97,12 @@
     <Folder Include="wwwroot\js\base\" />
     <Folder Include="wwwroot\js\extern\" />
     <Folder Include="wwwroot\js\intern\" />
+    <Folder Include="JavascriptManager\" />
+    <Folder Include="JavascriptManager\Interfaces\" />
+    <Folder Include="wwwroot\music\" />
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
-    <Folder Include="wwwroot\music\" />
+    <Folder Include="Models\Tools\Running\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

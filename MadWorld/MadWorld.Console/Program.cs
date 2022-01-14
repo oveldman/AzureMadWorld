@@ -14,8 +14,11 @@ namespace MadWorld.Console
     {
         static void Main(string[] args)
         {
+            var test = new TimeSpan(0, 0, 5);
+            var lolz = test.TotalMilliseconds;
+
             //Tester.TestBlob();
-            Tester.TestGuard();
+            //Tester.TestGuard();
             //Tester.TestOperator();
             //Tester.TestOption();
         }

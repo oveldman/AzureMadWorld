@@ -28,6 +28,10 @@ using Microsoft.AspNetCore.SignalR.Client;
 using MadWorld.Website.Services.Tools;
 using MadWorld.Website.JavascriptManager.Interfaces;
 using MadWorld.Website.JavascriptManager;
+using MadWorld.Website.Manager.Interfaces;
+using MadWorld.Website.Manager;
+using MadWorld.Shared.DesignPattern;
+using MadWorld.Website.Models.Tools.Running;
 
 namespace MadWorld.Website
 {
@@ -110,7 +114,11 @@ namespace MadWorld.Website
 
         private static void AddMadWorldClassesToScoped(IServiceCollection services)
         {
+            //Design pattern
+            services.AddScoped<Iterator<RunRound>, RunRoundIterator>();
+
             //Managers
+            services.AddScoped<IRunningManager, RunningManager>();
             services.AddScoped<IAudioManager, AudioManager>();
             services.AddScoped<ISmartlookManager, SmartlookManager>();
 
