@@ -26,8 +26,8 @@ using MadWorld.Website.State.Interface;
 using MadWorld.Website.State;
 using Microsoft.AspNetCore.SignalR.Client;
 using MadWorld.Website.Services.Tools;
-using MadWorld.Website.Manager.Interfaces;
-using MadWorld.Website.Manager;
+using MadWorld.Website.JavascriptManager.Interfaces;
+using MadWorld.Website.JavascriptManager;
 
 namespace MadWorld.Website
 {

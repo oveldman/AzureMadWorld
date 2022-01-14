@@ -108,4 +108,18 @@
   <ItemGroup>
     <None Include="wwwroot\typescript\extern\smartlook.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\base\application-html.js.map" />
+    <Content Remove="wwwroot\js\base\application-html.js" />
+    <Content Remove="wwwroot\js\base\typescript-base.js.map" />
+    <Content Remove="wwwroot\js\base\typescript-base.js" />
+    <Content Remove="wwwroot\js\extern\smartlook.js.map" />
+    <Content Remove="wwwroot\js\extern\smartlook.js" />
+    <Content Remove="wwwroot\js\intern\audioplayer.js.map" />
+    <Content Remove="wwwroot\js\intern\audioplayer.js" />
+    <Content Remove="wwwroot\js\base\application-html-def.js" />
+    <Content Remove="wwwroot\js\base\typescript-base-def.js" />
+    <Content Remove="wwwroot\js\extern\smartlook-def.js" />
+    <Content Remove="wwwroot\js\intern\audioplayer-def.js" />
+  </ItemGroup>
 </Project>

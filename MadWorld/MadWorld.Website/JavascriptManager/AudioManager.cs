@@ -1,8 +1,8 @@
 ﻿using System;
-using MadWorld.Website.Manager.Interfaces;
+using MadWorld.Website.JavascriptManager.Interfaces;
 using Microsoft.JSInterop;
 
-namespace MadWorld.Website.Manager
+namespace MadWorld.Website.JavascriptManager
 {
 	public class AudioManager : IAudioManager
 	{
