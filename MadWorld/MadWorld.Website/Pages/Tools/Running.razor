@@ -7,13 +7,33 @@
 
 <div class="card">
     <div class="card-header">
-        <button @onclick=(AddItems)>Add</button>
+        <button @onclick=(AddItems)>Add test scheme</button>
+        <button @onclick=(AddRun)>Add Run</button>
+        <button @onclick=(AddWalk)>Add Walk</button>
         <button @onclick=(Test)>Test</button>
         <button @onclick=(Start)>Start</button>
     </div>
+    @if (ShowNewRunInputs)
+    {
+        <div class="card-body">
+            <label class="form-label">Type: @RunType</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="duration"></span>
+                <input type="text" class="form-control" placeholder="Minutes" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
+            </div>
+            <button @onclick=(ConfirmRound)>Confirm this run</button>
+        </div>
+    }
     <div class="card-body">
         <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
         <p>@TimeLeft.Minutes @TimeLeft.Seconds</p>
         <p>Round: @Round</p>
+    </div>
+    <div class="card-body">
+        <p>Scheme</p>
+        @foreach (var runRound in AllRounds)
+        {
+            <p>@runRound.Type : @runRound.Duration.Minutes @runRound.Duration.Seconds</p>
+        }
     </div>
 </div>

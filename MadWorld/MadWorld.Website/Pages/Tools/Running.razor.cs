@@ -9,6 +9,11 @@ namespace MadWorld.Website.Pages.Tools
         private TimeSpan TimeLeft = new();
         private int Round = 0;
 
+        private bool ShowNewRunInputs = false;
+        private RunType RunType = RunType.None;
+        private int DurationMinutes = 0;
+        private List<RunRound> AllRounds = new();
+
         protected override void OnAfterRender(bool firstRender)
         {
             _manager.SetAudioID(PlayerID);
@@ -27,6 +32,33 @@ namespace MadWorld.Website.Pages.Tools
             _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
             _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
             _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
+        }
+
+        private void AddWalk()
+        {
+            RunType = RunType.Walk;
+            DurationMinutes = 0;
+            ShowNewRunInputs = true;
+        }
+
+        private void AddRun()
+        {
+            RunType = RunType.Run;
+            DurationMinutes = 0;
+            ShowNewRunInputs = true;
+        }
+
+        private void ConfirmRound()
+        {
+            TimeSpan duration = new TimeSpan(0, DurationMinutes, 0);
+            Guid runID = _manager.AddRound(RunType, duration);
+            ShowNewRunInputs = false;
+
+            AllRounds.Add(new RunRound {
+                ID = runID,
+                Duration = duration,
+                Type = RunType
+            });
         }
 
         private void Test()
