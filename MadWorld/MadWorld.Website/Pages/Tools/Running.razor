@@ -18,8 +18,8 @@
         <div class="card-body">
             <label class="form-label">Type: @RunType</label>
             <div class="input-group mb-3">
-                <span class="input-group-text" id="duration"></span>
-                <input type="text" class="form-control" placeholder="Minutes" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
+                <span class="input-group-text" id="duration">Minutes</span>
+                <input type="text" class="form-control" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
             </div>
             <button @onclick=(ConfirmRound)>Confirm this run</button>
         </div>
