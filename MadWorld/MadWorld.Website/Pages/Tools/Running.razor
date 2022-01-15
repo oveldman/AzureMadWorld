@@ -3,15 +3,15 @@
 @using MadWorld.Website.Manager.Interfaces;
 @inject IRunningManager _manager;
 
-<h1>Play sound!</h1>
+<h1>Running tool!</h1>
 
 <div class="card">
     <div class="card-header">
         <button @onclick=(AddItems)>Add test scheme</button>
         <button @onclick=(AddRun)>Add Run</button>
         <button @onclick=(AddWalk)>Add Walk</button>
-        <button @onclick=(Test)>Test</button>
-        <button @onclick=(Start)>Start</button>
+        <button @onclick=(Test)>Test Sound</button>
+        <button @onclick=(Start)>Start Run</button>
     </div>
     @if (ShowNewRunInputs)
     {
@@ -24,16 +24,25 @@
             <button @onclick=(ConfirmRound)>Confirm this run</button>
         </div>
     }
-    <div class="card-body">
-        <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
-        <p>@TimeLeft.Minutes @TimeLeft.Seconds</p>
-        <p>Round: @Round</p>
-    </div>
+    @if (RunStarted)
+    {
+        <div class="card-body">
+            <div class="stopwatch">
+                <h3>Round: @Round</h3>
+                <div class="circle">
+                    <span class="time" id="display">@TimeLeft.Hours.ToString("00"):@TimeLeft.Minutes.ToString("00"):@TimeLeft.Seconds.ToString("00")</span>
+                </div>
+            </div>
+        </div>
+    }
     <div class="card-body">
         <p>Scheme</p>
         @foreach (var runRound in AllRounds)
         {
             <p>@runRound.Type : @runRound.Duration.Minutes @runRound.Duration.Seconds</p>
         }
+    </div>
+    <div class="card-body visually-hidden">
+        <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
     </div>
 </div>

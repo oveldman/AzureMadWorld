@@ -9,6 +9,7 @@ namespace MadWorld.Website.Pages.Tools
         private TimeSpan TimeLeft = new();
         private int Round = 0;
 
+        private bool RunStarted = false;
         private bool ShowNewRunInputs = false;
         private RunType RunType = RunType.None;
         private int DurationMinutes = 0;
@@ -69,6 +70,7 @@ namespace MadWorld.Website.Pages.Tools
         private void Start()
         {
             _manager.StartRun();
+            RunStarted = true;
         }
 
         private void UpdateDisplayTime()
