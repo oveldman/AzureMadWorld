@@ -8,6 +8,7 @@
 [Azurite](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)\
 [Blazor application insight](https://github.com/IvanJosipovic/BlazorApplicationInsights)\
 [BlazorDownloadFile](https://github.com/arivera12/BlazorDownloadFile)\
+[BlazorLocalStorage](https://github.com/blazored/LocalStorage)\
 [BlazorMonaco](https://github.com/serdarciplak/BlazorMonaco)\
 [Bootstrap](https://getbootstrap.com/)\
 [Cdnjs](https://cdnjs.com/libraries?q=bootstrap)\
