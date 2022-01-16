@@ -7,11 +7,11 @@
 
 <div class="card">
     <div class="card-header">
-        <button @onclick=(AddItems)>Add test scheme</button>
-        <button @onclick=(AddRun)>Add Run</button>
-        <button @onclick=(AddWalk)>Add Walk</button>
-        <button @onclick=(Test)>Test Sound</button>
-        <button @onclick=(Start)>Start Run</button>
+        <button type="button" class="btn btn-success" @onclick=(AddItems)>Add test scheme</button>
+        <button type="button" class="btn btn-success" @onclick=(AddRun)>Add Run</button>
+        <button type="button" class="btn btn-success" @onclick=(AddWalk)>Add Walk</button>
+        <button type="button" class="btn btn-success" @onclick=(Test)>Test Sound</button>
+        <button type="button" class="btn btn-success" @onclick=(Start)>Start Run</button>
     </div>
     @if (ShowNewRunInputs)
     {
@@ -21,7 +21,7 @@
                 <span class="input-group-text" id="duration">Minutes</span>
                 <input type="text" class="form-control" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
             </div>
-            <button @onclick=(ConfirmRound)>Confirm this run</button>
+            <button type="button" class="btn btn-success" @onclick=(ConfirmRound)>Confirm this run</button>
         </div>
     }
     @if (RunStarted)
@@ -30,18 +30,28 @@
             <div class="stopwatch">
                 <h3>Round: @Round</h3>
                 <div class="circle">
-                    <span class="time" id="display">@TimeLeft.Hours.ToString("00"):@TimeLeft.Minutes.ToString("00"):@TimeLeft.Seconds.ToString("00")</span>
+                    <span class="time" id="display">@DisplayTimespan(TimeLeft)</span>
                 </div>
             </div>
         </div>
     }
     <div class="card-body">
-        <p>Scheme</p>
-        @foreach (var runRound in AllRounds)
-        {
-            <p>@runRound.Type : @runRound.Duration.Minutes @runRound.Duration.Seconds</p>
-        }
+        <h3>Scheme</h3>
     </div>
+    @foreach (var runRound in AllRounds)
+    {
+        <div class="col-md-4 col-xl-3">
+            <div class="card card-round @GetBlockColour(runRound.Type) order-card">
+                <div class="card-block card-block-round">
+                    <div class="row">
+                        <div class="col">
+                            <p>@runRound.Type : @DisplayTimespan(runRound.Duration)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     <div class="card-body visually-hidden">
         <audio id="@PlayerID" controls><source src="/music/sonar-ping.wav" /></audio>
     </div>

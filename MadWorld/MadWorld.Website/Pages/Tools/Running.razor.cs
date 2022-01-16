@@ -79,6 +79,19 @@ namespace MadWorld.Website.Pages.Tools
             Round = _manager.GetCurrentRound();
             StateHasChanged();
         }
+
+        private string DisplayTimespan(TimeSpan time)
+        {
+            return $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00}";
+        }
+
+        private string GetBlockColour(RunType runType) => runType switch
+        {
+            RunType.Run => "bg-c-green",
+            RunType.Walk => "bg-c-blue",
+            RunType.None => "bg-c-yellow",
+            _ => "bg-c-yellow"
+        };
     }
 }
 
