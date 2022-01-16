@@ -32,6 +32,7 @@ using MadWorld.Website.Manager.Interfaces;
 using MadWorld.Website.Manager;
 using MadWorld.Shared.DesignPattern;
 using MadWorld.Website.Models.Tools.Running;
+using Blazored.LocalStorage;
 
 namespace MadWorld.Website
 {
@@ -109,6 +110,7 @@ namespace MadWorld.Website
             );
 
             builder.Services.AddBlazorDownloadFile();
+            builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddBlazorTable();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using MadWorld.Website.Models.Tools.Running;
+using MadWorld.Website.Settings;
 
 namespace MadWorld.Website.Pages.Tools
 {
@@ -82,6 +83,11 @@ namespace MadWorld.Website.Pages.Tools
         {
             _manager.StartRun();
             RunStarted = true;
+        }
+
+        private async Task SaveScheme()
+        {
+            await _localStorage.SetItemAsync(LocalStorageNames.RunningRounds,  AllRounds);
         }
 
         private void UpdateDisplayTime()

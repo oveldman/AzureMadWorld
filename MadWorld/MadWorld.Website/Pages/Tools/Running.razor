@@ -1,6 +1,8 @@
 ﻿@page "/running"
 
+@using Blazored.LocalStorage;
 @using MadWorld.Website.Manager.Interfaces;
+@inject ILocalStorageService _localStorage;
 @inject IRunningManager _manager;
 
 <h1>Running tool!</h1>
@@ -8,13 +10,14 @@
 <div class="card">
     @if (!RunStarted)
     {
-        <div class="card-header">
-            <button type="button" class="btn btn-success" @onclick=(AddItems)>Add test scheme</button>
-            <button type="button" class="btn btn-success" @onclick=(AddRun)>Add Run</button>
-            <button type="button" class="btn btn-success" @onclick=(AddWalk)>Add Walk</button>
-            <button type="button" class="btn btn-success" @onclick=(Test)>Test Sound</button>
-            <button type="button" class="btn btn-success" @onclick=(Start)>Start Run</button>
-        </div>
+    <div class="card-header">
+        <button type="button" class="btn btn-success" @onclick=(AddItems)>Add test scheme</button>
+        <button type="button" class="btn btn-success" @onclick=(AddRun)>Add Run</button>
+        <button type="button" class="btn btn-success" @onclick=(AddWalk)>Add Walk</button>
+        <button type="button" class="btn btn-success" @onclick=(Test)>Test Sound</button>
+        <button type="button" class="btn btn-success" @onclick=(SaveScheme)>Save Scheme</button>
+        <button type="button" class="btn btn-success" @onclick=(Start)>Start Run</button>
+    </div>
     }
     @if (ShowNewRunInputs)
     {
