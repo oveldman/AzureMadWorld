@@ -51,6 +51,12 @@ namespace MadWorld.Website.Pages.Tools
 
         private void ConfirmRound()
         {
+            if (!IsDurationValid())
+            {
+                DurationMinutes = 0;
+                return;
+            }
+
             TimeSpan duration = new TimeSpan(0, DurationMinutes, 0);
             Guid runID = _manager.AddRound(RunType, duration);
             ShowNewRunInputs = false;
@@ -60,6 +66,11 @@ namespace MadWorld.Website.Pages.Tools
                 Duration = duration,
                 Type = RunType
             });
+        }
+
+        private bool IsDurationValid()
+        {
+            return DurationMinutes > 0;
         }
 
         private void Test()

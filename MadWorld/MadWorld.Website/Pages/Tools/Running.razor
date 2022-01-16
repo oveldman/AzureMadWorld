@@ -6,20 +6,23 @@
 <h1>Running tool!</h1>
 
 <div class="card">
-    <div class="card-header">
-        <button type="button" class="btn btn-success" @onclick=(AddItems)>Add test scheme</button>
-        <button type="button" class="btn btn-success" @onclick=(AddRun)>Add Run</button>
-        <button type="button" class="btn btn-success" @onclick=(AddWalk)>Add Walk</button>
-        <button type="button" class="btn btn-success" @onclick=(Test)>Test Sound</button>
-        <button type="button" class="btn btn-success" @onclick=(Start)>Start Run</button>
-    </div>
+    @if (!RunStarted)
+    {
+        <div class="card-header">
+            <button type="button" class="btn btn-success" @onclick=(AddItems)>Add test scheme</button>
+            <button type="button" class="btn btn-success" @onclick=(AddRun)>Add Run</button>
+            <button type="button" class="btn btn-success" @onclick=(AddWalk)>Add Walk</button>
+            <button type="button" class="btn btn-success" @onclick=(Test)>Test Sound</button>
+            <button type="button" class="btn btn-success" @onclick=(Start)>Start Run</button>
+        </div>
+    }
     @if (ShowNewRunInputs)
     {
         <div class="card-body">
             <label class="form-label">Type: @RunType</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="duration">Minutes</span>
-                <input type="text" class="form-control" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
+                <input type="number" min="0" class="form-control" aria-label="Minutes" aria-describedby="duration" @bind="DurationMinutes">
             </div>
             <button type="button" class="btn btn-success" @onclick=(ConfirmRound)>Confirm this run</button>
         </div>
