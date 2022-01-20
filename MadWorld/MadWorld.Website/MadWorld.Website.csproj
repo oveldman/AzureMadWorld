@@ -66,6 +66,8 @@
     <None Remove="Manager\Interfaces\" />
     <None Remove="Models\Tools\Running\" />
     <None Remove="Blazored.LocalStorage" />
+    <None Remove="Manager\MonacoEditorManager\" />
+    <None Remove="Pages\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot" />
@@ -105,6 +107,8 @@
     <Folder Include="Manager\" />
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="Models\Tools\Running\" />
+    <Folder Include="Manager\MonacoEditorManager\" />
+    <Folder Include="Pages\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">

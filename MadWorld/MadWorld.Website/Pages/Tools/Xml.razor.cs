@@ -8,20 +8,21 @@ namespace MadWorld.Website.Pages.Tools
 {
     public partial class Xml
     {
-        private string Result = string.Empty;
         private int TotalValidations = 0;
 
-        private MonacoEditor _editor { get; set; }
-        private string[] decorationIds;
+        protected override void OnInitialized()
+        {
+            Lanuage = "xml";
+        }
 
         private async Task FormatXml()
         {
             try
             {
-                string xmlText = await GetXmlFromEditor();
+                string xmlText = await GetValueFromEditor();
                 XDocument doc = XDocument.Parse(xmlText);
                 string xmlFormated = doc.ToString();
-                await SetXmlInEditor(xmlFormated);
+                await SetValueInEditor(xmlFormated);
             }
             catch (Exception)
             {
@@ -37,7 +38,7 @@ namespace MadWorld.Website.Pages.Tools
 
             try
             {
-                string xmlText = await GetXmlFromEditor();
+                string xmlText = await GetValueFromEditor();
                 new XmlDocument().LoadXml(xmlText);
                 Result = $"Xml is Valid ({TotalValidations})";
             }
@@ -48,72 +49,9 @@ namespace MadWorld.Website.Pages.Tools
             }
         }
 
-        private async Task<string> GetXmlFromEditor()
-        {
-            return await _editor.GetValue();
-        }
-
-        private async Task SetXmlInEditor(string xml)
-        {
-            await _editor.SetValue(xml);
-        }
-
-        private void ShowError(string errorMessage)
-        {
-            Result = errorMessage;
-        }
-
         private void ShowError(XmlException ex)
         {
             Result = ex.Message;
-        }
-
-        private async Task SetLine(bool showLine, int linenumber)
-        {
-            ModelDeltaDecoration[] newDecorations = new ModelDeltaDecoration[0];
-
-            if (showLine)
-            {
-                newDecorations = new ModelDeltaDecoration[]
-                {
-                new ModelDeltaDecoration
-                {
-                    Range = new BlazorMonaco.Range(linenumber,1,linenumber,1),
-                    Options = new ModelDecorationOptions
-                    {
-                        IsWholeLine = true,
-                        ClassName = "decorationContentClass",
-                        GlyphMarginClassName = "decorationGlyphMarginClass"
-                    }
-                }
-                    };
-
-                await _editor.RevealLineInCenter(linenumber, ScrollType.Smooth);
-            }
-
-            decorationIds = await _editor.DeltaDecorations(decorationIds, newDecorations);
-            // You can now use 'decorationIds' to change or remove the decorations
-        }
-
-        private async Task EditorOnDidInit(MonacoEditorBase editor)
-        {
-            await SetLine(false, 0);
-        }
-
-        private StandaloneEditorConstructionOptions EditorConstructionOptions(MonacoEditor editor)
-        {
-            return new StandaloneEditorConstructionOptions
-            {
-                Language = "xml",
-                GlyphMargin = true,
-                Theme = "vs-dark",
-                Value = string.Empty
-            };
-        }
-
-        private void OnContextMenu(EditorMouseEvent eventArg)
-        {
-            Console.WriteLine("OnContextMenu : " + System.Text.Json.JsonSerializer.Serialize(eventArg));
         }
     }
 }
