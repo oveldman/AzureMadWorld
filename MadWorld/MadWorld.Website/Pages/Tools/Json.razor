@@ -1,4 +1,4 @@
-﻿@page "/validator/Json"
+﻿@page "/validator/JSON"
 @inherits TextValidatorBase
 
 @using MadWorld.Website.Pages.Base;
@@ -7,7 +7,8 @@
 
 <MonacoEditor @ref="_editor" Id="json-editor" CssClass="editorJSON" ConstructionOptions="EditorConstructionOptions" OnDidInit="EditorOnDidInit" OnContextMenu="OnContextMenu" />
 
-<button type="button" class="btn btn-success" @onclick="FormatJson">Format JSON</button>
+<button type="button" class="btn btn-success" @onclick="FormatBody">Format JSON</button>
+<button type="button" class="btn btn-success" @onclick="ValidateBody">Validate JSON</button>
 <h3>Result</h3>
 <p>@Result</p>
 

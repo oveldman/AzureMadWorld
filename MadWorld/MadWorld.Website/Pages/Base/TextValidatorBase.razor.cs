@@ -7,10 +7,59 @@ namespace MadWorld.Website.Pages.Base
 	public partial class TextValidatorBase : ComponentBase
 	{
         protected string Lanuage = "None";
-    	protected string Result = string.Empty;
+        protected int TotalValidations = 0;
+        protected string Result = string.Empty;
 
 		protected MonacoEditor _editor { get; set; }
 		protected string[] decorationIds;
+
+        protected async Task FormatBody()
+        {
+            try
+            {
+                string editorValue = await GetValueFromEditor();
+                string formatedValue = FormatValue(editorValue);
+                await SetValueInEditor(formatedValue);
+            }
+            catch (Exception)
+            {
+                ShowError($"{Lanuage} is not valid");
+            }
+        }
+
+        protected async Task ValidateBody()
+        {
+            Result = string.Empty;
+            await SetLine(false, 0);
+            TotalValidations++;
+            string editorValue = await GetValueFromEditor();
+
+            if (await TryValidateValue(editorValue))
+            {
+                Result = $"{Lanuage} is Valid ({TotalValidations})";
+            }
+        }
+
+        protected virtual async Task<bool> TryValidateValue(string value)
+        {
+            return true;
+        }
+
+        protected virtual string FormatValue(string baseText)
+        {
+            return baseText;
+        }
+
+        protected void ShowError(Exception ex)
+        {
+            Result = ex.Message;
+        }
+
+        protected async Task ShowError(Exception ex, int lineNumber)
+        {
+            await SetLine(true, lineNumber);
+            ShowError(ex);
+        }
 
         protected void ShowError(string errorMessage)
 		{

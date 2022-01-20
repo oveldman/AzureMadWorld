@@ -11,19 +11,30 @@ namespace MadWorld.Website.Pages.Tools
             Lanuage = "json";
         }
 
-        private async Task FormatJson()
+        protected override string FormatValue(string jsonText)
+        {
+            var jsonDoc = JsonDocument.Parse(jsonText);
+            return JsonSerializer.Serialize(jsonDoc, new JsonSerializerOptions { WriteIndented = true });
+        }
+
+        protected override async Task<bool> TryValidateValue(string value)
         {
             try
             {
-                string jsonText = await GetValueFromEditor();
-                var jDoc = JsonDocument.Parse(jsonText);
-                string jsonFormated = JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true });
-                await SetValueInEditor(jsonFormated);
+                JsonDocument.Parse(value);
+                return true;
             }
-            catch (Exception)
+            catch (JsonException jsonException)
             {
-                ShowError("Json is not valid");
+                await ShowError(jsonException, GetLineNumber(jsonException));
+                return false;
             }
+        }
+
+        private int GetLineNumber(JsonException jsonException)
+        {
+            if (!jsonException.LineNumber.HasValue) return 0;
+            return Int32.TryParse(jsonException.LineNumber.ToString(), out int linenumber) ? linenumber : 0;
         }
     }
 }

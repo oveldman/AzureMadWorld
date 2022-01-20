@@ -8,50 +8,29 @@ namespace MadWorld.Website.Pages.Tools
 {
     public partial class Xml
     {
-        private int TotalValidations = 0;
-
         protected override void OnInitialized()
         {
             Lanuage = "xml";
         }
 
-        private async Task FormatXml()
+        protected override string FormatValue(string xmlText)
         {
-            try
-            {
-                string xmlText = await GetValueFromEditor();
-                XDocument doc = XDocument.Parse(xmlText);
-                string xmlFormated = doc.ToString();
-                await SetValueInEditor(xmlFormated);
-            }
-            catch (Exception)
-            {
-                ShowError("Xml is not valid");
-            }
+            XDocument doc = XDocument.Parse(xmlText);
+            return doc.ToString();
         }
 
-        private async Task ValidateXML()
+        protected override async Task<bool> TryValidateValue(string value)
         {
-            Result = string.Empty;
-            await SetLine(false, 0);
-            TotalValidations++;
-
             try
             {
-                string xmlText = await GetValueFromEditor();
-                new XmlDocument().LoadXml(xmlText);
-                Result = $"Xml is Valid ({TotalValidations})";
+                new XmlDocument().LoadXml(value);
+                return true;
             }
             catch (XmlException xmlException)
             {
-                await SetLine(true, xmlException.LineNumber);
-                ShowError(xmlException);
+                await ShowError(xmlException, xmlException.LineNumber);
+                return false;
             }
-        }
-
-        private void ShowError(XmlException ex)
-        {
-            Result = ex.Message;
         }
     }
 }
