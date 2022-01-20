@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 using BlazorMonaco;
 
 namespace MadWorld.Website.Pages.Tools
@@ -13,6 +14,21 @@ namespace MadWorld.Website.Pages.Tools
         private MonacoEditor _editor { get; set; }
         private string[] decorationIds;
 
+        private async Task FormatXml()
+        {
+            try
+            {
+                string xmlText = await GetXmlFromEditor();
+                XDocument doc = XDocument.Parse(xmlText);
+                string xmlFormated = doc.ToString();
+                await SettXmlFromEditor(xmlFormated);
+            }
+            catch (Exception)
+            {
+                ShowError("Xml is not valid");
+            }
+        }
+
         private async Task ValidateXML()
         {
             Result = string.Empty;
@@ -21,7 +37,7 @@ namespace MadWorld.Website.Pages.Tools
 
             try
             {
-                string xmlText = await _editor.GetValue();
+                string xmlText = await GetXmlFromEditor();
                 new XmlDocument().LoadXml(xmlText);
                 Result = $"Xml is Valid ({TotalValidations})";
             }
@@ -30,6 +46,21 @@ namespace MadWorld.Website.Pages.Tools
                 await SetLine(true, xmlException.LineNumber);
                 ShowError(xmlException);
             }
+        }
+
+        private async Task<string> GetXmlFromEditor()
+        {
+            return await _editor.GetValue();
+        }
+
+        private async Task SettXmlFromEditor(string xml)
+        {
+            await _editor.SetValue(xml);
+        }
+
+        private void ShowError(string errorMessage)
+        {
+            Result = errorMessage;
         }
 
         private void ShowError(XmlException ex)
