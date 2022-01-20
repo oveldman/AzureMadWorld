@@ -1,0 +1,10 @@
+﻿@page "/validator/Json"
+
+<h3>JSON</h3>
+
+<MonacoEditor @ref="_editor" Id="json-editor" CssClass="editorJSON" ConstructionOptions="EditorConstructionOptions" OnDidInit="EditorOnDidInit" OnContextMenu="OnContextMenu" />
+
+<button type="button" class="btn btn-success" @onclick="FormatJson">Format JSON</button>
+<h3>Result</h3>
+<p>@Result</p>
+

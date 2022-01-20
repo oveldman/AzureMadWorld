@@ -1,27 +1,29 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
+using System.Text.Json;
 using BlazorMonaco;
 
 namespace MadWorld.Website.Pages.Tools
 {
-    public partial class Xml
+    public partial class Json
     {
         private string Result = string.Empty;
-        private int TotalValidations = 0;
 
         private MonacoEditor _editor { get; set; }
         private string[] decorationIds;
 
-        private async Task FormatXml()
+        private async Task EditorOnDidInit(MonacoEditorBase editor)
+        {
+            await SetLine(false, 0);
+        }
+
+        private async Task FormatJson()
         {
             try
             {
-                string xmlText = await GetXmlFromEditor();
-                XDocument doc = XDocument.Parse(xmlText);
-                string xmlFormated = doc.ToString();
-                await SetXmlInEditor(xmlFormated);
+                string jsonText = await GetJsonFromEditor();
+                var jDoc = JsonDocument.Parse(jsonText);
+                string jsonFormated = JsonSerializer.Serialize(jDoc, new JsonSerializerOptions { WriteIndented = true });
+                await SetJsonInEditor(jsonFormated);
             }
             catch (Exception)
             {
@@ -29,33 +31,14 @@ namespace MadWorld.Website.Pages.Tools
             }
         }
 
-        private async Task ValidateXML()
-        {
-            Result = string.Empty;
-            await SetLine(false, 0);
-            TotalValidations++;
-
-            try
-            {
-                string xmlText = await GetXmlFromEditor();
-                new XmlDocument().LoadXml(xmlText);
-                Result = $"Xml is Valid ({TotalValidations})";
-            }
-            catch (XmlException xmlException)
-            {
-                await SetLine(true, xmlException.LineNumber);
-                ShowError(xmlException);
-            }
-        }
-
-        private async Task<string> GetXmlFromEditor()
+        private async Task<string> GetJsonFromEditor()
         {
             return await _editor.GetValue();
         }
 
-        private async Task SetXmlInEditor(string xml)
+        private async Task SetJsonInEditor(string json)
         {
-            await _editor.SetValue(xml);
+            await _editor.SetValue(json);
         }
 
         private void ShowError(string errorMessage)
@@ -63,9 +46,9 @@ namespace MadWorld.Website.Pages.Tools
             Result = errorMessage;
         }
 
-        private void ShowError(XmlException ex)
+        private void OnContextMenu(EditorMouseEvent eventArg)
         {
-            Result = ex.Message;
+            Console.WriteLine("OnContextMenu : " + System.Text.Json.JsonSerializer.Serialize(eventArg));
         }
 
         private async Task SetLine(bool showLine, int linenumber)
@@ -95,25 +78,16 @@ namespace MadWorld.Website.Pages.Tools
             // You can now use 'decorationIds' to change or remove the decorations
         }
 
-        private async Task EditorOnDidInit(MonacoEditorBase editor)
-        {
-            await SetLine(false, 0);
-        }
-
         private StandaloneEditorConstructionOptions EditorConstructionOptions(MonacoEditor editor)
         {
             return new StandaloneEditorConstructionOptions
             {
-                Language = "xml",
+                Language = "json",
                 GlyphMargin = true,
                 Theme = "vs-dark",
                 Value = string.Empty
             };
         }
-
-        private void OnContextMenu(EditorMouseEvent eventArg)
-        {
-            Console.WriteLine("OnContextMenu : " + System.Text.Json.JsonSerializer.Serialize(eventArg));
-        }
     }
 }
+
