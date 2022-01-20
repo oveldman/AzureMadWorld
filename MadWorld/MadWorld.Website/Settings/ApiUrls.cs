@@ -1,10 +1,10 @@
 ﻿using System;
 namespace MadWorld.Website.Settings
 {
-    public class ApiUrls
+    public static class ApiUrls
     {
-        public static readonly string MadWorldApi = "MadWorld.Website.ServerAPI";
-        public static readonly string MadWorldApiAuthorization = "MadWorld.Website.ServerAPI.Authorization";
-        public static readonly string MadWorldApiAnonymous = "MadWorld.Website.ServerAPI.Anonymous";
+        public const string MadWorldApi = "MadWorld.Website.ServerAPI";
+        public const string MadWorldApiAuthorization = "MadWorld.Website.ServerAPI.Authorization";
+        public const string MadWorldApiAnonymous = "MadWorld.Website.ServerAPI.Anonymous";
     }
 }
