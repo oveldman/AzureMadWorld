@@ -40,7 +40,14 @@ namespace MadWorld.Website
     {
         private static string ApiUrl;
         private static string ApiVersion;
-        private static string ConnectionInstrumentationKey;
+        private static string InstrumentationKey;
+        private static string ConnectionInstrumentationKey
+        {
+            get
+            {
+                return $"InstrumentationKey={InstrumentationKey};";
+            }
+        }
 
         public static async Task Main(string[] args)
         {
@@ -99,6 +106,7 @@ namespace MadWorld.Website
         {
             builder.Services.AddBlazorApplicationInsights(async applicationInsights =>
             {
+                await applicationInsights.SetInstrumentationKey(InstrumentationKey);
                 await applicationInsights.SetConnectionString(ConnectionInstrumentationKey);
                 await applicationInsights.LoadAppInsights();
                 await applicationInsights.TrackPageView();
@@ -141,7 +149,7 @@ namespace MadWorld.Website
         {
             ApiUrl = configuration["ApiUrl"];
             ApiVersion = configuration["ApiVersion"];
-            ConnectionInstrumentationKey = $"InstrumentationKey={configuration["Azure:InstrumentationKey"]};";
+            InstrumentationKey = configuration["Azure:InstrumentationKey"];
         }
     }
 }
