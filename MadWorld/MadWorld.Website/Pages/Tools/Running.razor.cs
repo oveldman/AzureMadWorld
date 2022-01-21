@@ -85,6 +85,14 @@ namespace MadWorld.Website.Pages.Tools
             RunStarted = true;
         }
 
+        private async Task LoadScheme()
+        {
+            var allRounds = await _localStorage.GetItemAsync<List<RunRound>>(LocalStorageNames.RunningRounds);
+            if (allRounds == null) return;
+            AllRounds = allRounds;
+            _manager.AddRounds(allRounds);
+        }
+
         private async Task SaveScheme()
         {
             await _localStorage.SetItemAsync(LocalStorageNames.RunningRounds,  AllRounds);

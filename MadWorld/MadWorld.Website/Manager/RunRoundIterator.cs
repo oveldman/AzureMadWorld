@@ -17,12 +17,18 @@ namespace MadWorld.Website.Manager
 
         public void Add(RunRound item)
         {
-            if (HasStarted)
-            {
-                throw new IteratorStartedException(nameof(RunRoundIterator));
-            }
+            CheckRunStartedAndThrowException();
 
             Runs.Add(item);
+        }
+
+        public void Add(List<RunRound> items)
+        {
+            if (items == null) return;
+
+            CheckRunStartedAndThrowException();
+
+            Runs.AddRange(items);
         }
 
         public bool HasNext()
@@ -42,6 +48,14 @@ namespace MadWorld.Website.Manager
         {
             Postition = 0;
             HasStarted = false;
+        }
+
+        private void CheckRunStartedAndThrowException()
+        {
+            if (HasStarted)
+            {
+                throw new IteratorStartedException(nameof(RunRoundIterator));
+            }
         }
     }
 }

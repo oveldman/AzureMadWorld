@@ -131,6 +131,11 @@ namespace MadWorld.Website.Manager
         {
             UpdateScreen = updateScreenFunction;
         }
+
+        public void AddRounds(List<RunRound> rounds)
+        {
+            _roundIterator.Add(rounds);
+        }
     }
 }
 
