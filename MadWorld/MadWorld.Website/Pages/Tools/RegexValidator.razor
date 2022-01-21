@@ -9,7 +9,14 @@
         <input type="text" class="form-control" id="expression" @bind="Expression" />
         <b>Entry to test against :</b>
         <input type="text" class="form-control" id="text-match" @bind="InputToMatch" />
-        <button type="button" class="btn btn-primary" @onclick="MathExpression">Test Match</button>
+        <button type="button" class="btn btn-primary" @onclick="TryMathExpression">Test Match</button>
+        @if (ShowError)
+        {
+            <div class="alert alert-danger" role="alert">
+                The regex expression is not valid
+            </div>
+        }
+
         @if (ShowResult)
         {
             @if (Succeed)
@@ -27,16 +34,17 @@
         }
 
         <p>
-        @foreach (var part in RegexParts) {
-            @if (part.Valid)
+            @foreach (var part in RegexParts)
             {
-                <span class="highlight">@part.Value</span>
+                @if (part.Valid)
+                {
+                    <span class="highlight">@part.Value</span>
+                }
+                else
+                {
+                    @part.Value
+                }
             }
-            else
-            {
-                @part.Value
-            }
-        }
         </p>
     </div>
 </div>

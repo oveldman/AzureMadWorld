@@ -7,6 +7,7 @@ namespace MadWorld.Website.Pages.Tools
 {
     public partial class RegexValidator
     {
+        private bool ShowError { get; set; }
         private bool ShowResult { get; set; }
         private bool Succeed { get; set; }
         private string Expression { get; set; } = string.Empty;
@@ -14,15 +15,27 @@ namespace MadWorld.Website.Pages.Tools
         private int TotalMatches { get; set; }
         private List<RegexPart> RegexParts { get; set; } = new();
 
-        public void MathExpression()
+        public void TryMathExpression()
         {
             Reset();
+
+            try
+            {
+                MathExpression();
+            }
+            catch (Exception)
+            {
+                ShowError = true;
+            }
+        }
+
+        private void MathExpression()
+        {
             Regex regex = new(Expression);
             Succeed = regex.IsMatch(InputToMatch);
             MatchCollection collection = regex.Matches(InputToMatch);
             TotalMatches = collection.Count;
             AddMatchToPage(collection, InputToMatch);
-
             ShowResult = true;
         }
 
@@ -76,6 +89,7 @@ namespace MadWorld.Website.Pages.Tools
         private void Reset()
         {
             RegexParts = new();
+            ShowError = false;
         }
     }
 }
