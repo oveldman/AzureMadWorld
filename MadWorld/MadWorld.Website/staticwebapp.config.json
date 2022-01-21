@@ -1,6 +1,6 @@
 ﻿{
   "globalHeaders": {
-    "content-security-policy": "default-src: 'self';  script-src: 'self' https://js.monitor.azure.com; upgrade-insecure-requests; frame-ancestors 'self'",
+    "content-security-policy": "default-src 'self';  script-src 'self' https://js.monitor.azure.com; upgrade-insecure-requests; frame-ancestors 'self'",
     "X-Frame-Options": "SAMEORIGIN",
     "X-Permitted-Cross-Domain-Policies": "none",
     "Referrer-Policy": "same-origin",
