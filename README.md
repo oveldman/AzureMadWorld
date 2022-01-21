@@ -23,7 +23,6 @@
 [Libman autorestore](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-6.0#restore-files-during-build)\
 [Open Iconic](https://useiconic.com/open)\
 [Optional](https://github.com/nlkl/Optional)\
-[Security Headers](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)\
 [Smartlook](https://www.smartlook.com/)\
 [Typescript](https://docs.microsoft.com/en-us/visualstudio/javascript/compile-typescript-code-npm?view=vs-2022)
 
@@ -35,3 +34,7 @@
 ### IPFS
 [Create Gateway](https://rossbulat.medium.com/introduction-to-ipfs-set-up-nodes-on-your-network-with-http-gateways-10e21ea689a4)\
 [Setup IPFS](https://michalzalecki.com/set-up-ipfs-node-on-the-server/)
+
+### Security
+[Permission Header Generator](https://www.permissionspolicy.com/)\
+[Security Headers](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)

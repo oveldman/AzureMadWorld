@@ -10,3 +10,6 @@ docker run --name mad-world-db -e POSTGRES_PASSWORD=notmyrealpassword -e POSTGRE
 npm install -g azurite
 npm install -g browserify
 npm install -g typescript
+
+# Dotnet Tools
+dotnet tool install -g Microsoft.Web.LibraryManager.Cli
