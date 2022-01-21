@@ -23,7 +23,7 @@
             ld: -1,
             crossOrigin: "anonymous",
             cfg: {
-                connectionString: "InstrumentationKey=0a5c1e6c-0422-4f63-955d-0b60b2e5477d;",
+                instrumentationKey: "",
                 disableFetchTracking: false,
                 enableCorsCorrelation: true,
                 enableRequestHeaderTracking: true,
@@ -234,7 +234,6 @@
     <!-- Extern packages -->
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="js/extern/smartlook-def.js" type="application/javascript"></script>
-    <script src="_content/BlazorApplicationInsights/JsInterop.js"></script>
     <script src="_content/BlazorMonaco/lib/monaco-editor/min/vs/loader.js"></script>
     <script>require.config({ paths: { 'vs': '_content/BlazorMonaco/lib/monaco-editor/min/vs' } });</script>
     <script src="_content/BlazorMonaco/lib/monaco-editor/min/vs/editor/editor.main.js"></script>
@@ -245,6 +244,9 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
     <script src="_content/Microsoft.Authentication.WebAssembly.Msal/AuthenticationService.js"></script>
+
+    <!-- Extern packages must after app packages -->
+    <script src="_content/BlazorApplicationInsights/JsInterop.js"></script>
 
     <!-- Intern packages -->
     <script src="js/intern/audioplayer-def.js" type="application/javascript"></script>

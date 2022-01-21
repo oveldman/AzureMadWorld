@@ -41,13 +41,6 @@ namespace MadWorld.Website
         private static string ApiUrl;
         private static string ApiVersion;
         private static string InstrumentationKey;
-        private static string ConnectionInstrumentationKey
-        {
-            get
-            {
-                return $"InstrumentationKey={InstrumentationKey};";
-            }
-        }
 
         public static async Task Main(string[] args)
         {
@@ -104,13 +97,9 @@ namespace MadWorld.Website
 
         private static void AddExternPackages(WebAssemblyHostBuilder builder)
         {
-            Console.WriteLine(InstrumentationKey);
-            Console.WriteLine(ConnectionInstrumentationKey);
-
             builder.Services.AddBlazorApplicationInsights(async applicationInsights =>
             {
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
-                await applicationInsights.SetConnectionString(ConnectionInstrumentationKey);
                 await applicationInsights.LoadAppInsights();
                 await applicationInsights.TrackPageView();
             });
