@@ -104,6 +104,9 @@ namespace MadWorld.Website
 
         private static void AddExternPackages(WebAssemblyHostBuilder builder)
         {
+            Console.WriteLine(InstrumentationKey);
+            Console.WriteLine(ConnectionInstrumentationKey);
+
             builder.Services.AddBlazorApplicationInsights(async applicationInsights =>
             {
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
