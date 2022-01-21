@@ -101,6 +101,7 @@ namespace MadWorld.Website
             {
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
                 await applicationInsights.LoadAppInsights();
+                await applicationInsights.TrackPageView();
             });
 
             builder.Services.AddScoped<HubConnection>(_ =>
