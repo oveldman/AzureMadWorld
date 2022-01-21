@@ -6,7 +6,7 @@
     "content-security-policy": "default-src 'self' https://api.mad-world.nl; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.monitor.azure.com https://dc.services.visualstudio.com https://rec.smartlook.com; connect-src 'self' wss://api.mad-world.nl https://api.mad-world.nl https://dc.services.visualstudio.com https://manager.eu.smartlook.cloud; upgrade-insecure-requests; frame-ancestors 'self'",
     "X-Frame-Options": "SAMEORIGIN",
     "X-Permitted-Cross-Domain-Policies": "none",
-    "Referrer-Policy": "same-origin",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
     "X-Content-Type-Options": "nosniff",
     "x-xss-protection": "1; mode=block",
     "Permissions-Policy": ""
