@@ -36,5 +36,6 @@
 [Setup IPFS](https://michalzalecki.com/set-up-ipfs-node-on-the-server/)
 
 ### Security
+[Header scan](https://securityheaders.com/?q=www.mad-world.nl&hide=on&followRedirects=on)\
 [Permission Header Generator](https://www.permissionspolicy.com/)\
 [Security Headers](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)
