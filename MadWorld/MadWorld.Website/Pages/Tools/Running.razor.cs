@@ -22,20 +22,6 @@ namespace MadWorld.Website.Pages.Tools
             _manager.SetUpdateScreenFunction(UpdateDisplayTime);
         }
 
-        private void AddItems()
-        {
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Run, new TimeSpan(0, 2, 0));
-            _manager.AddRound(RunType.Walk, new TimeSpan(0, 2, 0));
-        }
-
         private void AddWalk()
         {
             RunType = RunType.Walk;
