@@ -21,8 +21,15 @@
             src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
             ld: -1,
             crossOrigin: "anonymous",
-            cfg: {}
-        });</script>
+                cfg: {
+                    instrumentationKey: "", 
+                    disableFetchTracking: false,
+                    enableCorsCorrelation: true,
+                    enableRequestHeaderTracking: true,
+                    enableResponseHeaderTracking: true,
+                }
+            });
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
