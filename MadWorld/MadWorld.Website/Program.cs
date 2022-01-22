@@ -91,7 +91,7 @@ namespace MadWorld.Website
             builder.Services.AddScoped<AuthenticationStateProvider, RemoteAuthenticationServiceMW>();
 
             AddExternPackages(builder);
-            AddMadWorldClassesToScoped(builder.Services);
+            builder.Services.AddInternalClasses();
 
             await builder.Build().RunAsync();
         }
@@ -113,28 +113,6 @@ namespace MadWorld.Website
             builder.Services.AddBlazorDownloadFile();
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddBlazorTable();
-        }
-
-        private static void AddMadWorldClassesToScoped(IServiceCollection services)
-        {
-            //Design pattern
-            services.AddScoped<Iterator<RunRound>, RunRoundIterator>();
-
-            //Managers
-            services.AddScoped<IRunningManager, RunningManager>();
-            services.AddScoped<IAudioManager, AudioManager>();
-            services.AddScoped<ISmartlookManager, SmartlookManager>();
-
-            // Services
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IIpfsManagerService, IpfsManagerService>();
-            services.AddScoped<IIpfsService, IpfsService>();
-            services.AddScoped<IResumeService, ResumeService>();
-            services.AddScoped<ISecurityService, SecurityService>();
-            services.AddScoped<IUserManagerService, UserManagerService>();
-
-            // State
-            services.AddScoped<IAuthenticationHandler, AuthenticationHandler>();
         }
 
         private static void SetApplicationSettings(WebAssemblyHostConfiguration configuration)
