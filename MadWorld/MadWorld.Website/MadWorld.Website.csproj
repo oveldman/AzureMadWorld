@@ -107,7 +107,6 @@
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="Models\Tools\Running\" />
     <Folder Include="Pages\Base\" />
-    <Folder Include="wwwroot\js\packages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
@@ -116,8 +115,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\typescript\extern\smartlook.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\js\packages\" />
   </ItemGroup>
 </Project>
