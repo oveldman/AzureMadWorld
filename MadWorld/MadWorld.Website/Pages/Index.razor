@@ -5,3 +5,13 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick="TrowExceptionYeah">Text</button>
+
+@code {
+    public void TrowExceptionYeah()
+    {
+        throw new Exception();
+    }
+}
+

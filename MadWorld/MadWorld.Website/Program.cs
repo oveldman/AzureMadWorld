@@ -100,7 +100,6 @@ namespace MadWorld.Website
             builder.Services.AddBlazorApplicationInsights(async applicationInsights =>
             {
                 await applicationInsights.SetInstrumentationKey(InstrumentationKey);
-                await applicationInsights.LoadAppInsights();
                 await applicationInsights.TrackPageView();
             });
 
