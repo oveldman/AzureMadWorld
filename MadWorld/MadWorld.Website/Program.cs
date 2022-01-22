@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BlazorApplicationInsights;
 using BlazorDownloadFile;
 using MadWorld.Website.Settings;
 using MadWorld.Website.Services.Interfaces;
@@ -33,6 +32,8 @@ using MadWorld.Website.Manager;
 using MadWorld.Shared.DesignPattern;
 using MadWorld.Website.Models.Tools.Running;
 using Blazored.LocalStorage;
+using MadWorld.Website.Extension;
+using BlazorApplicationInsights;
 
 namespace MadWorld.Website
 {

@@ -67,6 +67,7 @@
     <None Remove="Models\Tools\Running\" />
     <None Remove="Blazored.LocalStorage" />
     <None Remove="Pages\Base\" />
+    <None Remove="Extension\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot" />
@@ -107,6 +108,7 @@
     <Folder Include="Manager\Interfaces\" />
     <Folder Include="Models\Tools\Running\" />
     <Folder Include="Pages\Base\" />
+    <Folder Include="Extension\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
