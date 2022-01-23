@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Models.Pages;
+using MadWorld.Shared.Web.Models.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

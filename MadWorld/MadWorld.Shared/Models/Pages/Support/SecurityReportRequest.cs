@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using MadWorld.Shared.Models.Form;
+using MadWorld.Shared.Web.Models.Form;
 
-namespace MadWorld.Shared.Models.Pages.Support
+namespace MadWorld.Shared.Web.Models.Pages.Support
 {
     public class SecurityReportRequest
     {

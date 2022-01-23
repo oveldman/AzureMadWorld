@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>MadWorld.Shared.Client</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageTags></PackageTags>
     <Description></Description>
   </PropertyGroup>
-
-
+  <ItemGroup>
+    <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Models.IPFS
+namespace MadWorld.Shared.Web.Models.IPFS
 {
 	public class IpfsDetailResponse : BaseResponse
 	{

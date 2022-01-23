@@ -4,8 +4,8 @@ using MadWorld.API.Attribute;
 using MadWorld.API.SignalR.Interfaces;
 using MadWorld.Business.Manager.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Admin;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

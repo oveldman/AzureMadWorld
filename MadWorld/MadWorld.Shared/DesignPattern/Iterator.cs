@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.DesignPattern
+namespace MadWorld.Shared.Web.DesignPattern
 {
 	public interface Iterator<T>
 	{

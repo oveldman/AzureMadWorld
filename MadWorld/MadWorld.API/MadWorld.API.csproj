@@ -37,11 +37,6 @@
     <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.16.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Models\" />
     <Folder Include="Controllers\Admin\" />
@@ -49,5 +44,10 @@
     <Folder Include="SignalR\" />
     <Folder Include="SignalR\Interfaces\" />
     <Folder Include="Controllers\Rust\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MadWorld.Business\MadWorld.Business.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

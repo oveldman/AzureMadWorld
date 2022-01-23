@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using MadWorld.Business.Manager.Interfaces;
-using MadWorld.Shared.Models.Authorization;
+using MadWorld.Shared.Web.Models.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

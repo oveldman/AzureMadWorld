@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Pages.Support;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Pages.Support;
 
 namespace MadWorld.Website.Services.Interfaces
 {

@@ -2,8 +2,8 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Admin.IPFS;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Admin.IPFS;
 using MadWorld.Website.Services.Admin.Interfaces;
 using MadWorld.Website.Settings;
 

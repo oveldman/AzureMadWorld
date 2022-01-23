@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models.Pages;
+using MadWorld.Shared.Web.Models.Pages;
 using MadWorld.Website.Services.Interfaces;
 using MadWorld.Website.Settings;
 

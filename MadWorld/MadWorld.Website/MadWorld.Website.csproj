@@ -111,11 +111,11 @@
     <Folder Include="Extension\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
+    <None Include="wwwroot\typescript\extern\smartlook.ts" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wwwroot\typescript\extern\smartlook.ts" />
+    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.Web.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

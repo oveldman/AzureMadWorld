@@ -1,7 +1,7 @@
 ﻿using System;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 
-namespace MadWorld.Shared.Models.Admin.IPFS
+namespace MadWorld.Shared.Web.Models.Admin.IPFS
 {
 	public class IpfsAdminDTO : IpfsDTO
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models.Admin;
+using MadWorld.Shared.Web.Models.Admin;
 
 namespace MadWorld.Website.Pages.Admin.Users
 {

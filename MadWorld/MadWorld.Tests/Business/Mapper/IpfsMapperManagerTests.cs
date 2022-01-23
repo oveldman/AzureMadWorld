@@ -1,8 +1,8 @@
 ﻿using System;
 using MadWorld.Business.Mapper;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Models.Admin.IPFS;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Models.Admin.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 
 namespace MadWorld.Tests.Business.Mapper
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 
 namespace MadWorld.Website.Services.Interfaces
 {

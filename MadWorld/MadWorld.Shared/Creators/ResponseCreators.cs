@@ -1,7 +1,7 @@
 ﻿using System;
-using MadWorld.Shared.Models;
+using MadWorld.Shared.Web.Models;
 
-namespace MadWorld.Shared.Creators
+namespace MadWorld.Shared.Web.Creators
 {
 	public static class ResponseCreators
 	{

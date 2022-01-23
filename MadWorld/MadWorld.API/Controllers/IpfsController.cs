@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MadWorld.Business.Manager.Interfaces;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

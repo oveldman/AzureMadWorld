@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Helper
+namespace MadWorld.Shared.Web.Helper
 {
     public static class SystemTime
     {

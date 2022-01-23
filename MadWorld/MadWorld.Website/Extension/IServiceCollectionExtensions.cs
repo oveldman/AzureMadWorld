@@ -1,5 +1,5 @@
 ﻿using System;
-using MadWorld.Shared.DesignPattern;
+using MadWorld.Shared.Web.DesignPattern;
 using MadWorld.Website.JavascriptManager;
 using MadWorld.Website.JavascriptManager.Interfaces;
 using MadWorld.Website.Manager;

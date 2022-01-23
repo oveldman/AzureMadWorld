@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Models.Admin
+namespace MadWorld.Shared.Web.Models.Admin
 {
     public class WelcomeResponse
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Models.Pages
+namespace MadWorld.Shared.Web.Models.Pages
 {
     public class ResumeResponse : BaseResponse
     {

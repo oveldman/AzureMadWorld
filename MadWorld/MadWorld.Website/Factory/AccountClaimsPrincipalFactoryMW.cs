@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models.Authorization;
+using MadWorld.Shared.Web.Models.Authorization;
 using MadWorld.Website.Services.Interfaces;
 using MadWorld.Website.Settings;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;

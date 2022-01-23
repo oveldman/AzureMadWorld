@@ -3,10 +3,10 @@ using MadWorld.DataLayer.AzureBlob.Interfaces;
 using MadWorld.DataLayer.Database.Enum;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Creators;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Form;
-using MadWorld.Shared.Models.Pages.Support;
+using MadWorld.Shared.Web.Creators;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Form;
+using MadWorld.Shared.Web.Models.Pages.Support;
 
 namespace MadWorld.Business.Manager
 {

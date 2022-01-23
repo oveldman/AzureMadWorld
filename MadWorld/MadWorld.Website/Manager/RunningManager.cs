@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Timers;
-using MadWorld.Shared.DesignPattern;
+using MadWorld.Shared.Web.DesignPattern;
 using MadWorld.Website.JavascriptManager.Interfaces;
 using MadWorld.Website.Manager.Interfaces;
 using MadWorld.Website.Models.Tools.Running;

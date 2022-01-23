@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using MadWorld.Shared.Helper;
+using MadWorld.Shared.Web.Helper;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace MadWorld.Website.Pages.Tools

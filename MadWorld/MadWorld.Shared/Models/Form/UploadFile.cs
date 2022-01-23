@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MadWorld.Shared.Models.Form
+namespace MadWorld.Shared.Web.Models.Form
 {
     public class UploadFile
     {

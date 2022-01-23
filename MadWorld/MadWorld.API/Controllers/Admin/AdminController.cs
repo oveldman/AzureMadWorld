@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using MadWorld.API.Attribute;
 using MadWorld.DataLayer.Database.Enum;
-using MadWorld.Shared.Models.Admin;
+using MadWorld.Shared.Web.Models.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

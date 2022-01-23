@@ -1,5 +1,5 @@
 ﻿using System;
-using MadWorld.Shared.DesignPattern;
+using MadWorld.Shared.Web.DesignPattern;
 using MadWorld.Website.Models.Tools.Running;
 
 namespace MadWorld.Website.Manager

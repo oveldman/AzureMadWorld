@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MadWorld.Shared.Models.Authorization
+namespace MadWorld.Shared.Web.Models.Authorization
 {
     public class RolesResponse
     {

@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.DataLayer\MadWorld.DataLayer.csproj" />
-    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
+    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.Web.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Manager\" />

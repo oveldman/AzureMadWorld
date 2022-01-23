@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MadWorld.Shared.Models.IPFS
+namespace MadWorld.Shared.Web.Models.IPFS
 {
 	public class IpfsDTO
 	{

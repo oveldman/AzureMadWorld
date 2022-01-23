@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace MadWorld.Shared.Helper
+namespace MadWorld.Shared.Web.Helper
 {
     /// <summary>
     /// This class helps you with simple converters like Base64 and more soon.

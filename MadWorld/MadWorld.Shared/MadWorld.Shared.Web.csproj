@@ -34,4 +34,7 @@
     <Folder Include="Creators\" />
     <Folder Include="DesignPattern\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" />
+  </ItemGroup>
 </Project>

@@ -6,11 +6,11 @@ using MadWorld.Business.Models;
 using MadWorld.Business.Services.Models;
 using MadWorld.DataLayer.Database.Queries.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Creators;
-using MadWorld.Shared.Helper;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Admin.IPFS;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Creators;
+using MadWorld.Shared.Web.Helper;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Admin.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 
 namespace MadWorld.Business.Manager
 {

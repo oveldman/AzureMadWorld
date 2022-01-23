@@ -1,6 +1,6 @@
 ﻿using System;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Models.Pages;
+using MadWorld.Shared.Web.Models.Pages;
 
 namespace MadWorld.Business.Manager.Interfaces
 {

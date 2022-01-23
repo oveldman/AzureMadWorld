@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Form;
-using MadWorld.Shared.Models.Pages.Support;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Form;
+using MadWorld.Shared.Web.Models.Pages.Support;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace MadWorld.Website.Pages.Support

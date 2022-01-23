@@ -29,7 +29,7 @@ using MadWorld.Website.JavascriptManager.Interfaces;
 using MadWorld.Website.JavascriptManager;
 using MadWorld.Website.Manager.Interfaces;
 using MadWorld.Website.Manager;
-using MadWorld.Shared.DesignPattern;
+using MadWorld.Shared.Web.DesignPattern;
 using MadWorld.Website.Models.Tools.Running;
 using Blazored.LocalStorage;
 using MadWorld.Website.Extension;

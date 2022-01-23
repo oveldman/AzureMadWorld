@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MadWorld.Business.RustLibrary.Test;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Rust;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Rust;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

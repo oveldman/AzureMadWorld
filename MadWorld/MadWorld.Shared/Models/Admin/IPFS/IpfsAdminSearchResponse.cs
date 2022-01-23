@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MadWorld.Shared.Models.Admin.IPFS
+namespace MadWorld.Shared.Web.Models.Admin.IPFS
 {
 	public class IpfsAdminSearchResponse : BaseResponse
 	{

@@ -2,7 +2,7 @@
 @layout AdminLayout
 
 @using Microsoft.AspNetCore.Authorization
-@using MadWorld.Shared.Models.Admin;
+@using MadWorld.Shared.Web.Models.Admin;
 @using MadWorld.Website.Services.Admin.Interfaces;
 @attribute [Authorize(Roles = "Adminstrator")]
 @inject IUserManagerService _service;

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Models.Rust
+namespace MadWorld.Shared.Web.Models.Rust
 {
 	public class TestResponse : BaseResponse
 	{

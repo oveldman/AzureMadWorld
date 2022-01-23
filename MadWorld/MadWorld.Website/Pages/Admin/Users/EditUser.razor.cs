@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MadWorld.Shared.Models;
-using MadWorld.Shared.Models.Admin;
+using MadWorld.Shared.Web.Models;
+using MadWorld.Shared.Web.Models.Admin;
 using Microsoft.AspNetCore.Components;
 
 namespace MadWorld.Website.Pages.Admin.Users

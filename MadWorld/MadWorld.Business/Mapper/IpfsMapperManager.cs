@@ -2,8 +2,8 @@
 using AutoMapper;
 using MadWorld.Business.Mapper.Interfaces;
 using MadWorld.DataLayer.Database.Tables;
-using MadWorld.Shared.Models.Admin.IPFS;
-using MadWorld.Shared.Models.IPFS;
+using MadWorld.Shared.Web.Models.Admin.IPFS;
+using MadWorld.Shared.Web.Models.IPFS;
 
 namespace MadWorld.Business.Mapper
 {

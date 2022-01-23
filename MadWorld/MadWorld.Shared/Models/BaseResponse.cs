@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Shared.Models
+namespace MadWorld.Shared.Web.Models
 {
     public class BaseResponse
     {
