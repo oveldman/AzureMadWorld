@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Website.JavascriptManager.Interfaces
+namespace MadWorld.Shared.Client.JavascriptManager.Interface
 {
 	public interface IAudioManager
 	{

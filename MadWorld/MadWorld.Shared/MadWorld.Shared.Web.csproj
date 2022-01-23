@@ -18,7 +18,6 @@
     <None Remove="Models\IPFS\" />
     <None Remove="Models\Admin\IPFS\" />
     <None Remove="Creators\" />
-    <None Remove="DesignPattern\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
@@ -32,7 +31,6 @@
     <Folder Include="Models\IPFS\" />
     <Folder Include="Models\Admin\IPFS\" />
     <Folder Include="Creators\" />
-    <Folder Include="DesignPattern\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" />

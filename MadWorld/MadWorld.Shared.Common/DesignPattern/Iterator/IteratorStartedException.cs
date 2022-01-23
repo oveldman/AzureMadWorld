@@ -1,8 +1,8 @@
 ﻿using System;
-namespace MadWorld.Shared.Web.DesignPattern
+namespace MadWorld.Shared.Common.DesignPattern.Iterator
 {
-	public class IteratorStartedException : Exception
-	{
+    public class IteratorStartedException : Exception
+    {
         public IteratorStartedException() { }
 
         public IteratorStartedException(string message)

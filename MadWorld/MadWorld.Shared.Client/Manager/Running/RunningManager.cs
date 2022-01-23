@@ -1,31 +1,31 @@
 ﻿using System;
-using System.Timers;
-using MadWorld.Shared.Web.DesignPattern;
-using MadWorld.Website.JavascriptManager.Interfaces;
-using MadWorld.Website.Manager.Interfaces;
-using MadWorld.Website.Models.Tools.Running;
+using System.Collections.Generic;
+using MadWorld.Shared.Client.JavascriptManager.Interface;
+using MadWorld.Shared.Client.Manager.Running.Interfaces;
+using MadWorld.Shared.Client.Models.Tools.Running;
+using MadWorld.Shared.Common.DesignPattern.Iterator;
 
-namespace MadWorld.Website.Manager
+namespace MadWorld.Shared.Client.Manager.Running
 {
-	public class RunningManager : IRunningManager
-	{
+    public class RunningManager : IRunningManager
+    {
         private DateTime FinishedTime = DateTime.Now;
         private int Round = 0;
         private Iterator<RunRound> _roundIterator;
-        private RunRound CurrentRound = new();
+        private RunRound CurrentRound = new RunRound();
 
-        private System.Timers.Timer StopWatchSound = new();
-        private System.Timers.Timer StopWatchDisplay = new();
+        private System.Timers.Timer StopWatchSound = new System.Timers.Timer();
+        private System.Timers.Timer StopWatchDisplay = new System.Timers.Timer();
 
         private Action UpdateScreen = EmptyFunction;
 
         private IAudioManager _audioManager;
 
-		public RunningManager(IAudioManager audioManager, Iterator<RunRound> runRoundIterator)
-		{
-			_audioManager = audioManager;
+        public RunningManager(IAudioManager audioManager, Iterator<RunRound> runRoundIterator)
+        {
+            _audioManager = audioManager;
             _roundIterator = runRoundIterator;
-		}
+        }
 
         public void SetAudioID(string playerID)
         {
@@ -42,8 +42,8 @@ namespace MadWorld.Website.Manager
         {
             StopTimers();
 
-            StopWatchSound = new(CurrentRound.Duration.TotalMilliseconds);
-            StopWatchDisplay = new(200);
+            StopWatchSound = new System.Timers.Timer(CurrentRound.Duration.TotalMilliseconds);
+            StopWatchDisplay = new System.Timers.Timer(200);
             StopWatchSound.Elapsed += ActivateNewRound;
             StopWatchDisplay.Elapsed += delegate { UpdateScreen(); };
             StopWatchSound.Enabled = true;

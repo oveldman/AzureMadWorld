@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Timers;
-using MadWorld.Website.Models.Tools.Running;
+using System.Collections.Generic;
+using MadWorld.Shared.Client.Models.Tools.Running;
 
-namespace MadWorld.Website.Manager.Interfaces
+namespace MadWorld.Shared.Client.Manager.Running.Interfaces
 {
 	public interface IRunningManager
 	{

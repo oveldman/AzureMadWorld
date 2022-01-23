@@ -5,4 +5,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="DesignPattern\" />
+    <None Remove="DesignPattern\Iterator\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DesignPattern\" />
+    <Folder Include="DesignPattern\Iterator\" />
+  </ItemGroup>
 </Project>

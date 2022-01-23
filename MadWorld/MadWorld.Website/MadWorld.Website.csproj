@@ -62,9 +62,6 @@
     <None Remove="Services\Tools\" />
     <None Remove="Pages\Admin\IPFS\" />
     <None Remove="Microsoft.TypeScript.MSBuild" />
-    <None Remove="Manager\" />
-    <None Remove="Manager\Interfaces\" />
-    <None Remove="Models\Tools\Running\" />
     <None Remove="Blazored.LocalStorage" />
     <None Remove="Pages\Base\" />
     <None Remove="Extension\" />
@@ -104,9 +101,6 @@
     <Folder Include="JavascriptManager\" />
     <Folder Include="JavascriptManager\Interfaces\" />
     <Folder Include="wwwroot\music\" />
-    <Folder Include="Manager\" />
-    <Folder Include="Manager\Interfaces\" />
-    <Folder Include="Models\Tools\Running\" />
     <Folder Include="Pages\Base\" />
     <Folder Include="Extension\" />
   </ItemGroup>
@@ -115,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.Web.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\MadWorld.Shared.Client\MadWorld.Shared.Client.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

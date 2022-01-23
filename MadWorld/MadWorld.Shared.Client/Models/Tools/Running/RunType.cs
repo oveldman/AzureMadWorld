@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MadWorld.Website.Models.Tools.Running
+namespace MadWorld.Shared.Client.Models.Tools.Running
 {
 	public enum RunType
 	{

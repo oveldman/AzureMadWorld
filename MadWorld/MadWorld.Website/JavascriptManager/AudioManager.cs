@@ -1,4 +1,5 @@
 ﻿using System;
+using MadWorld.Shared.Client.JavascriptManager.Interface;
 using MadWorld.Website.JavascriptManager.Interfaces;
 using Microsoft.JSInterop;
 

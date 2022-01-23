@@ -1,5 +1,5 @@
 ﻿using System;
-using MadWorld.Website.Models.Tools.Running;
+using MadWorld.Shared.Client.Models.Tools.Running;
 using MadWorld.Website.Settings;
 
 namespace MadWorld.Website.Pages.Tools

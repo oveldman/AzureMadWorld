@@ -1,8 +1,9 @@
 ﻿using System;
-using MadWorld.Shared.Web.DesignPattern;
-using MadWorld.Website.Models.Tools.Running;
+using System.Collections.Generic;
+using MadWorld.Shared.Client.Models.Tools.Running;
+using MadWorld.Shared.Common.DesignPattern.Iterator;
 
-namespace MadWorld.Website.Manager
+namespace MadWorld.Shared.Client.Manager.Running
 {
     public class RunRoundIterator : Iterator<RunRound>
     {
@@ -12,7 +13,7 @@ namespace MadWorld.Website.Manager
 
         public RunRoundIterator()
         {
-            Runs = new();
+            Runs = new List<RunRound>();
         }
 
         public void Add(RunRound item)

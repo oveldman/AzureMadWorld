@@ -2,11 +2,31 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>MadWorld.Shared.Client</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageTags></PackageTags>
     <Description></Description>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Tools\" />
+    <None Remove="Models\Tools\Running\" />
+    <None Remove="Manager\" />
+    <None Remove="Manager\Running\" />
+    <None Remove="Manager\Running\Interface\" />
+    <None Remove="JavascriptManager\" />
+    <None Remove="JavascriptManager\Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Tools\" />
+    <Folder Include="Models\Tools\Running\" />
+    <Folder Include="Manager\" />
+    <Folder Include="Manager\Running\" />
+    <Folder Include="Manager\Running\Interface\" />
+    <Folder Include="JavascriptManager\" />
+    <Folder Include="JavascriptManager\Interface\" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,10 @@
 ﻿using System;
-using MadWorld.Shared.Web.DesignPattern;
+using MadWorld.Shared.Common.DesignPattern.Iterator;
 using MadWorld.Website.JavascriptManager;
 using MadWorld.Website.JavascriptManager.Interfaces;
-using MadWorld.Website.Manager;
-using MadWorld.Website.Manager.Interfaces;
-using MadWorld.Website.Models.Tools.Running;
+using MadWorld.Shared.Client.Manager;
+using MadWorld.Shared.Client.Manager.Running.Interfaces;
+using MadWorld.Shared.Client.Models.Tools.Running;
 using MadWorld.Website.Services.Admin;
 using MadWorld.Website.Services.Admin.Interfaces;
 using MadWorld.Website.Services.Authorization;
@@ -15,6 +15,8 @@ using MadWorld.Website.Services.Tools;
 using MadWorld.Website.State;
 using MadWorld.Website.State.Interface;
 using Microsoft.JSInterop;
+using MadWorld.Shared.Client.JavascriptManager.Interface;
+using MadWorld.Shared.Client.Manager.Running;
 
 namespace MadWorld.Website.Extension
 {
