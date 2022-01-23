@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>MadWorld.Shared.Client</PackageId>
+    <Version>1.0.1</Version>
+    <PackageTags></PackageTags>
+    <Description></Description>
+  </PropertyGroup>
+
+
+</Project>

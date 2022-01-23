@@ -13,6 +13,7 @@
 [Bootstrap](https://getbootstrap.com/)\
 [Cdnjs](https://cdnjs.com/libraries?q=bootstrap)\
 [Convert Cert pem to pfx](https://tomascrespo.com/convert-letsencrypt-pem-certificate-to-pfx/)\
+[Create Nuget](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package-dotnet-cli)\
 [DNS Lookup](https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.api.mad-world.nl.)\
 [Dotnet application insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)\
 [Dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/compatibility/6.0)\
