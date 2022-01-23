@@ -3,7 +3,7 @@
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type,x-ntoastnotify-request-type, Request-Id, Request-Context",
-    "content-security-policy": "default-src 'self' https://api.mad-world.nl js.monitor.azure.com; img-src 'self' data: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.monitor.azure.com https://dc.services.visualstudio.com https://rec.smartlook.com; connect-src 'self' wss://api.mad-world.nl https://api.mad-world.nl https://js.monitor.azure.com https://dc.services.visualstudio.com https://manager.eu.smartlook.cloud; upgrade-insecure-requests; frame-ancestors 'self'",
+    "content-security-policy": "default-src 'self' https://api.mad-world.nl js.monitor.azure.com; img-src 'self' data: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.monitor.azure.com https://dc.services.visualstudio.com https://unpkg.com/monaco-editor https://rec.smartlook.com; connect-src 'self' wss://api.mad-world.nl https://api.mad-world.nl https://nlmadworld.b2clogin.com https://js.monitor.azure.com https://dc.services.visualstudio.com https://manager.eu.smartlook.cloud; upgrade-insecure-requests; frame-ancestors 'self'",
     "X-Frame-Options": "SAMEORIGIN",
     "X-Permitted-Cross-Domain-Policies": "none",
     "Referrer-Policy": "same-origin",
