@@ -25,3 +25,6 @@ dotnet tool update dotnet-ef
 
 #Typescript
 tsc --build
+
+#Nuget aanmaken local
+dotnet pack -o ../../Nuget
