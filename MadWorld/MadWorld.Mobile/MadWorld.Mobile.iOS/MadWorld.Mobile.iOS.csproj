@@ -133,5 +133,10 @@
       <Project>{568932ED-0D8B-4B71-994D-66D7A12B9A08}</Project>
       <Name>MadWorld.Mobile</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MadWorld.Mobile.Apple\MadWorld.Mobile.Apple.WatchOSApp\MadWorld.Mobile.Apple.WatchOSApp.csproj">
+      <IsWatchApp>true</IsWatchApp>
+      <Project>{C84678A4-DA8B-4961-9A0B-A180BFA73B34}</Project>
+      <Name>MadWorld.Mobile.Apple.WatchOSApp</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
