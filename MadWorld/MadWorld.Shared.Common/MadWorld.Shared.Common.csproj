@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <PackageId>MadWorld.Shared.Common</PackageId>
+    <Version>1.0.4</Version>
+    <PackageTags></PackageTags>
+    <Description></Description>
   </PropertyGroup>
 
   <ItemGroup>

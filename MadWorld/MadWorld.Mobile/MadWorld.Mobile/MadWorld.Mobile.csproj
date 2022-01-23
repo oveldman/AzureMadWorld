@@ -15,11 +15,7 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Microsoft.MobileBlazorBindings" Version="0.5.50-preview" />
-    <PackageReference Include="MadWorld.Shared.Client" Version="1.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MadWorld.Shared.Client\MadWorld.Shared.Client.csproj" />
+    <PackageReference Include="MadWorld.Shared.Client" Version="1.0.4" />
   </ItemGroup>
 
   <ItemGroup>

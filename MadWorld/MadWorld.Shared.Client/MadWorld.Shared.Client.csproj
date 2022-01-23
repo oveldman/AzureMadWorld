@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
     <PackageId>MadWorld.Shared.Client</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <PackageTags></PackageTags>
     <Description></Description>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" />
+    <ProjectReference Include="..\MadWorld.Shared.Common\MadWorld.Shared.Common.csproj" Version="1.0.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
