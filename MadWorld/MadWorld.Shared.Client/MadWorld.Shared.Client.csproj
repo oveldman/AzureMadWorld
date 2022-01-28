@@ -19,6 +19,7 @@
     <None Remove="Manager\Running\Interface\" />
     <None Remove="JavascriptManager\" />
     <None Remove="JavascriptManager\Interface\" />
+    <None Remove="Manager\Running\Interface\**" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -26,8 +27,13 @@
     <Folder Include="Models\Tools\Running\" />
     <Folder Include="Manager\" />
     <Folder Include="Manager\Running\" />
-    <Folder Include="Manager\Running\Interface\" />
     <Folder Include="JavascriptManager\" />
     <Folder Include="JavascriptManager\Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Manager\Running\Interface\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Manager\Running\Interface\**" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using MadWorld.Shared.Client.JavascriptManager.Interface;
 using MadWorld.Shared.Client.Manager.Running.Interfaces;
 using MadWorld.Shared.Client.Models.Tools.Running;
@@ -7,31 +6,20 @@ using MadWorld.Shared.Common.DesignPattern.Iterator;
 
 namespace MadWorld.Shared.Client.Manager.Running
 {
-    public class RunningManager : IRunningManager
+    public class RunningStopWatch : RunningBase, IRunningStopWatch 
     {
         private DateTime FinishedTime = DateTime.Now;
         private int Round = 0;
-        private Iterator<RunRound> _roundIterator;
         private RunRound CurrentRound = new RunRound();
 
         private System.Timers.Timer StopWatchSound = new System.Timers.Timer();
         private System.Timers.Timer StopWatchDisplay = new System.Timers.Timer();
 
-        private Action UpdateScreen = EmptyFunction;
-
-        private IAudioManager _audioManager;
-
-        public RunningManager(IAudioManager audioManager, Iterator<RunRound> runRoundIterator)
+        public RunningStopWatch(IAudioManager audioManager, Iterator<RunRound> runRoundIterator, Action updateScreenMethod)  : base(audioManager, runRoundIterator)
         {
-            _audioManager = audioManager;
-            _roundIterator = runRoundIterator;
+            UpdateScreen = updateScreenMethod;
         }
-
-        public void SetAudioID(string playerID)
-        {
-            _audioManager.Init(playerID);
-        }
-
+        
         public void StartRun()
         {
             GetNewRound();
@@ -91,27 +79,6 @@ namespace MadWorld.Shared.Client.Manager.Running
             }
         }
 
-        public void GiveSound()
-        {
-            _audioManager.Play();
-        }
-
-        public Guid AddRound(RunType type, TimeSpan duration)
-        {
-            Guid roundID = Guid.NewGuid();
-
-            var newRound = new RunRound
-            {
-                ID = roundID,
-                Type = type,
-                Duration = duration
-            };
-
-            _roundIterator.Add(newRound);
-
-            return roundID;
-        }
-
         public TimeSpan GetTimeLeft()
         {
             return FinishedTime - DateTime.Now;
@@ -121,21 +88,5 @@ namespace MadWorld.Shared.Client.Manager.Running
         {
             return Round;
         }
-
-        private static void EmptyFunction()
-        {
-            return;
-        }
-
-        public void SetUpdateScreenFunction(Action updateScreenFunction)
-        {
-            UpdateScreen = updateScreenFunction;
-        }
-
-        public void AddRounds(List<RunRound> rounds)
-        {
-            _roundIterator.Add(rounds);
-        }
     }
 }
-

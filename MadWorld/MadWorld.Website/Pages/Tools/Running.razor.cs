@@ -1,4 +1,5 @@
 ﻿using System;
+using MadWorld.Shared.Client.Manager.Running.Interfaces;
 using MadWorld.Shared.Client.Models.Tools.Running;
 using MadWorld.Website.Settings;
 
@@ -16,10 +17,12 @@ namespace MadWorld.Website.Pages.Tools
         private int DurationMinutes = 0;
         private List<RunRound> AllRounds = new();
 
+        private IRunningStopWatch _runningStopWatch;
+
         protected override void OnAfterRender(bool firstRender)
         {
-            _manager.SetAudioID(PlayerID);
-            _manager.SetUpdateScreenFunction(UpdateDisplayTime);
+            _builder.SetAudioID(PlayerID);
+            _builder.SetUpdateScreenFunction(UpdateDisplayTime);
         }
 
         private void AddWalk()
@@ -45,7 +48,7 @@ namespace MadWorld.Website.Pages.Tools
             }
 
             TimeSpan duration = new TimeSpan(0, DurationMinutes, 0);
-            Guid runID = _manager.AddRound(RunType, duration);
+            Guid runID = _builder.AddRound(RunType, duration);
             ShowNewRunInputs = false;
 
             AllRounds.Add(new RunRound {
@@ -62,12 +65,13 @@ namespace MadWorld.Website.Pages.Tools
 
         private void Test()
         {
-            _manager.GiveSound();
+            _builder.GiveSound();
         }
 
         private void Start()
         {
-            _manager.StartRun();
+            _runningStopWatch = _builder.CreateStopWatch();
+            _runningStopWatch.StartRun();
             RunStarted = true;
         }
 
@@ -76,7 +80,7 @@ namespace MadWorld.Website.Pages.Tools
             var allRounds = await _localStorage.GetItemAsync<List<RunRound>>(LocalStorageNames.RunningRounds);
             if (allRounds == null) return;
             AllRounds = allRounds;
-            _manager.AddRounds(allRounds);
+            _builder.AddRounds(allRounds);
         }
 
         private async Task SaveScheme()
@@ -86,8 +90,8 @@ namespace MadWorld.Website.Pages.Tools
 
         private void UpdateDisplayTime()
         {
-            TimeLeft = _manager.GetTimeLeft();
-            Round = _manager.GetCurrentRound();
+            TimeLeft = _runningStopWatch.GetTimeLeft();
+            Round = _runningStopWatch.GetCurrentRound();
             StateHasChanged();
         }
 

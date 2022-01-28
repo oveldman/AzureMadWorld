@@ -30,7 +30,6 @@
     <Folder Include="Database\Enum\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MadWorld.Shared\MadWorld.Shared.csproj" />
     <ProjectReference Include="..\MadWorld.CustomPackages\MadWorld.Optional\MadWorld.Optional.csproj" />
     <ProjectReference Include="..\MadWorld.CustomPackages\MadWorld.Guardian\MadWorld.Guardian.csproj" />
   </ItemGroup>

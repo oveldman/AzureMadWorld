@@ -28,7 +28,7 @@ namespace MadWorld.Website.Extension
             services.AddScoped<Iterator<RunRound>, RunRoundIterator>();
 
             //Managers
-            services.AddScoped<IRunningManager, RunningManager>();
+            services.AddScoped<IRunningBuilder, RunningBuilder>();
             services.AddScoped<IAudioManager, AudioManager>();
             services.AddScoped<ISmartlookManager, SmartlookManager>();
 
