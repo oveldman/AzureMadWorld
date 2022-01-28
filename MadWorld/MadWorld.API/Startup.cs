@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using MadWorld.API.Extenstions;
 using MadWorld.API.Models;
 using MadWorld.API.SignalR;
 using MadWorld.API.SignalR.Interfaces;
@@ -71,7 +72,8 @@ namespace MadWorld.API
             services.AddApplicationInsightsTelemetry();
 
             services.AddControllers();
-            services.AddApiVersioning(options => {
+            services.AddApiVersioning(options =>
+            {
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.DefaultApiVersion = ApiVersion.Default;
                 //Accept : application/json; version=1.0
@@ -84,13 +86,23 @@ namespace MadWorld.API
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAdB2C"));
 
             services.Configure<JwtBearerOptions>(
-            JwtBearerDefaults.AuthenticationScheme, options =>
+                JwtBearerDefaults.AuthenticationScheme,
+                options => { options.TokenValidationParameters.NameClaimType = "name"; });
+
+            services.AddMadWorldAPI(settings =>
             {
-                options.TokenValidationParameters.NameClaimType = "name";
+                settings.ApplicationUrls = ApplicationUrls;
+                settings.AzureSettings = AzureSettings;
+                settings.BlobConnectionString = Configuration.GetConnectionString("MadWorldBlobs");
             });
 
-            SetAPI(services);
-            SetupDatabases(services);
+            services.AddMadWorldDatabases(settings =>
+            {
+                settings.StartupSettings = Settings;
+                settings.ConnectionString = Configuration.GetConnectionString("MadWorldDatabase");
+                settings.IsDevelopment = Environment.IsDevelopment();
+                settings.IsProduction = Environment.IsProduction();
+            });
 
             services.AddCors(options =>
             {
@@ -98,8 +110,8 @@ namespace MadWorld.API
                     builder =>
                     {
                         builder.WithOrigins(ApplicationSettings.CorsUrls)
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
                     });
             });
 
@@ -129,79 +141,6 @@ namespace MadWorld.API
                 endpoints.MapControllers();
                 endpoints.MapHub<GeneralHub>("/GeneralHub");
             });
-        }
-
-        private void SetAPI(IServiceCollection services)
-        {
-            // Settings
-            services.AddScoped<ApplicationUrls>(_ => ApplicationUrls);
-
-            // SignalR
-            services.AddScoped<IGeneralHubManager, GeneralHubManager>();
-
-            // Businesses
-            services.AddScoped<IAuthorizationManager, AuthorizationManager>();
-            services.AddScoped<IIpfsManager, IpfsManager>();
-            services.AddScoped<IIpfsMapperManager, IpfsMapperManager>();
-            services.AddScoped<IResumeManager, ResumeManager>();
-            services.AddScoped<ISecurityReportManager, SecurityReportManager>();
-            services.AddScoped<IUserManager, UserManager>();
-            services.AddScoped<IVpsWebServices, VpsWebServices>();
-
-            // Datalayers
-            services.AddScoped<IBlobManager, BlobManager>(_ => {
-                return new BlobManager(Configuration.GetConnectionString("MadWorldBlobs"), AzureSettings.ContainerName);
-            });
-
-            services.AddScoped<IAuthorizationQueries, AuthorizationQueries>();
-            services.AddScoped<IBlobTableQueries, BlobTableQueries>();
-            services.AddScoped<IIpfsQueries, IpfsQueries>();
-            services.AddScoped<IResumeQueries, ResumeQueries>();
-            services.AddScoped<ISecurityReportQueries, SecurityReportQueries>();
-            services.AddScoped<IStorageManager, StorageManager>();
-            services.AddScoped<IUserManagmentQueries, UserManagmentQueries>();
-
-            // Extras
-            services.AddScoped<HttpClient>();
-        }
-
-        private void SetupDatabases(IServiceCollection services)
-        { 
-            if (Settings?.ForgePostgresMigration ?? false)
-            {
-                services.AddDbContext<MadWorldContextDev>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
-                services.AddScoped<MadWorldContext, MadWorldContextDev>();
-
-                return;
-            }
-
-            if (Settings?.ForgeMsSqlMigration ?? false)
-            {
-                services.AddDbContext<MadWorldContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
-
-                return;
-            }
-
-            if (Environment.IsDevelopment())
-            {
-                services.AddDbContext<MadWorldContext>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("MadWorldDatabase"), b => b.MigrationsAssembly("MadWorld.API")));
-            }
-            else if (Environment.IsProduction())
-            {
-                services.AddDbContext<MadWorldContext>(optionsBuilder => {
-                    optionsBuilder.UseSqlServer(Configuration.GetConnectionString("MadWorldDatabase"), options => {
-                        options.MigrationsAssembly("MadWorld.API");
-                        options.EnableRetryOnFailure(maxRetryCount: 10);
-                    });
-                });
-            }
-            else
-            {
-                throw new Exception("No Database selected.");
-            }
         }
     }
 }
