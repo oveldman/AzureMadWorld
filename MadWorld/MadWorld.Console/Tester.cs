@@ -27,9 +27,9 @@ namespace MadWorld.Console
         public static void TestGuard()
         {
             RandomGuardClass testData = new RandomGuardClass();
-            RandomGuardClass test = Guard.Against.Null(testData, nameof(testData));
+            RandomGuardClass test = Guard.Against.Null(testData);
             testData = null;
-            RandomGuardClass test2 = Guard.Against.Null(testData, nameof(testData));
+            RandomGuardClass test2 = Guard.Against.Null(testData);
         }
         #endregion
 

@@ -21,8 +21,8 @@ namespace MadWorld.API.Controllers.Admin
 
         public UserController(IGeneralHubManager hubManager, IUserManager userManager)
         {
-            _hubManager = Guard.Against.Null(hubManager, nameof(hubManager));
-            _userManager = Guard.Against.Null(userManager, nameof(userManager));
+            _hubManager = Guard.Against.Null(hubManager);
+            _userManager = Guard.Against.Null(userManager);
         }
 
         [HttpGet]

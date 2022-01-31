@@ -23,7 +23,7 @@ namespace MadWorld.API.Controllers
         public IpfsController(ILogger<IpfsController> logger, IIpfsManager ipfsManager)
         {
             _logger = logger;
-            _ipfsManager = Guard.Against.Null(ipfsManager, nameof(ipfsManager));
+            _ipfsManager = Guard.Against.Null(ipfsManager);
         }
 
         [HttpGet]

@@ -12,7 +12,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public IpfsQueries(MadWorldContext context)
         {
-            _context = Guard.Against.Null(context, nameof(context));
+            _context = Guard.Against.Null(context);
         }
 
         public DataResult Delete(Guid id)

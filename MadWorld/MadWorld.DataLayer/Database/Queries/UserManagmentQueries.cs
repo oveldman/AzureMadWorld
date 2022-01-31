@@ -13,7 +13,7 @@ namespace MadWorld.DataLayer.Database.Queries
 
         public UserManagmentQueries(MadWorldContext context, ILogger<UserManagmentQueries> logger)
         {
-            _context = Guard.Against.Null(context, nameof(context));
+            _context = Guard.Against.Null(context);
             _logger = logger;
         }
 
